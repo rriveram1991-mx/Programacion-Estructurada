@@ -382,7 +382,7 @@ RESUMEN POR CATEGORÍA
   14 - Falta break en case 5 (fall-through)
   10 - Punto y coma en while (i < cantidad);
 
-  ERRORES LÓGICOS (9):
+  ERRORES LÓGICOS (8):
   ─────────────────────────────
   01 - while (salir = false) → asignación, no comparación
   04 - for con i <= n itera n+1 veces
@@ -392,13 +392,12 @@ RESUMEN POR CATEGORÍA
   11 - Estadísticas usan promedio, no nota individual
   12 - No almacena notas individuales
   19 - Rango 6-7 sin clasificación (cae en Reprobado)
-  21 - Estadísticas incorrectas por falta de lista
 
-  MALAS PRÁCTICAS (6):
+
+  MALAS PRÁCTICAS (5):
   ─────────────────────────────
   15 - total declarado como int
   16 - nota declarada como int
   17 - ArrayList sin tipo genérico (raw type)
   18 - println sin formato de decimales
   20 - Estructuras if-else sin llaves
-  22 - Mensajes confusos o incorrectos al usuario
