@@ -2,7 +2,7 @@ Universidad Tecnologica de Torreon - Materia Programacion Estructurada
 
 Ing. Ricardo Rivera Machado
 
-Aqui subieran los archivos .java, los requerimientos o actividades estaran dentro de la carpeta dependiendo la semana que llevemos, buscar su grupo, crear carpeta con su nombre y apellido y dentro de ella subir archivos respetando el formato indicado ( archivos no subidos con su formato indicado no sera validos ) 
+Aqui subieran los archivos .java, buscar su grupo, crear carpeta con su nombre y apellido y dentro de ella subir archivos respetando el formato indicado ( archivos no subidos con su formato indicado no sera validos ), los requerimientos o actividades estaran dentro de la carpeta dependiendo la semana que llevemos ej S2, S4....
 
 Formato de archivos:
 
