@@ -372,7 +372,7 @@ El sistema original tiene FALLOS CRÍTICOS que impiden su funcionamiento básico
 
 RESUMEN POR CATEGORÍA
 
-  ERRORES DE COMPILACIÓN (7):
+   ERRORES DE COMPILACIÓN (7):
   ─────────────────────────────
   02 - Punto y coma en if (nota >= 0 && nota <= 10);
   03 - else huérfano por el punto y coma anterior
@@ -394,10 +394,11 @@ RESUMEN POR CATEGORÍA
   19 - Rango 6-7 sin clasificación (cae en Reprobado)
   21 - Estadísticas incorrectas por falta de lista
 
-  MALAS PRÁCTICAS (4):
+  MALAS PRÁCTICAS (6):
   ─────────────────────────────
   15 - total declarado como int
   16 - nota declarada como int
   17 - ArrayList sin tipo genérico (raw type)
   18 - println sin formato de decimales
   20 - Estructuras if-else sin llaves
+  22 - Mensajes confusos o incorrectos al usuario
