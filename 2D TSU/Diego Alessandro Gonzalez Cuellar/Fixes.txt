@@ -1,0 +1,403 @@
+TABLA RESUMEN DE ERRORES
+
+N°  | TIPO                  | LÍNEA (aprox) | DESCRIPCIÓN BREVE
+----|----------------------|---------------|----------------------------------------------
+01  | Error Lógico          | while(...)    | Asignación en lugar de comparación: salir = false
+02  | Error de Compilación  | if(nota...)   | Punto y coma después del if anula el bloque
+03  | Error de Compilación  | if-else       | else huérfano por el punto y coma del if
+04  | Error Lógico          | for(i=0;i<=n) | Bucle itera n+1 veces en lugar de n
+05  | Error Lógico          | i=0 en for    | La nota #0 no existe, debería empezar en 1
+06  | Error de Compilación  | case 1        | Falta break al final del case 1
+07  | Error Lógico          | total/cantidad| División entera int/int pierde decimales
+08  | Error de Compilación  | else if(>=7); | Punto y coma anula el bloque del else if
+09  | Error Lógico          | case 2        | No valida si cantidad==0 (división por cero)
+10  | Error Lógico          | case 3        | while(i<cantidad); bucle infinito por punto y coma
+11  | Error Lógico          | case 3        | Usa total/cantidad en lugar de nota individual
+12  | Error Lógico          | case 3        | No tiene acceso a las notas individuales
+13  | Error de Compilación  | case 4        | Falta break, cae al case 5 (fall-through)
+14  | Error de Compilación  | case 5        | Falta break, cae al default
+15  | Mala Práctica         | int total     | Debería ser double para evitar pérdida de precisión
+16  | Mala Práctica         | int nota      | Debería ser double para aceptar notas decimales
+17  | Mala Práctica         | ArrayList raw | Se usa ArrayList sin tipo genérico (raw type)
+18  | Mala Práctica         | promedio fmt  | Se muestra con println sin formato de decimales
+19  | Mala Práctica         | case 2 msg    | No clasifica nota entre 6 y 7 (falta "Suficiente")
+20  | Mala Práctica         | Estructura    | No se usan llaves en if/else de un solo enunciado
+21  | Mala Práctica         | case 3        | Lógica de estadísticas no refleja notas reales
+22  | Mala Práctica         | Mensajes      | Mensajes sin acentos, poco descriptivos al usuario
+
+
+EXPLICACIÓN DETALLADA DE CADA ERROR
+
+--------------------------------------------------------------------------------
+ERROR 01 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    while (salir = false)
+Código corregido:   while (!salir)
+
+Explicación:
+  El operador "=" es de ASIGNACIÓN, no de comparación. Esta línea asigna
+  el valor false a la variable "salir" y el resultado de la expresión es
+  false, por lo que el while NUNCA se ejecuta. El programa termina
+  inmediatamente sin mostrar nada.
+
+  La corrección usa el operador lógico NOT (!) sobre la variable salir,
+  que es equivalente a escribir while (salir == false) pero más idiomático.
+
+--------------------------------------------------------------------------------
+ERROR 02 — Error de Compilación
+--------------------------------------------------------------------------------
+Código original:    if (nota >= 0 && nota <= 10);
+Código corregido:   if (nota >= 0 && nota <= 10) {
+
+Explicación:
+  El punto y coma al final del if crea un bloque vacío. Java interpreta
+  que el cuerpo del if es el punto y coma (sentencia vacía), por lo que
+  total += nota y cantidad++ se ejecutan SIEMPRE, sin importar si la
+  nota es válida o no. El else posterior queda huérfano porque ya no
+  tiene un if al cual pertenecer, causando error de compilación.
+
+--------------------------------------------------------------------------------
+ERROR 03 — Error de Compilación
+--------------------------------------------------------------------------------
+Código original:    if (nota >= 0 && nota <= 10);
+                    total += nota;
+                    cantidad++;
+                    else System.out.println("Nota invalida");
+
+Código corregido:   if (nota >= 0 && nota <= 10) {
+                        total += nota;
+                        cantidad++;
+                    } else {
+                        System.out.println("Nota invalida");
+                    }
+
+Explicación:
+  Consecuencia directa del Error 02. El else queda sin un if válido
+  al cual asociarse, lo que genera un error de compilación del tipo
+  "else without if". El bloque if-else debe encerrarse correctamente
+  con llaves.
+
+--------------------------------------------------------------------------------
+ERROR 04 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    for (int i = 0; i <= n; i++)
+Código corregido:   for (int i = 0; i < n; i++)
+
+Explicación:
+  Con i <= n el bucle itera desde 0 hasta n inclusive, es decir n+1 veces.
+  Si el usuario pide capturar 3 notas, el bucle pedirá 4 notas (0, 1, 2, 3).
+  La condición correcta es i < n para iterar exactamente n veces.
+
+--------------------------------------------------------------------------------
+ERROR 05 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    "Ingrese nota #" + i
+Código corregido:   "Ingrese nota #" + (i + 1)
+
+Explicación:
+  Si i comienza en 0, el primer mensaje dice "nota #0", lo cual es
+  confuso para el usuario. Los números visibles deben comenzar en 1.
+  Al escribir (i + 1) se muestra #1, #2, #3... de forma natural.
+
+--------------------------------------------------------------------------------
+ERROR 06 — Error de Compilación / Lógico (Fall-through)
+--------------------------------------------------------------------------------
+Código original:    case 1: ... (sin break)
+                    case 2: ...
+
+Código corregido:   case 1: ... break;
+
+Explicación:
+  Sin break al final del case 1, después de capturar las notas el
+  programa continúa ejecutando el código del case 2 automáticamente
+  (comportamiento fall-through). El usuario no eligió la opción 2,
+  pero se mostrará el promedio de todas formas, además sin haber
+  validado que cantidad != 0.
+
+--------------------------------------------------------------------------------
+ERROR 07 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    double promedio = total / cantidad;
+                    (siendo total de tipo int)
+Código corregido:   total debe declararse como double
+
+Explicación:
+  Cuando ambos operandos de una división son int, Java realiza división
+  entera y descarta los decimales. Por ejemplo: 17 / 3 = 5 (no 5.66).
+  Aunque el resultado se almacene en double, la división ya perdió
+  precisión. Declarar total como double fuerza la división con decimales.
+
+--------------------------------------------------------------------------------
+ERROR 08 — Error de Compilación
+--------------------------------------------------------------------------------
+Código original:    else if (promedio >= 7);
+                        System.out.println("Regular");
+                    else System.out.println("Reprobado");
+
+Código corregido:   else if (promedio >= 7) {
+                        System.out.println("Regular");
+                    } else {
+                        System.out.println("Reprobado");
+                    }
+
+Explicación:
+  El punto y coma después del else if anula su bloque. "Regular" se
+  imprimiría siempre (no condicionalmente), y el else siguiente queda
+  sin un if válido, generando error de compilación.
+
+--------------------------------------------------------------------------------
+ERROR 09 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    double promedio = total / cantidad; (sin validar cantidad)
+Código corregido:   if (cantidad == 0) {
+                        System.out.println("No hay notas capturadas.");
+                        break;
+                    }
+
+Explicación:
+  Si el usuario selecciona la opción 2 sin haber capturado ninguna nota,
+  cantidad vale 0. Dividir entre cero en Java con tipos enteros lanza una
+  ArithmeticException que detiene el programa. Con double se obtiene
+  Infinity o NaN, que tampoco son valores útiles. Hay que validar antes
+  de calcular el promedio.
+
+--------------------------------------------------------------------------------
+ERROR 10 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    while (i < cantidad);
+Código corregido:   while (i < cantidad)
+
+Explicación:
+  El punto y coma convierte el while en un bucle infinito vacío. El
+  bloque de código entre llaves que sigue ya no es parte del while;
+  se ejecuta una sola vez al terminar el bucle (que nunca termina porque
+  i nunca se incrementa dentro del bucle vacío). El programa se congela.
+
+--------------------------------------------------------------------------------
+ERROR 11 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    if (total / cantidad >= 7) aprobados++;
+Código corregido:   if (notas.get(i) >= 6.0) aprobados++;
+
+Explicación:
+  En el case 3, la condición evalúa el PROMEDIO GENERAL en cada iteración,
+  no la nota individual del alumno i. Esto significa que se clasifica a
+  TODOS como aprobados o TODOS como reprobados según el promedio, nunca
+  una mezcla real. Se debe comparar cada nota individual de la lista.
+
+--------------------------------------------------------------------------------
+ERROR 12 — Error Lógico
+--------------------------------------------------------------------------------
+Código original:    No hay lista de notas individuales almacenadas
+Código corregido:   Agregar ArrayList<Double> notas = new ArrayList<>();
+                    y guardar cada nota válida con notas.add(nota);
+
+Explicación:
+  El código original solo guarda la suma (total) y la cantidad, pero no
+  las notas individuales. Sin acceso a cada nota es imposible saber
+  cuántas están por encima o debajo del umbral de aprobación. Se requiere
+  una colección que almacene todos los valores.
+
+--------------------------------------------------------------------------------
+ERROR 13 — Error de Compilación / Lógico (Fall-through)
+--------------------------------------------------------------------------------
+Código original:    case 4: total = 0; cantidad = 0; (sin break)
+                    case 5: salir = true; ...
+
+Código corregido:   case 4: ... break;
+
+Explicación:
+  Sin break, después de reiniciar los datos, el programa cae al case 5
+  y activa salir = true, cerrando el sistema. El usuario solo quería
+  reiniciar, no salir. Fall-through no intencional produce comportamiento
+  completamente inesperado.
+
+--------------------------------------------------------------------------------
+ERROR 14 — Error de Compilación / Lógico (Fall-through)
+--------------------------------------------------------------------------------
+Código original:    case 5: salir = true; (sin break)
+                    default: System.out.println("Opcion no valida");
+
+Código corregido:   case 5: salir = true; break;
+
+Explicación:
+  Sin break en case 5, después de marcar salir=true, se ejecuta el
+  default e imprime "Opcion no valida" aunque el usuario eligió la
+  opción 5 correctamente. Confuso y engañoso para el usuario.
+
+--------------------------------------------------------------------------------
+ERROR 15 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    int total = 0;
+Código corregido:   double total = 0;
+
+Explicación:
+  Acumular notas en un entero fuerza todo el sistema a trabajar con
+  enteros. Incluso si se corrige la división para ser double, la suma
+  ya habrá truncado valores decimales si las notas fueran double.
+  Declarar total como double desde el inicio previene pérdida de datos.
+
+--------------------------------------------------------------------------------
+ERROR 16 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    int nota = sc.nextInt();
+Código corregido:   double nota = sc.nextDouble();
+
+Explicación:
+  Las notas académicas comúnmente tienen decimales (ej. 8.5, 7.3).
+  Usar int impide capturar estos valores y trunca la entrada del usuario.
+  El sistema debe aceptar valores decimales para ser realista y útil.
+
+--------------------------------------------------------------------------------
+ERROR 17 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    ArrayList notas = new ArrayList<>();
+Código corregido:   ArrayList<Double> notas = new ArrayList<>();
+
+Explicación:
+  Usar un ArrayList sin tipo genérico (raw type) provoca advertencias
+  del compilador y requiere casting manual al recuperar valores. Sin el
+  tipo genérico, notas.get(i) retorna Object, no Double, y una comparación
+  como notas.get(i) >= 6.0 provocaría error de compilación. Los generics
+  garantizan seguridad de tipos en tiempo de compilación.
+
+--------------------------------------------------------------------------------
+ERROR 18 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    System.out.println("Promedio: " + promedio);
+Código corregido:   System.out.printf("Promedio: %.2f%n", promedio);
+
+Explicación:
+  println muestra todos los decimales del double (ej. 7.666666666666667),
+  lo cual es poco presentable y difícil de leer. printf con formato %.2f
+  muestra exactamente 2 decimales (ej. 7.67), que es el estándar en
+  presentación de calificaciones y reportes académicos.
+
+--------------------------------------------------------------------------------
+ERROR 19 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    Solo clasifica: Excelente, Bueno, Regular, Reprobado
+Código corregido:   Agregar: else if (promedio >= 6) "Suficiente"
+
+Explicación:
+  El rango entre 6.0 y 6.99 queda sin clasificación explícita. En muchos
+  sistemas educativos (México incluido), la nota mínima aprobatoria es 6.
+  Sin la categoría "Suficiente", un alumno con promedio 6.5 cae directo
+  en "Reprobado", lo cual es incorrecto lógicamente. La escala debe ser
+  completa y coherente con el criterio de aprobación.
+
+--------------------------------------------------------------------------------
+ERROR 20 — Mala Práctica
+--------------------------------------------------------------------------------
+Código original:    if (condicion) sentencia; else sentencia;
+Código corregido:   if (condicion) { sentencia; } else { sentencia; }
+
+Explicación:
+  Omitir llaves en bloques if-else de una sola línea es una mala práctica
+  reconocida. Facilita la introducción de errores al agregar más líneas
+  creyendo que pertenecen al bloque. Varios de los errores de punto y coma
+  en este programa se vuelven más difíciles de detectar precisamente porque
+  no se usan llaves. Las llaves siempre deben usarse para claridad.
+
+--------------------------------------------------------------------------------
+
+
+SECCIÓN 3 — TABLA COMPARATIVA: CÓDIGO ORIGINAL vs CÓDIGO CORREGIDO
+
++----+------------------------------------------+------------------------------------------+
+| N° | CÓDIGO ORIGINAL                          | CÓDIGO CORREGIDO                         |
++----+------------------------------------------+------------------------------------------+
+| 01 | while (salir = false)                    | while (!salir)                           |
+| 02 | int total = 0;                           | double total = 0;                        |
+| 03 | int nota = sc.nextInt();                 | double nota = sc.nextDouble();           |
+| 04 | for (int i = 0; i <= n; i++)             | for (int i = 0; i < n; i++)             |
+| 05 | "Ingrese nota #" + i                     | "Ingrese nota #" + (i + 1)              |
+| 06 | if (nota >= 0 && nota <= 10);            | if (nota >= 0 && nota <= 10) {          |
+| 07 | total += nota; cantidad++; (sin else)    | total += nota; cantidad++; } else {     |
+| 08 | (sin break en case 1)                    | break; al final del case 1              |
+| 09 | double promedio = total/cantidad (directo)| Validar cantidad==0 antes de dividir    |
+| 10 | else if (promedio >= 7);                 | else if (promedio >= 7) {               |
+| 11 | (sin "Suficiente" para rango 6-7)        | else if (promedio >= 6) "Suficiente"    |
+| 12 | ArrayList notas (raw type)               | ArrayList<Double> notas                 |
+| 13 | while (i < cantidad);                    | while (i < cantidad)                    |
+| 14 | if (total/cantidad >= 7)                 | if (notas.get(i) >= 6.0)               |
+| 15 | (sin ArrayList para guardar notas)       | notas.add(nota); en el case 1           |
+| 16 | println("Promedio: " + promedio)         | printf("Promedio: %.2f%n", promedio)    |
+| 17 | case 4 sin break                         | break; al final del case 4              |
+| 18 | case 5 sin break                         | break; al final del case 5             |
+| 19 | (sin notas.clear() en reiniciar)         | notas.clear(); en case 4               |
+| 20 | if sin llaves en todo el código          | Todas las estructuras con llaves {}     |
+| 21 | Mensaje de error confuso en caso 2       | Mensaje claro: "No hay notas capturadas"|
+| 22 | Estadísticas con promedio general        | Estadísticas con notas individuales     |
++----+------------------------------------------+------------------------------------------+
+
+
+SECCIÓN 4 — POR QUÉ EL SISTEMA NO FUNCIONA CORRECTAMENTE
+
+El sistema original tiene FALLOS CRÍTICOS que impiden su funcionamiento básico:
+
+1. EL PROGRAMA NO ARRANCA
+   La condición while (salir = false) asigna false a salir en cada iteración.
+   Como el resultado de la expresión es false, el while NUNCA entra al bucle.
+   El usuario ve solo el título y el programa termina. Nada funciona.
+
+2. SI ARRANCASE, ENTRARÍA EN BUCLE INFINITO EN ESTADÍSTICAS
+   El case 3 tiene while (i < cantidad); con punto y coma. Si se llegara
+   a ejecutar, el programa se congelaría en un bucle infinito porque el
+   cuerpo vacío del while nunca incrementa i ni sale del bucle.
+
+3. LOS DATOS CAPTURADOS SERÍAN INCORRECTOS
+   - El bucle for con i<=n pide una nota extra de más.
+   - El punto y coma en el if permite que notas inválidas (ej. -5, 200)
+     se sumen al total igual que las válidas.
+   - Las notas se guardan como int, perdiendo decimales.
+
+4. EL PROMEDIO SERÍA SIEMPRE INCORRECTO
+   La división int/int descarta decimales. Un promedio de 7.8 aparecería
+   como 7.0. Además, sin validar cantidad==0, seleccionar la opción 2 antes
+   de capturar notas lanzaría una excepción y cerraría el programa.
+
+5. LAS ESTADÍSTICAS SERÍAN FALSAS
+   El case 3 no tiene acceso a notas individuales. Calcularía aprobados
+   y reprobados basándose en el promedio general repetido N veces, lo que
+   arrojaría que todos son aprobados o todos son reprobados, nunca una
+   mezcla real.
+
+6. LOS CASE SIN BREAK GENERAN COMPORTAMIENTO INESPERADO
+   - Al reiniciar (opción 4), también se saldría del programa (case 5).
+   - Al capturar notas (opción 1), también mostraría el promedio (case 2).
+   - Al salir (opción 5), también mostraría "Opcion no valida" (default).
+
+
+
+RESUMEN POR CATEGORÍA
+
+  ERRORES DE COMPILACIÓN (7):
+  ─────────────────────────────
+  02 - Punto y coma en if (nota >= 0 && nota <= 10);
+  03 - else huérfano por el punto y coma anterior
+  06 - Falta break en case 1 (fall-through)
+  08 - Punto y coma en else if (promedio >= 7);
+  13 - Falta break en case 4 (fall-through)
+  14 - Falta break en case 5 (fall-through)
+  10 - Punto y coma en while (i < cantidad);
+
+  ERRORES LÓGICOS (9):
+  ─────────────────────────────
+  01 - while (salir = false) → asignación, no comparación
+  04 - for con i <= n itera n+1 veces
+  05 - Numeración de notas empieza en #0
+  07 - División entera int/int pierde decimales
+  09 - No valida cantidad == 0 antes de dividir
+  11 - Estadísticas usan promedio, no nota individual
+  12 - No almacena notas individuales
+  19 - Rango 6-7 sin clasificación (cae en Reprobado)
+  21 - Estadísticas incorrectas por falta de lista
+
+  MALAS PRÁCTICAS (4):
+  ─────────────────────────────
+  15 - total declarado como int
+  16 - nota declarada como int
+  17 - ArrayList sin tipo genérico (raw type)
+  18 - println sin formato de decimales
+  20 - Estructuras if-else sin llaves
