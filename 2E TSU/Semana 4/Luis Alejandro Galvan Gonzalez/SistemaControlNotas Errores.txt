@@ -1,0 +1,22 @@
+1	linea 39 falta { error de sintaxis
+2-3	linea 42 falta un } de cierre y uno de inicio { error de sintaxis
+4	linea 45 falta un } 
+5	linea 51 falta { error de sintaxis
+6-7	linea 53 falta } de cierre y uno de inicio { error de sintaxis
+8-9	linea 55 falta } de cierre y uno de inicio { error de sintaxis
+10-11	linea 57 falta } de cierre y uno de inicio { error de sintaxis
+12	linea 59 falta un } error de sintaxis
+13	linea 73 fata un { error de sintaxis
+14-15	linea 75 falta } de cierre y uno de inicio { error de sintaxis
+16	linea 77 falta un }
+17	linea 90 falta un break; error de sintaxis
+18	linea 95 falta un break; error de sintaxis
+19	linea 99 falta un break; error de sintaxis
+20	linea 46 falta un break; error de sintaxis
+21	linea 56 ahi un ; que no va despues del if error de sintaxis 
+22	linea 12 salir es false, debe de ser true para que se puede utilizar el programa error logico
+23	linea 94 salir lo marca como true y debe de ser false
+24	linea 16 el while debe de estar en != y estaba en = error logico
+25	linea 34 el for debe de empezar desde el 1 no desde 0
+
+27	linea 72 ahi un ; que no va despues del while error de sintaxis 
