@@ -1,0 +1,94 @@
+1) ERROR EN EL WHILE (ASIGNACIÓN EN VEZ DE COMPARACIÓN)
+while (salir = false)
+Se usa = en lugar de ==.
+Esto asigna false y el ciclo no funciona correctamente.
+
+2) LÓGICA INCORRECTA EN EL WHILE
+Al asignar false en cada vuelta, el programa podría entrar en
+bucle infinito
+
+3) FOR CON LÍMITE INCORRECTO
+for (int i = 0; i <= n; i++)
+Si n=3 se ejecuta 4 veces.
+Debe iniciar en 1 o usar i < n.
+
+4) CONTADOR DE NOTAS MAL NUMERADO
+Si empieza en 0, mostrará “nota #0”, lo cual es incorrecto
+desde el punto de vista del usuario.
+
+5) PUNTO Y COMA DESPUÉS DEL IF
+if (nota >= 0 && nota <= 10);
+Rompe completamente la condición.
+
+6) BLOQUE IF SIN LLAVES
+No se usan llaves {}, lo cual puede provocar errores
+si se agregan más instrucciones.
+
+7) ELSE MAL ASOCIADO
+Debido al ; el else no pertenece al if correcto.
+
+8) POSIBLE ACUMULACIÓN DE NOTAS INVÁLIDAS
+Por el error del ; las notas inválidas también se suman.
+
+9) DIVISIÓN ENTERA EN PROMEDIO
+double promedio = total / cantidad;
+Se pierden decimales.
+
+10) POSIBLE DIVISIÓN ENTRE CERO
+Si cantidad = 0, el programa falla.
+
+11) ELSE IF CON PUNTO Y COMA
+else if (promedio >= 7);
+Rompe la estructura condicional.
+
+12) MENSAJE "REGULAR" SIEMPRE SE IMPRIME
+Por el ; ese bloque se ejecuta siempre.
+
+13) FALTA BREAK EN CASE 1
+Provoca que después de capturar notas
+también ejecute el case 2 automáticamente.
+
+14) FALTA BREAK EN CASE 4
+Después de reiniciar datos se ejecuta el case 5.
+
+15) FALTA BREAK EN CASE 5
+Puede ejecutar el default.
+
+16) DEFAULT MAL UBICADO
+Se ejecuta incluso después del case 5
+por falta de break.
+
+17) WHILE DE ESTADÍSTICAS CON PUNTO Y COMA
+while (i < cantidad);
+El ciclo queda vacío.
+
+18) BLOQUE DE ESTADÍSTICAS SE EJECUTA FUERA DEL WHILE
+Por el ; las instrucciones no pertenecen al ciclo.
+
+19) ESTADÍSTICAS MAL DISEÑADAS
+Se usa el promedio para contar aprobados y reprobados.
+No se evalúan notas individuales.
+
+20) NO SE USA ARREGLO PARA GUARDAR NOTAS
+Imposible hacer estadísticas reales sin almacenar cada nota.
+
+21) VARIABLE i REDECLARADA EN DISTINTO CONTEXTO
+Puede generar confusión y mala práctica.
+
+22) NO SE VALIDAN OPCIONES FUERA DE RANGO
+No se verifica que la opción esté entre 1 y 5 antes del switch.
+
+23) NO SE MANEJAN ERRORES DE ENTRADA
+Si el usuario escribe texto en vez de número,
+el programa se rompe.
+
+24) FORMATO DE PROMEDIO SIN DECIMALES CONTROLADOS
+No se usa printf o formato para limitar decimales.
+
+25) DISEÑO POCO MODULAR
+Todo el código está en main.
+Debería dividirse en métodos.
+
+26) NO SE LIMPIA PANTALLA NI SE ORGANIZA INTERFAZ
+Mala experiencia de usuario.
+
