@@ -1,0 +1,25 @@
+DETECCIÓN Y CLASIFICACIÓN DE ERRORES
+ 
+1. Error de compilación:En la línea while(salir = false)se usa asignación( = )en lugar de comparación( == ).
+2. Error de compilación:En if(nota >= 0 && nota <= 10); el punto y coma innecesario termina el bloque  if  prematuramente.
+3. Error de compilación:En else if (promedio >= 7);  el punto y coma innecesario termina el bloque  else if .
+4. Error de compilación:En while (i < cantidad);  el punto y coma crea un bucle infinito vacío.
+5. Error de compilación:Faltan instrucciones  break  en los casos 1, 4 y 5 del  switch , provocando que se ejecuten casos siguientes.
+6. Error lógico:El bucle for (int i = 0; i <= n; i++)  ejecuta  n+1  veces en lugar de  n , capturando una nota de más.
+7. Error lógico:El índice de notas empieza en 0, mostrando "Nota #0" en lugar de "#1".
+8. Error lógico:Las líneas  total += nota  y  cantidad++  se ejecutan incluso cuando la nota es inválida.
+9. Error lógico:La división  total / cantidad  es entera, truncando valores decimales del promedio 
+10. Error lógico:El caso 2 calcula el promedio incluso cuando  cantidad = 0 , provocando división por cero.
+11. Error lógico:El caso 3 usa el promedio general para contar aprobados y reprobados, en lugar de evaluar cada nota individual.
+12. Error lógico:El programa no almacena notas individuales, por lo que es imposible calcular estadísticas reales.
+13. Error lógico:El caso 5 marca  salir = true  pero cae al caso  default  si no hay  break .
+14. Error lógico:El caso 4 reinicia los datos pero cae al caso 5 y cierra el programa si no hay  break .
+15. Error lógico:El bloque  default  se ejecuta siempre después de casos sin  break .
+16. Mala práctica:No hay validación de entradas en  opcion  o  n ; si se ingresa texto, el programa lanza una excepción.
+17. Mala práctica:Las variables  total  y  cantidad  no tienen comentarios y sus nombres podrían ser más descriptivos.
+18. Mala práctica:No se informa cuántas notas fueron rechazadas por ser inválidas.
+19. Mala práctica:No hay mensajes de confirmación después de capturar notas.
+20. Mala práctica:El nombre de la variable  n  no es descriptivo; debería ser algo como  cantidadNotasACapturar .
+21. Error lógico:El caso 3 repite el cálculo del promedio  cantidad  veces, generando valores incorrectos para aprobados y reprobados.
+22. Mala práctica:El  Scanner  no se cierra en un bloque  finally , existiendo riesgo de fuga de recursos.
+23. Error lógico:El mensaje "Regular" se muestra siempre que el promedio sea menor a 8, incluso si es menor a 7 
