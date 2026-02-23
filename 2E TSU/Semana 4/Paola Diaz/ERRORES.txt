@@ -1,0 +1,24 @@
+
+1-Import duplicado (import java.util.Scanner;).
+2-Clase SistemaControlNotas declarada dos veces.
+3-Uso incorrecto de while (salir = false) (asignación en lugar de comparación).
+4-El while nunca se ejecuta por la asignación incorrecta.
+5-No se valida la entrada del usuario (nextInt() puede fallar con letras).
+6-Bucle for incorrecto (i <= n debería ser i < n).
+7-Se captura una nota extra por el error en el for.
+8-Punto y coma en if (nota >= 0 && nota <= 10);.
+9-El else queda sin if válido por el punto y coma anterior.
+10-Se suman notas inválidas debido al ; en el if.
+11-Falta break en el case 1.
+12-División entera en double promedio = total / cantidad;.
+13-Posible división entre cero si cantidad == 0.
+14-Punto y coma en else if (promedio >= 7);.
+15-Se imprime "Regular" siempre por el error anterior.
+16-Punto y coma en while (i < cantidad);.
+17-El while del case 3 se convierte en ciclo vacío.
+18-No se almacenan las notas individualmente.
+19-Las estadísticas evalúan el promedio general y no cada nota.
+20-El contador i del case 3 no recorre datos reales.
+21-Falta break en el case 4.
+22-Falta break en el case 5.
+23-El default puede ejecutarse aunque la opción sea válida debido a la falta de break.
