@@ -1,0 +1,45 @@
+Resumen Daniel 
+==========================================================
+REPORTE DE MEJORAS: SISTEMA DE CONTROL DE NOTAS
+==========================================================
+
+Esto fue lo que se corrigió en el programa para que funcione 
+correctamente:
+
+1. MANEJO DE DECIMALES:
+   Se ajustó el sistema para que acepte números con punto 
+   (como 9.5). Antes, al usar solo números enteros, el 
+   promedio no era exacto.
+
+2. ORDEN DE LOS DATOS:
+   Movimos el contador de alumnos "Aprobados" y "Reprobados" 
+   al inicio. Esto evita que el sistema "olvide" los datos 
+   cuando navegas por el menú.
+
+3. CORRECCIÓN DE LAS "LLAVES":
+   Faltaban varios símbolos de llaves { } que agrupan las 
+   instrucciones. Se agregaron para que el programa sepa 
+   exactamente dónde empieza y termina cada opción del 
+   menú.
+
+4. EL PROBLEMA DEL PROMEDIO:
+   El programa intentaba calcular el promedio antes de que 
+   tú ingresaras las notas, lo que causaba un error. Ahora, 
+   el sistema espera a que des los datos para sacar la 
+   cuenta.
+
+5. FRENOS EN EL MENÚ:
+   Se agregaron "frenos" (llamados break). Sin ellos, si 
+   elegías la opción 4, el programa se seguía de largo y 
+   ejecutaba también la opción 5 por error.
+
+6. NOTAS VÁLIDAS:
+   Ahora el sistema te avisa si escribes una nota que no 
+   existe (como un número negativo o mayor a 10), evitando 
+   que se arruinen tus estadísticas.
+
+7. LIMPIEZA GENERAL:
+   Se borraron textos sobrantes al final del documento y se 
+   aseguró que el programa se cierre de forma segura al 
+   terminar.
+==========================================================
