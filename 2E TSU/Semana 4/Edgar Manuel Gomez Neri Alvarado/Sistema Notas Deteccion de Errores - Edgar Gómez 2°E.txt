@@ -1,0 +1,110 @@
+import java.util.Scanner;
+
+public class SistemaControlNotas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+        int total = 0;
+        int cantidad = 0;
+        boolean salir = false;
+
+          System.out.println("=== SISTEMA DE CONTROL DE NOTAS ===");
+
+        while (salir = false) {  // <<------------------------------------>> [Error de compilación, Estás usando asignación (=) en lugar de comparación.]
+
+            System.out.println("\n1. Capturar notas");
+            System.out.println("2. Mostrar promedio");
+            System.out.println("3. Mostrar estadisticas");
+            System.out.println("4. Reiniciar datos");
+            System.out.println("5. Salir");
+
+            System.out.print("Seleccione opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+
+                    System.out.print("Cuantas notas desea capturar: ");
+                    int n = sc.nextInt();
+
+                    for (int i = 0; i <= n; i++) { // <<------------------------------------>> [Error de logica, el siclo se ejecutara una vez mas de lo planeado.]
+
+                        System.out.print("Ingrese nota #" + i + ": ");
+                        int nota = sc.nextInt();
+
+                        if (nota >= 0 && nota <= 10); // <<------------------------------------>> [Error de sintaxis, ; Mal colocado]
+                            total += nota;
+                            cantidad++;
+                            else // <<------------------------------------>> [Error de sintaxis, Else huerfano por el error anterior]
+                            System.out.println("Nota invalida");
+                    }
+                    // <<------------------------------------>> [Error de sintaxis, falta un break;]
+                case 2:
+
+                    double promedio = total / cantidad; // <<------------------------------------>> [Mala practica, variable definida dentro de bloque]
+                    System.out.println("Promedio: " + promedio);
+
+                    if (promedio >= 9) 
+                        System.out.println("Excelente");
+                    else if (promedio >= 8) // <<------------------------------------>> [Mala practica, el codigo podria fallar al añadir mas variables al no definir un limite por ambos lados]
+                        System.out.println("Bueno");
+                    else if (promedio >= 7);  // <<------------------------------------>> [Error de sintaxis, ; Mal colocado]
+                        System.out.println("Regular");
+                        else  // <<------------------------------------>> [Error de sintaxis, por el error anterior, else queda solo]
+                        System.out.println("Reprobado"); 
+
+                    break;
+
+                case 3:
+
+                    int aprobados = 0;
+                    int reprobados = 0;
+
+                    int i = 0; // <<------------------------------------>> [Mala practica, la variable se repite en otros bloques]
+                    // <<------------------------------------>> [Mala practica, variable no descriptiva]
+                    while (i < cantidad); { // <<------------------------------------>> [Error de sintaxis, ; mal colocado]
+                    // <<------------------------------------>> [Error logico, se deja de ejecutar el while antes de lo previsto]
+                    
+                    // <<------------------------------------>> [Error de sintaxis, por el error anterior, el codigo dentro de las llaves no se leera]
+                    
+                        if (total / cantidad >= 7) // <<------------------------------------>> [Mala practica, se compara la operacion directamente en lugar de usar el promedio]
+                            aprobados++;
+                        else
+                            reprobados++;
+                        i++;
+                    }
+
+                    System.out.println("Aprobados: " + aprobados); 
+                    System.out.println("Reprobados: " + reprobados);
+                    break;
+
+                case 4:
+
+                    total = 0;
+                    cantidad = 0;
+                    System.out.println("Datos reiniciados");
+                                        // <<------------------------------------>> [Error de sintaxis, falta un break;]
+                case 5:
+
+                    salir = true;
+                    System.out.println("Saliendo del sistema"); 
+                                        // <<------------------------------------>> [Error de sintaxis, falta un break;]
+                default:
+                    System.out.println("Opcion no valida");
+                     // <<------------------------------------>> [Error de sintaxis, falta un break;]
+                                                            // <<------------------------------------>> [Error de sintaxis, se ejecutara siempre por la falta de break;s]
+                    
+                    // <<------------------------------------>> [Error lógico:El programa no almacena notas individuales, por lo que es imposible calcular estadísticas reales.]
+                    
+                    
+            }
+
+        }
+
+        sc.close();
+    }
+}
