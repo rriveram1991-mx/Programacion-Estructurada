@@ -1,4 +1,5 @@
 Universidad Tecnologica de Torreon - Materia Programacion Estructurada
+
 Ing. Ricardo Rivera Machado
 
 Aqui subieran los archivos .java, los requerimientos o actividades estaran en Google Classroom, buscar su grupo, crear carpeta con su nombre y apellido
