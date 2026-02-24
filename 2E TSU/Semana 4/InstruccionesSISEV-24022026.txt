@@ -1,0 +1,29 @@
+Instrucciones:
+
+Analiza el siguiente código.
+
+Detecta al menos 12 errores (entre lógicos y sintácticos).
+
+Clasifica cada error como:
+
+Error de compilación
+Error lógico
+Mala práctica
+
+Corrige el programa para que funcione correctamente.
+
+Explica qué hacía mal cada parte.
+
+Adicional se debe:
+
+Explicar:
+
+¿Por qué el promedio no es correcto?
+
+¿Por qué el programa puede comportarse extraño en el case 1?
+
+¿Por qué el nivel no coincide con el promedio real?
+
+¿Por qué podría mostrar “Bueno” siempre?
+
+Entregar el código completamente corregido y funcional.
