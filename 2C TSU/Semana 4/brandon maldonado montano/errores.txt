@@ -1,0 +1,21 @@
+1.Error de compilación: Usar asignación en la condición del while (while (salir = false)).
+2.Error lógico: Inicializar la variable salir false y luego usar asignación en la condición.
+Mala práctica: Comparaciones de bucles y flujo con operadores incorrectos.
+3.Error de compilación: Comparación en la condición del while con asignación produce error de tipo.
+4.Error lógico: El bucle while nunca termina si se corrigiera mal.
+5.Error de compilación: Asignación sin inicializar correctamente en el bucle for (for (int i = 0; i <= n; i++)).
+6.Error lógico: Recorrido de notas usa <= en lugar de <, causando lectura de nota inexistente.
+7.Error de compilación/lógico: El if (nota >= 0 && nota <= 10); tiene punto y coma que anula el cuerpo.
+8.Error lógico: Falta llaves en el bloque if-else, confundiendo el alcance.
+9.Error lógico: Aumento de total y cantidad sin validar estructura por bloques.
+10.Error lógico: División entera total / cantidad puede dividir entre cero.
+11.Error de compilación: En caso 2, el switch carece de break después de la lógica de promedio.
+12.Error lógico: Promedio calculado como total / cantidad es entero; debe convertirse a double y manejar división flotante.
+13.Error de compilación: Impresión de “Regular” con semicolon erróneo tras else if (promedio >= 7); provoca siempre imprimir.
+14.Error de compilación: Falta break en varios casos, causando “caída” hacia default.
+15.Error lógico: En caso 3 se reinicia variables dentro de un while con i mal declarado.
+16.Error lógico: Condición while (i < cantidad); con punto y coma genera bucle infinito.
+17.Error lógico: Cálculo de aprobados/reprobados usa total/cantidad en cada iteración en lugar de usar notas individuales.
+18.Error de compilación: Declaración de variables duplicadas (int i) dentro del mismo ámbito.
+19.Error de compilación: No se cierra correctamente el flujo de entrada y salida (Scanner) ante múltiples caminos
+20.Error logico:las condiciones if y else cadecian de corchetes
