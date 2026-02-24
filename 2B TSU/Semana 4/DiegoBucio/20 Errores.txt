@@ -1,0 +1,35 @@
+2. Clasificación y Justificación de los 20 Errores Encontrados:
+Errores Lógicos (Afectan el comportamiento matemático o el flujo del programa):
+
+while (salir = false): Estaba asignando en lugar de evaluar. Corregido a !salir.
+
+for (int i = 0; i <= n; i++) en Case 1: Iteraba una vez de más (n+1). Corregido a i < n.
+
+Falta de break; en Case 1: El código se "resbalaba" hacia el Case 2 automáticamente.
+
+Falta de break; en Case 4: El código se "resbalaba" hacia el Case 5, cerrando el programa tras reiniciar datos.
+
+Variables total y cantidad como tipo int: Provocaba una división entera, perdiendo precisión en el promedio. Se cambió a double.
+
+Falta de validación if (cantidad > 0) en Case 2: Si el usuario presionaba 2 al iniciar, generaba un error matemático de División por Cero.
+
+Lógica del Case 3: Evaluar total / cantidad >= 7 no funciona para contabilizar alumnos individuales si no se usó un Arreglo (Array).
+
+No reiniciar variable aprobados = 0 en el Case 4.
+
+No reiniciar variable reprobados = 0 en el Case 4: Causaba acumulación de datos fantasma en nuevas capturas.
+
+Errores de Compilación (El programa truena o rompe estructuras internas):
+10. Punto y coma ; en if (nota >= 0 && nota <= 10);: Cortaba la condición dejando el bloque de suma huérfano.
+11. Punto y coma ; en else if (promedio >= 7); en el Case 2: Rompía el flujo del else.
+12. Punto y coma ; en while (i < cantidad); en Case 3: Creaba un ciclo infinito que congelaba la memoria.
+13. El else del Case 1 estaba suelto porque el if anterior no tenía llaves de apertura y cierre, lo que genera error de compilación.
+
+Malas Prácticas (Código sucio, confuso o propenso a errores en el futuro):
+14. Falta de llaves { } en la estructura de control if del Case 1: Pésima práctica al tener múltiples instrucciones (cantidad++ y total += nota).
+15. Falta de llaves { } en la cadena if-else if del Case 2: Dificulta la lectura y mantenimiento del código.
+16. Inicializar aprobados y reprobados dentro del case 3: Limitaba el alcance (scope) de las variables. Se movieron a la raíz del método main.
+17. Falta de break; en Case 5: Aunque sale del ciclo, es una mala práctica dejar un case sin freno antes del default.
+18. Imprimir Nota #0 para el usuario: Se ajustó visualmente a (i+1) para que inicie desde la Nota #1, mejorando la Experiencia de Usuario (UX).
+19. Declarar la variable int i = 0; libremente en el Case 3 sin un alcance definido de bloque, propenso a chocar con el i del Case 1 si se expande el código.
+20. No invalidar la iteración si el usuario mete una nota errónea. (Se solucionó agregando i-- en el bloque else del Case 1 para obligarlo a reponer la nota inválida).

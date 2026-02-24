@@ -1,0 +1,111 @@
+import java.util.Scanner;
+
+/**
+ * Institución: Universidad Tecnológica de Torreón.
+ * Carrera: Ingeniería en Desarrollo de Software.
+ * Alumno: [Juan Diego Arroyo Bucio.]
+ * Materia: Programación Estructurada.
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+        // Se cambian a double para no perder los decimales en la división
+        double total = 0;
+        double cantidad = 0;
+        // Se mueven las variables al inicio (Alcance global para todo el while)
+        int aprobados = 0;
+        int reprobados = 0;
+        boolean salir = false;
+
+        System.out.println("=== SISTEMA DE CONTROL DE NOTAS ===");
+
+        while (!salir) {
+
+            System.out.println("\n1. Capturar notas");
+            System.out.println("2. Mostrar promedio");
+            System.out.println("3. Mostrar estadisticas");
+            System.out.println("4. Reiniciar datos");
+            System.out.println("5. Salir");
+
+            System.out.print("Seleccione opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Cuantas notas desea capturar: ");
+                    int n = sc.nextInt();
+
+                    // Se corrige de i <= n a i < n para pedir la cantidad exacta
+                    for (int i = 0; i < n; i++) {
+
+                        System.out.print("Ingrese nota #" + (i+1) + ": ");
+                        double nota = sc.nextDouble();
+
+                        // Se agregan llaves y se elimina el punto y coma asesino
+                        if (nota >= 0 && nota <= 10) {
+                            cantidad++;
+                            total += nota;
+
+                            // PROCESAMIENTO EN TIEMPO REAL
+                            if (nota >= 7) {
+                                aprobados++;
+                            } else {
+                                reprobados++;
+                            }
+                        } else {
+                            System.out.println("Nota invalida");
+                            i--; // Restamos 1 a 'i' para que no cuente este intento fallido
+                        }
+                    }
+                    break; // Freno de mano agregado
+
+                case 2:
+                    // Validación para evitar división entre cero
+                    if (cantidad > 0) {
+                        double promedio = total / cantidad;
+                        System.out.println("Promedio: " + promedio);
+
+                        // Se agregan llaves de buenas prácticas y se quita el punto y coma
+                        if (promedio >= 9) {
+                            System.out.println("Excelente");
+                        } else if (promedio >= 8) {
+                            System.out.println("Bueno");
+                        } else if (promedio >= 7) {
+                            System.out.println("Regular");
+                        } else {
+                            System.out.println("Reprobado");
+                        }
+                    } else {
+                        System.out.println("Error: No se puede dividir, capture notas primero.");
+                    }
+                    break;
+
+                case 3:
+                    // Como procesamos en el Case 1, aquí solo imprimimos los resultados
+                    System.out.println("Aprobados: " + aprobados);
+                    System.out.println("Reprobados: " + reprobados);
+                    break;
+
+                case 4:
+                    total = 0;
+                    cantidad = 0;
+                    // Faltaba reiniciar las estadísticas
+                    aprobados = 0;
+                    reprobados = 0;
+                    System.out.println("Datos reiniciados");
+                    break; // Freno de mano agregado
+
+                case 5:
+                    salir = true;
+                    System.out.println("Saliendo del sistema");
+                    break; // Freno de mano agregado
+
+                default:
+                    System.out.println("Opcion no valida");
+            }
+        }
+        sc.close();
+    }
+}
