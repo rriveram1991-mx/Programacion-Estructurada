@@ -1,0 +1,120 @@
+Detección de errores
+Errores detectados:
+import java.util.Scanner;
+
+public class act {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+        int total = 0;
+        int cantidad = 0;
+        boolean salir = false;
+
+        System.out.println("=== SISTEMA DE CONTROL DE NOTAS ===");
+        //Se cambio el fase del while por un true para que pueda entrar al ciclo
+
+        while (salir = true) {
+
+            System.out.println("1. Capturar notas");
+            System.out.println("2. Mostrar promedio");
+            System.out.println("3. Mostrar estadisticas");
+            System.out.println("4. Reiniciar datos");
+            System.out.println("5. Salir");
+
+            System.out.print("Seleccione opcion: ");
+            opcion = sc.nextInt();
+//se agregaron 4 "break" en los case
+            switch (opcion) {
+
+                case 1:
+
+                    System.out.print("Cuantas notas desea capturar: ");
+                    int n = sc.nextInt();
+ //Se  cambio el valor de "i" para que iniciara desde nota1
+                    for (int i = 1; i <= n; i++) {
+
+                        System.out.print("Ingrese nota #" + i + ": ");
+                        int nota = sc.nextInt();
+//se le agregaron llaves para relacionar el inicio y fin del ciclo , se quito el punto y coma de la condicion
+                        if (nota >= 0 && nota <= 10)
+                        {
+                            total += nota;
+                            cantidad++;
+                        }
+                        else
+                            System.out.println("Nota invalida");
+                    }
+                    //+break
+                    break;
+
+                case 2:
+
+                    double promedio = total / cantidad;
+                    System.out.println("Promedio: " + promedio);
+
+                    if (promedio >= 9)
+                    {
+                        System.out.println("Excelente");
+                    }
+                    //se le agrgaron rangos a los valores del if
+                   if (promedio >= 8 && promedio<=8.9){
+                        System.out.println("Bueno");
+                    }
+                     //se le agrgaron rangos a los valores del if y se le elimino ";"
+                   if (promedio >= 7 && promedio<=7.9){
+                        System.out.println("Regular");
+                    }
+                    //Se cambio el "else" por un if que fuera como default
+                   if(promedio<7){
+                        System.out.println("Reprobado");
+                    }
+                    break;
+
+                case 3:
+
+                    int aprobados = 0;
+                    int reprobados = 0;
+
+                    int i = 0;
+                    //Se le quito ";" al ciclo
+                    while (i < cantidad) {
+                        if (total / cantidad >= 7)
+                            aprobados++;
+                        else
+                            reprobados++;
+                        i++;
+                    }
+
+                    System.out.println("Aprobados: " + aprobados);
+                    System.out.println("Reprobados: " + reprobados);
+                    //+break
+                    break;
+
+                case 4:
+
+                    total = 0;
+                    cantidad = 0;
+                    System.out.println("Datos reiniciados");
+                    //+break
+                    break;
+
+                case 5:
+                    //Se cambio de lugar el mesaje para poderse mostrar
+                 System.out.println("Saliendo del sistema...");
+                    salir = true;
+                      //+break
+                     break;
+                default:
+                    System.out.println("Opcion no valida");
+                        //+break
+                       break;
+            }
+
+        }
+
+        sc.close();
+    }
+}
