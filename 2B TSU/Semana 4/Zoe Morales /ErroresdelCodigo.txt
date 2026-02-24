@@ -1,0 +1,22 @@
+Errores
+Linea de código: (del código original)
+9   	// (1) Variable para almacenar la opción del menu
+16	  Del while // (2) Si el valor de salir es false, el ciclo se ejecutara, pero en el código original se asignaba false a salir, lo que causaba un ciclo infinito
+      // (3) La mayoría de los errores se debieron a problemas con las llaves, lo que afectaba la estructura de control del programa
+27	  De todo el switch // (4) Estructura de control para manejar las opciones del menu
+      // (5) Se detectaron problemas de llaves en todas las opciones del menu, lo que afectaba la lógica del programa
+      // (6) En la opción 1, se detecto un error en la lógica para calcular el total y la cantidad de notas
+29    Del case 1 // (7) Falta de flechas dentro de los case, lo que afectaba la estructura de control del programa
+46 	  Del case 2 // (8) Se agregó validación para evitar división entre cero
+	    // (9) Se corrigió la división entera usando conversión a double
+      // (10) Faltan llaves en las siguientes estructuras de control
+      // (11) Errores en los valores de promedio para cada categoria
+	    // (12) Uso incorrecto de punto y coma después de una estructura else if,
+62	  Del case 3 // (13) Si las notas no se han capturado 
+	    // (14) Se eliminó el while incorrecto con punto y coma
+      // (15) Se corrigió la lógica de estadísticas basada en el promedio
+80    Del case 4  // (16) Se agregó validación antes de reiniciar datos
+	    // (17) Se corrigió el reinicio de variables
+86    Del case 5  // (18) Se corrigió la salida correcta del programa
+   	  // (19) Se corrigió la ejecución incorrecta del default
+97 	  // (20) Falta de una condición lógica clara para finalizar el programa, lo que impedía salir correctamente, lo que impedía salir correctamente del menú.
