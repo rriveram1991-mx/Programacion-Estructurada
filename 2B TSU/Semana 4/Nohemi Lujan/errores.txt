@@ -1,0 +1,30 @@
+linea 26: variable agregada, se declaró la variable "nota" fuera del switch y se inició en 0.
+
+linea 27: variables agregadas, se agregaron las variables "aprobados y reprobados" para guardar los datos de estos mismos y que así el case 3 funcionara de mejor manera.
+
+linea 30: error de sintaxis, al poner = y no == se le asignaba un valor en lugar de comparar si "salir" era igual a v o f, lo cual hacia que "salir" siempre fuera f y no se pudiera hacer nada en el código.
+
+linea 54: error de compilación, se quitó el punto y coma en el primer if.
+
+linea 54,63,66: error de sintaxis, se agregaron llaves para que asi las condiciones se cumplieran correctamente.
+
+linea 57, 58, 59, 60, 61: agregué una condición "if" para que así clasifique las notas al momento en el que el usuario las indique.
+
+linea 70: error lógico, se agregó break.
+
+linea 73: agregué una condición para en caso de que el usuario ingrese esta opción sin antes haber capturado datos, el programa le indique que debe escoger otra opción.
+
+linea 23: se cambió un int a double para que en esta parte no redondeé el sistema y de los números con decimales.
+
+linea 90: también agregué una condición para que pasara lo mismo que con la linea 73.
+
+linea 48: error lógico, la i estaba inicializada en 0, lo cual cuando si decias que querias agregar por ej 2 notas, te pedia desde 0, entonces lo inicialice en 1.
+
+linea 95: error lógico, al agregar los contadores en case 1, ya no era necesario el while en el case 3, por lo que lo eliminé y solo dejé lo que imprimirán.
+
+linea 103 y 104: agregué que aprobados y reprobados también se reiniciaran.
+
+Linea 106: error lógico, se agregó break.
+
+linea 111: error lógico, se agrego break.
+
