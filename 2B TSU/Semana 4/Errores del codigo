@@ -1,0 +1,42 @@
+ERRORES DEL CODIGO
+ Linea 23: logico, se cambion el int a double 
+
+ Linea 26: logico, se agrego la declaracion de la variable aprobados
+
+ Linea 27: logico, se agrego la declaracion de la variable reprobados
+
+ Linea 31: compilacion, solo habia un = en el while, se le agrego otro = para que funcionara
+
+ Linea 49: mala practica, en el for, en vez de i=0, es mejor que iniciara desde el 1 para el conteo correcto de datos
+
+ Linea 54: compilacion, abrir y cerrar llaves del if
+
+ Linea 60: Correccion, se agrego un elese para realizar un contador de reprobados
+
+ Linea 64: compilacion, el else no tenia {}
+
+ Linea 68: logico, faltaba un break; para cerrar el caso 1
+
+ Linea 72: Correccion, se agrego un if por si se queria sacar el promedio sin datos ingresados
+
+ Linea 76:  compilacion, abrir y cerrar llaves del if
+
+ Linea 78:  compilacion, abrir y cerrar llaves del else if
+
+ Linea 80:  compilacion, abrir y cerrar llaves del else if
+
+ Linea 80: quitar(;) que estaba dentro del else if
+
+ Linea 82:compilacion, el else no tenia {}
+
+ Linea 85: correccion, se agrego un else por si se queria sacar el promedio sin datos ingresados
+
+ Linea 91: correccion, se elimino la declaracion de variables de aprobados y reprobados de aquí
+
+ Linea 100: correccion, se agrego el reinicio de valor de la variable aprobados
+
+ Linea 101: correccion, se agrego el reinicio de valor de la variable reprobados
+
+ Linea 103: logico, cerrar caso 4 con brake
+
+ Linea 109: logico, cerrar caso 5 con brake
