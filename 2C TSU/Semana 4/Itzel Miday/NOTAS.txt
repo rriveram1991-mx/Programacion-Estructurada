@@ -1,0 +1,26 @@
+*El programa no funciona debido a que tiene muchos errores, tanto de compilación como de lógica.
+
+--------------------------------------------------------------------------------------------------------
+ERRORES DE COMPILACION:
+1. Línea #40 tiene un FOR sin cerrar el corchete.
+2. Línea #45 tiene un IF sin corchetes.
+3. Línea #48 el ELSE no tiene corchetes.
+4. Línea #51 SWITCH no tenia "break", por lo que se contaban los otros casos como caso 1.
+5. Línea #58 el IF no tiene corchetes.
+6. Línea #62 el ELSE IF tenia ";", pero debía ser un corchete para seguir la estructura de los demás.
+7. Línea #64 ELSE sin corchete.
+8. Línea #74 WHILE tiene ";".
+9. Línea #76 el IF no tenía corchetes.
+10. Línea #94 el case 4 no incluía "break".
+11. Línea #99 el case 5 no incluía "break".
+--------------------------------------------------------------------------------------------------------
+ERRORES DE LÓGICA:
+1. Línea #16 se cambia INT a DOUBLE.
+2. Línea #27 se cambia INT a DOUBLE.
+3. Línea #23 no se entra al ciclo while debido a que se tiene que cambiar FALSE por TRUE.
+4. Línea #41 el FOR tiene asignado "i=0", por lo que siempre se va a agregar "nota 0".
+5. Línea #46 el IF tiene el error de que esta condicionado a solo leer notas menores o iguales a 10.
+6. Línea #58 IF mal condicionado, la nota debería ser mayor o igual a 90.
+7. Línea #60 IF mal condicionado, debería ser mayor o igual a 80.
+8. Línea #62 IF mal condicionado, debería se mayor o igual a 90.
+9. Línea #23 WHILE no se debería colocar como "=true" para poder salir correctamente del sistema.
