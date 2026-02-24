@@ -1,0 +1,38 @@
+Error de compilación
+Error lógico
+Mala práctica
+Corregir completamente el programa.
+Explicar por qué el sistema no funciona correctamente.
+Justificar cada corrección.
+
+Errores lógicos
+
+
+Línea 23: Se cambió el tipo de dato de int a double para permitir una operación futura con decimales.
+Línea 26: Se agregó la declaración de la variable aprobados.
+Línea 27: Se agregó la declaración de la variable reprobados.
+Línea 57: Se agregó un if para realizar correctamente el contador de aprobados.
+Línea 60: Se agregó un else para realizar correctamente el contador de reprobados.
+Línea 72: Se agregó un if para evitar calcular el promedio sin datos ingresados.
+Línea 85: Se agregó un else para el caso de querer calcular el promedio sin datos.
+Línea 91: Se eliminó la declaración duplicada de las variables aprobados y reprobados.
+Línea 91: Se eliminó por completo el while y todo su contenido por ser innecesario.
+Línea 100: Se agregó el reinicio del valor de la variable aprobados.
+Línea 101: Se agregó el reinicio del valor de la variable reprobados.
+
+Errores de compilación
+
+Línea 31: En el while solo había un =, se corrigió a ==.
+Línea 54: El if no tenía llaves {}.
+Línea 64: El else no tenía llaves {}.
+Línea 68: Faltaba un break; para cerrar el case 1.
+Línea 76: El if no tenía llaves {}.
+Línea 78: El else if no tenía llaves {}.
+Línea 80: El else if no tenía llaves {} y además tenía un ;.
+Línea 82: El else no tenía llaves {}.
+Línea 103: Faltaba un break; para cerrar el case 4.
+Línea 109: Faltaba un break; para cerrar el case 5.
+
+Malas prácticas
+
+Línea 49: En el for, iniciar en i = 0 no era adecuado; es mejor iniciar en i = 1 para un conteo correcto de datos
