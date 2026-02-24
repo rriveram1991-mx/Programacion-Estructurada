@@ -1,0 +1,21 @@
+ERRORES DEL CODIGO EN BASE DEL ARCHIVO ORIGINAL
+1. Mala práctica: En donde se declaran las variables globales; se usan 3 líneas de códigos para declarar una variable del mismo tipo de dato, es mejor hacerlo en una sola línea de código.
+2. Error de compilación: En la condición del while (salir = falso) usa un operador de igualación, debería usar un operador de comparación, se corrige a “salir == falso”
+3. Error de compilación: En el case 1; En el if de notas se cierra la condición con punto y coma, eso hace que no funcione, así que se elimina el punto y coma.
+4. Error de compilación: En el case 1; Le faltan las llaves al if, como son 2 líneas de código esto es necesario así que se agregan llaves a lo que esta adentro del if
+5. Error de lógica: En el case 1; Falta el “break;”, añadirlo
+6. Error de compilación: En el case 2; En el else-if "(promedio >= 7);" cierra con un punto y coma, el cual se debe eliminar.
+7. Error de lógica: En el case 1; En la condición del for, la “i” debe ser igual a 1, porque si no te toma una nota de más
+8. Mala práctica: En la línea 64, 65 y 67; En vez de usar 3 líneas de códigos para declarar 3 variables del mismo tipo de dato, declararla en solo una
+9. Error lógico: En el case 4, Falta el “break;”, añadirlo
+10. Error lógico: En el case 5, Falta el “break;”, añadirlo
+11. Error lógico: En el default, Falta el “break;”, añadirlo
+12. Mala práctica: en la línea 82 y 83, en vez de usar 2 líneas de código para inicializar 2 variables del mismo tipo, usar una sola línea de código
+13. Err En el case 3: El while esta mal, en la parte de la condición, las variables cantidad y total están declaradas como enteros y si la división entre ellas puede dar un resultado decimal
+14. Error de compilación: En el case 3; El while está mal, justo después de la condición se cierra con un punto y coma, el cual debe ser eliminado para que funcione.
+15. Error de lógica: En el case 3, la lógica de la condición del if esta mal, ya que según como esta escrito el programa no puede diferenciar que nota esta aproda y cual reprobada debido a que toma el valor total de las calificaciones y no una nota por nota
+16. Error de compilación: En el case 3, la variable aprobados y reprobados debería estar declarada en el método principal y no en un case, ya que se va a usar en el case 1 y en case 3. 
+17. Error de compilación: En el case 1: Después de introducir cada nota, dentro del if (nota >= 0 && nota <= 10), se debe ejecutar un if para verificar si es una nota aprobatoria o reprobatoria.
+18. Error de compilación: En el case 1: Dentro de nuevo if, si la calificación es >= 7, aumentar en 1 la variable aprobados, en caso contrario aumentar en 1 la variable reprobados
+19. Error lógico: En el case 3: Eliminar las variables a declarar y eliminar el while.
+20. Error de compilación: En el case 4: Añadir la variable aprobados y reprobados.
