@@ -1,0 +1,72 @@
+1	
+for (...);	
+Error lógico
+El punto y coma después del for termina el ciclo prematuramente; el bloque {} se ejecuta solo una vez.
+
+2	
+Variable i fuera de alcance	
+Error de compilación	
+Al tener el punto y coma en el for, la variable i deja de existir antes de llegar al System.out.print.
+
+3	
+Falta de llaves en if (cal >= 0...)	
+Error lógico	
+Al no haber llaves, solo la línea total = total + cal pertenece al if. El contador++ se ejecuta siempre.
+
+4	
+else huérfano	
+Error de compilación	
+Debido al error anterior, el else queda separado del if por la línea del contador++.
+
+5	
+División entera total / contador	
+Error lógico	
+Al ser ambos int, el resultado trunca los decimales antes de guardarse en el double.
+
+6	
+Punto y coma en else if (...);	
+Error lógico	
+El ; termina la condición. El siguiente System.out.print("Bueno") se ejecuta siempre.
+
+
+7	
+else sin if previo	
+Error de compilación	
+El ; en el else if rompe la cadena de condiciones, dejando los siguientes else sin padre.
+
+8
+Inicialización de contador = 1
+Error lógico
+El promedio será erróneo (división por $n+1$). Debe empezar en 0.
+
+9
+Acumulación infinita en total
+Mala práctica
+Si el usuario entra al Case 1 varias veces, las notas se suman a las anteriores sin limpiar el total.
+
+10
+Falta de validación de entrada
+Mala práctica
+Si el usuario ingresa una letra, el programa lanza una excepción y se cierra.
+
+11
+total como entero para promedio
+Mala práctica
+Para promedios precisos, se recomienda que el acumulador sea double.
+
+
+12	
+Redundancia de cálculo	
+Mala práctica	
+Se recalcula total / contador 4 veces en el Case 3 en lugar de usar una variable.
+
+PREUNTAS
+
+¿Por qué el promedio no es correcto? Por dos razones: Primero, el contador inicia en 1, lo que suma una unidad extra al divisor. Segundo, al dividir dos enteros (int / int), Java elimina los decimales. Ejemplo: $15 / 2$ resulta en $7.0$ en lugar de $7.5$.
+
+¿Por qué el programa puede comportarse extraño en el Case 1? Debido al punto y coma ; al final del for. Esto hace que el ciclo "corra en el vacío" y luego ejecute el bloque de código inferior una sola vez, intentando acceder a una variable i que ya no existe en ese contexto.
+
+¿Por qué el nivel no coincide con el promedio real? Porque el cálculo se realiza con división entera dentro de los if. Si el promedio real es 8.9, la división entera dará 8, lo cual podría saltar una categoría superior dependiendo de la precisión deseada.
+
+¿Por qué podría mostrar “Bueno” siempre? Por el punto y coma en else if (total / contador >= 8);. En Java, esto se interpreta como: "Si la condición es verdadera, no hagas nada (;). Luego, ejecuta la siguiente línea de forma independiente". Por eso, "Bueno" se imprime siempre que el flujo llegue ahí.
+
