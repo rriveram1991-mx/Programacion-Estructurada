@@ -1,0 +1,22 @@
+1.Debe ser double para la division ERROR LOGICO
+2.- Un arreglo para poder guardar los datos de las notas ya que en el case 3 no se ejecuta como deberia, 
+    solo muestra reprobados o aprobados, pero no ambos. ERROR LOGICO
+3. (salir=false), esta asignando, no comparando, por eso no funciona ERROR DE COMPILACION y ERROR LOGICO
+4. Falto unif para cuando se ingrese un numero negativo, que mande el error ERROR LOGICO
+5. En el for, la i debe ser igual a 1 ya que empieza a contar desde el 0 ERROR LOGICO
+6. Break para dejar de ejecutar el if si no hay datos ERROR LOGICO
+6. En el if punto y coma no va, va llave para abrir el If ERROR DE COMPILACION y MALA PRACTICA
+7. En el mensaje de nota invalida, Faltan las llaves del else MALA PRACTICA
+8. Al final del case 1 falto el Break ERROR LOGICO
+9. En el if del case 2, Falta un If para que cuando se ingrese esta opcion sin capturar notas enseñe este mensaje
+   y no se cierre automaticamente por el error ERROR DE COMPILACION
+10. Break para dejar de ejecutar el if si no hay datos ERROR LOGICO 
+11. En el segundo If del case 2, Falta la llave para abrir el ERROR DE COMPILACION
+12. en un else if no va punto y coma, va la llave para abrir el elseif ERROR DE COMPILACION
+13. Faltan las llaves del else ERROR DE COMPILACION
+14. En el case 3 falto un if para indicar que no hay nada que mostar si antes no se ingresaron Datos ERROR DE COMPILACION
+15. Break para dejar de ejecutar el if si no hay datos ERROR LOGICO 
+16. Despues del while en el case 3, Un IF para mostrar correctamente cuantos alumnos estan aprobados y 
+    cuantos reprobados con ayuda de un arreglo ERROR DE COMPILACION
+17. En el case 4 Falto el Break ERROR LOGICO
+18. En el case 5 Falto el Break ERROR LOGICO
