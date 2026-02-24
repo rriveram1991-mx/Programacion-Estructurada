@@ -23,7 +23,7 @@ public class SistemaControlNotas {
 
         System.out.println("=== SISTEMA DE CONTROL DE NOTAS ===");
 
-         while (!salir) // Es necesario poner ==. //error de compilacion o mala practica al hacer una comparacion innecesaria.
+         while (!salir) // No Es necesario poner ==. //error de compilacion o mala practica al hacer una comparacion innecesaria.
         {
 
             System.out.println("1. Capturar notas"); //Debe de ir solamente 1 para avanzar al respectivo caso.
