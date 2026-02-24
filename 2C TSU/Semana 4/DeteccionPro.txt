@@ -1,0 +1,12 @@
+Instrucciones:
+
+Detectar mínimo 20 errores.
+
+Clasificarlos:
+
+Error de compilación
+Error lógico
+Mala práctica
+Corregir completamente el programa.
+Explicar por qué el sistema no funciona correctamente.
+Justificar cada corrección.
