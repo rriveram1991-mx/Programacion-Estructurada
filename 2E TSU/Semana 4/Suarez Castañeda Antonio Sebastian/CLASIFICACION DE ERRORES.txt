@@ -1,0 +1,24 @@
+CLASIFICACION DE ERRORES 
+
+La clasificación de errores esta basada en el código base proporcionado, cualquier cambio añadido extra se marcará como "cambio en linea de código"
+=========================================
+1. error en linea de código 9 - la variable opción no es necesaria agregarle un valor inicial
+2. error en linea de código 18 - error de gramática dentro de las opciones (\n)
+3. error en linea de código 16 - uso de asignación de variable (=) y no comparativo
+4. error en linea de código 34 - error lógico, el contador de i empezaría desde 0, este debe empezar desde 1
+5. error en linea de código 39 - uso incorrecto de ; al igual que una falta de llave ({) para empezar el proceso if
+6. error en linea de código 42 - falta de llaves para cerrar proceso if y empezar proceso else
+7. error en linea de código 45 - ausencia de break para cerrar el case 1, mala practica
+8. cambio en linea de código - linea 48 se añadió una llave mas para no dejar fuera del proceso el siguiente case
+9. error en linea de código 48 - el resultado de la división por defecto será int, entrando en conflicto con la variable double, solución a esto: añadir (double) antes de la división
+10. error en linea de código 51 - ausencia de llave({) para iniciar proceso if
+11. error en linea de código 53 - ausencia de llaves ( }{ ) para cerrar y empezar ciclo else if
+12. error en linea de código 55 - ausencia de llaves ( }{ ) para cerrar y empezar ciclo else if
+13. error en linea de código 57 - falta de llaves para cerrar proceso else if y empezar proceso else
+14. error en linea de código 59 - ausencia de llave para cerrar ciclo else
+15. error en linea de código 68 - el uso del while es algo inecesario en este proceso, en esta misma linea se comete el error de usar ";" impidiendo la accion del bloque
+16. error en linea de código 69 - falta de llave ({) para realizar el proceso
+17. error en linea de código 71 - falta de llaves para cerrar y abrir el proceso en else
+18. error en linea de código 78 - ausencia de llave (}) para cerrar completamente el proceso
+19. error en linea de código 85 - falta de break para el case 4
+20. error en linea de código 90 - ausencia de break para el case 5
