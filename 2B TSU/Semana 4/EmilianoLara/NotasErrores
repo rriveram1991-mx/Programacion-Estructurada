@@ -1,0 +1,25 @@
+Error de compilación
+Línea 41 Hay un error de punto y coma en el if, ahí no se pone
+Linea 42 a 45 Añadimos corchetes
+Linea 51 if necesita corchetes
+Linea 57 el punto y coma después del promedio 7
+Linea 65 Hay un punto y coma al lado del while
+Error lógico
+Linea 22 Cambiamos el total a double
+Linea 26 para que inicie el programa tiene que ser diferente de false el if
+Linea 38 Pide insertar la nota 0 lo cual esta mal tiene que empezar por 1
+Linea 40 cambiamos la nota a double para que nos pueda dar decimales y un promedio exacto
+Linea 49 Movimos todo el if al primer caso para que contabilice las notas
+Linea 49 Corregimos ese if, quitamos el total y lo hicimos individual y ya funciona
+Linea 46 falta break
+Linea 54 al momento de poner 2 sin registrar nota el programa peta
+En la línea siguiente pusimos un if si no hay notas leídas todavía, se pone un mensaje correspondiente y no crashea
+Linea 62 quitamos el aprobados y lo ponemos al principio
+Linea 63 quitamos el reprobados y lo ponemos al principio
+Linea 77 Añadimos reprobados y aprobados al reinicio
+Linea 79 falta break
+Linea 83 falta break
+Linea 85 falta break
+
+Mala práctica
+Linea 27 hay un error de contenido adentro del sout
