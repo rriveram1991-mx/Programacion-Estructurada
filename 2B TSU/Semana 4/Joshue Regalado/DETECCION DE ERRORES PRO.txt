@@ -1,0 +1,37 @@
+DETECCION DE ERRORES
+Instrucciones:
+
+Detectar mínimo 20 errores.
+
+Clasificarlos:
+
+Error de compilación
+Error lógico
+Mala práctica
+Corregir completamente el programa.
+Explicar por qué el sistema no funciona correctamente.
+Justificar cada corrección.
+
+ERRORES DEL CODIGO
+1. Linea 23: error logico, se cambion el int a double para una operacion futura
+2. Linea 26: error logico, se agrego la declaracion de la variable aprobados
+3. Linea 27: error logico, se agrego la declaracion de la variable reprobados
+4. Linea 31: error de compilacion, solo habia un = en el while, se le agrego otro = para que funcionara
+5. Linea 49: mala practica, en el for, en vez de i=0, es mejor que iniciara desde el 1 para el conteo correcto de datos
+6. Linea 54: error de compilacion, el if no tenia {}
+7. Linea 57: Correccion, se agrego un if para realizar un contador de aprobados
+8. Linea 60: Correccion, se agrego un elese para realizar un contador de reprobados
+9. Linea 64: error de compilacion, el else no tenia {}
+10. Linea 68: error logico, faltaba un break; para cerrar el caso 1
+11. Linea 72: Correccion, se agrego un if por si se queria sacar el promedio sin datos ingresados
+12. Linea 76: error de compilacion, el if no tenia {}
+13. Linea 78: error de compilacion, el else if no tenia {}
+14. Linea 80: error de compilacion, el else if no tenia {} y ademas tenia un ;
+15. Linea 82: error de compilacion, el else no tenia {}
+16. Linea 85: correccion, se agrego un else por si se queria sacar el promedio sin datos ingresados
+17. Linea 91: correccion, se elimino la declaracion de variables de aprobados y reprobados de aqui
+18. Linea 91: correccion, se elimino por completo el while y todo lo que contenia dentro de este
+19. Linea 100: correccion, se agrego el reinicio de valor de la variable aprobados
+20. Linea 101: correccion, se agrego el reinicio de valor de la variable reprobados
+21. Linea 103: error logico, faltaba un break; para cerrar el case 4
+22. Linea 109: error logico, faltaba un break; para cerrar el case 5
