@@ -1,11 +1,11 @@
-linea 20 total esta definido como int. debe ser double //error logico
-linea 21 contador definido como int. debe ser double // error logico
-linea 21 mal definido el contador como "1" debe ser "0" //error lógico 
-linea 43 "total= total + cal;" debe ser "total+=cal;" //error logico
-linea 38 mal uso de ; //error de compilacion
-linea 42 falta de { //error de compilacion
-linea 44 falta de } //error de compilacion
-linea 58 mal uso de ; //error de compilación
+linea 10 total esta definido como int. debe ser double //error logico
+linea 11 contador definido como int. debe ser double // error logico
+linea 11 mal definido el contador como "1" debe ser "0" //error lógico 
+linea 33 "total= total + cal;" debe ser "total+=cal;" //error logico
+linea 28 mal uso de ; //error de compilacion
+linea 32 falta de { //error de compilacion
+linea 34 falta de } //error de compilacion
+linea 48 mal uso de ; //error de compilación
 ¿Por qué el promedio no es correcto?
 por que el contador esta definido como 1 lo que hace que sume incorrectamente en cada iteración, ademas al divir y termine dando decimales no los lee debido a como esta definido las variables "total" y "contador" como entero hace que divida primero siendo enteros lo que hace que se pierdan las decimales.
 
@@ -21,3 +21,4 @@ divida mal, aparte al ser entero y dividir por el total al ser ambos enteros div
 ¿Por qué podría mostrar “Bueno” siempre?
 debido al error de haber puesto ";" en else if
 crea una instruccion vacia haciendo que imprima bueno siempre
+
