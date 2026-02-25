@@ -1,0 +1,34 @@
+ERRORES 2
+1. El contador debe inicializar desde 0, por que al iniciar con 1 se agrega de más una calificación haciendo que el promedio divida entre 6 y no 5, Error lógico
+2. En el for del case 1 tiene un ;, error sintatico 
+3.Le falta abrir un corchete al else del case 1
+4.case 3 al primer if le faltan los corchetes 
+5.else-if corchetes en el if case 3, error sintatico
+6.segundo else-if le faltan corchetes, error sintatico 
+7.Faltan corchetes al ultimo else del case 3, error sintatico
+8.Falto reiniciar el ciclo para una nueva evalución
+9. Declaramos en paréntesis el total en doublé, para que el promedio salga exacto
+10.El contador en el case 2 se declara >0 ya que no se puede dividir entre 0, error lógico 
+11.Se agrega i---; para que se pueda repetir 
+12. Habia un corchete de más al final del código, Error sintatico
+
+
+Error de compilación
+Error lógico
+Mala práctica
+
+
+¿Por qué el promedio no es correcto?
+Por qué el contador esta iniciando desde 1 y no de 0, haciendo que la suma se divida entre 6
+
+¿Por qué el programa puede comportarse extraño en el case 1?
+
+por que el for tenía un ;
+
+¿Por qué el nivel no coincide con el promedio real?
+Por que faltaban los corchetes de los if  
+
+¿Por qué podría mostrar “Bueno” siempre?
+por que no habían corchetes en los if del case 3 
+
+Entregar el código completamente corregido y funcional.
