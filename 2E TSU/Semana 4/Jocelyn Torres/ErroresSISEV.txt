@@ -1,0 +1,15 @@
+-	linea 3 en nombre del archivo no coincide con el nombre del programa mala practica
+	linea 28 el for tiene un ; al cerrar el parentesis y no debe de llevar mala practica
+	linea 32 le fala el abrir un { al if 	error de compilacion
+	linea 34 falta cerrar el parentesis del if }	error de compilacion
+	linea 34 falta abrir un { al else	error de compilacion
+	linea 36 falta cerrar el parentesis del else }	error de compilacion
+	linea 46 le fala el abrir un { al if	error de compilacion
+	linea 48 falta cerrar el parentesis del if }	error de compilacion
+	linea 48 le fala el abrir un { al if	error de compilacion
+	linea 48 el if lleva un ; despues de cerrar el parentesis que no debe de estar	mala practica
+	linea 50 falta cerrar el parentesis del if }	error de compilacion
+	linea 50 le fala el abrir un { al if	error de compilacion
+	linea 52 falta cerrar el parentesis del if }	error de compilacion
+	linea 52 le fala el abrir un { al else	error de compilacion
+	linea 54 falta cerrar el parentesis del else }	error de compilacion
