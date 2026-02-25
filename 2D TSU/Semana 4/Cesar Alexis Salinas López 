@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+public class SistemaEvaluacion {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+
+        // * ERROR LÓGICO:
+        // Antes iniciaba en 1, provocando que el promedio fuera incorrecto.
+        // Debe iniciar en 0.
+        int total = 0;
+        int contador = 0;
+
+        
+        // Antes el promedio se calculaba varias veces dentro del switch.
+        // Ahora se declara una sola vez.
+        double promedio = 0;
+
+        System.out.println("=== SISTEMA DE EVALUACION ===");
+
+        while (opcion != 4) {
+
+            System.out.println("\n1. Capturar calificaciones");
+            System.out.println("2. Mostrar promedio");
+            System.out.println("3. Mostrar nivel");
+            System.out.println("4. Salir");
+
+            System.out.print("Seleccione opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+
+                    // *ERROR LÓGICO:
+                    // Antes no se reiniciaban las variables,
+                    // acumulando datos de capturas anteriores.
+                    total = 0;
+                    contador = 0;
+
+                    // 
+                    // Antes tenía un punto y coma al final del for:
+                    // for (int i = 1; i <= 5; i++);
+                    // Eso rompía el ciclo y dejaba i fuera de alcance.
+                    for (int i = 1; i <= 5; i++) {
+
+                        System.out.print("Ingrese calificacion " + i + ": ");
+                        int cal = sc.nextInt();
+
+                        // * ERROR LÓGICO:
+                        // Antes no tenía llaves {}.
+                        // contador++ se ejecutaba aunque la nota fuera inválida.
+                        if (cal >= 0 && cal <= 10) {
+                            total += cal;
+                            contador++;
+                        } else {
+                            System.out.println("Calificacion invalida. Intente nuevamente.");
+
+                            
+                            // Se repite la captura si es inválida.
+                            i--;
+                        }
+                    }
+                    break;
+
+                case 2:
+
+                    // * ERROR LÓGICO:
+                    // Antes podía dividir entre 0 si no había capturas.
+                    if (contador > 0) {
+
+                        // *ERROR LÓGICO:
+                        // Antes era división entera (int/int).
+                        // Ahora se fuerza a división decimal.
+                        promedio = (double) total / contador;
+
+                        System.out.println("Promedio: " + promedio);
+                    } else {
+                        System.out.println("No hay calificaciones registradas.");
+                    }
+                    break;
+
+                case 3:
+
+                    // *ERROR LÓGICO:
+                    // Antes se calculaba total/contador varias veces
+                    // y sin validar contador.
+                    if (contador > 0) {
+
+                        promedio = (double) total / contador;
+
+                     
+                        // Antes había un punto y coma en:
+                        // else if (promedio >= 8);
+                        // Eso hacía que siempre imprimiera "Bueno".
+                        if (promedio >= 9) {
+                            System.out.println("Excelente");
+                        } else if (promedio >= 8) {
+                            System.out.println("Bueno");
+                        } else if (promedio >= 7) {
+                            System.out.println("Regular");
+                        } else {
+                            System.out.println("Reprobado");
+                        }
+
+                    } else {
+                        System.out.println("No hay calificaciones registradas.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("Opcion incorrecta.");
+            }
+        }
+
+
+        // Siempre cerrar Scanner para evitar fuga de recursos.
+        sc.close();
+    }
+}
