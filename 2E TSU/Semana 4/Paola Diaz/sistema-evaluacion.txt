@@ -1,0 +1,35 @@
+Línea 32: Omisión de la llave de apertura { en la estructura if.
+
+Línea 34: Falta la llave de cierre } para el bloque del if anterior.
+
+Línea 34: Error de sintaxis en else; falta la llave de apertura {.
+
+Línea 36: Omisión de la llave de cierre } para el bloque del else.
+
+Línea 46: Falta la apertura de bloque { para la instrucción if.
+
+Línea 48: Falta la llave de cierre } del if.
+
+Línea 48: Omisión de la llave de apertura { en la nueva estructura if.
+
+Línea 50: Falta la llave de cierre } del bloque if.
+
+Línea 50: Falta la apertura de bloque { para la condición if.
+
+Línea 52: Falta la llave de cierre } para el bloque anterior.
+
+Línea 52: Error de sintaxis en else; falta la llave de apertura {.
+
+Línea 54: Omisión de la llave de cierre } para finalizar el bloque else.
+
+¿Por qué el promedio no es correcto?
+Por fallos críticos de sintaxis y estructura que impiden el cálculo lógico de las variables.
+
+¿Por qué el programa se comporta extraño en el case 1?
+Debido a la combinación de errores de compilación y el uso incorrecto de puntos y coma en ciclos y condiciones.
+
+¿Por qué el nivel no coincide con el promedio real?
+Porque el programa imprime una categoría textual (nivel) en lugar del valor numérico calculado.
+
+¿Por qué podría mostrar “Bueno” siempre?
+Por una lógica de control defectuosa y llaves mal cerradas que fuerzan al programa a esa salida.
