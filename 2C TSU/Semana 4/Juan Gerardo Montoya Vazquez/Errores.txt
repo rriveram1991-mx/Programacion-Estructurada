@@ -1,0 +1,39 @@
+1. Error de compilación :En la línea while(salir = false)se usa solo un (=) y son dos para validar la comparación(==)
+
+2. Error de compilación :En if(nota >= 0 && nota <= 10); el punto y coma innecesario termina el if directamente.
+
+3. Error de compilación :En else if (promedio >= 7); el (;) es innecesario por que termina el bloque del if directamente 
+
+4. Error de compilación :En while (i < cantidad); otra ves el (;) es innecesario crea un bucle infinito.
+
+5. Error de compilación :Faltan instrucciones  break  en los casos 1, 4 y 5 del  switch haciendo que se los salte.
+
+6. Error lógico: El bucle for (int i = 0; i <= n; i++)  ejecuta  n+1  veces en lugar de  n , capturando una nota de más.
+
+7. Error lógico :Las líneas  total += nota  y  cantidad++  se ejecutan incluso cuando la nota es inválida eso es por falata de corchetes.
+
+8. Error lógico: El índice de notas empieza en 0, mostrando "Nota #0" en lugar de "#1" tienes que ser (i=1 no i=0).
+
+9. Error lógico :La división es entera da error si son valores decimales.
+
+10. Error lógico :El case 2 calcula el promedio incluso cuando  cantidad = 0 , por la division por 0.
+
+11. Error lógico: El case 3 usa el promedio general para contar aprobados y reprobados, en lugar de calificar cada nota individual.
+
+12. Error lógico: El programa no almacena notas individuales, por lo que es imposible calcular estadísticas reales._____
+
+13. Error lógico :El case 5 marca  salir = true  pero cae al caso  default  si no hay  break .
+
+14. Error lógico :El caso 4 reinicia los datos pero cae al caso 5 y cierra el programa si no hay  break.
+
+15. Error lógico :El bloque  default  se ejecuta siempre después de cases sin  break .
+
+16. Mala práctica :No hay validación de entradas en  opción  o  n ; si se ingresa texto, no te salta error.
+
+17. Mala práctica :Las variables  total  y  cantidad  no tienen comentarios y sus nombres podrían ser más descriptivos.
+
+18. Mala práctica :No se informa cuántas notas fueron rechazadas por ser inválidas.
+
+19. Mala práctica :No hay mensajes de confirmación después de capturar notas.
+
+20. Mala práctica: El nombre de la variable  n  no es descriptivo; debería ser algo como  cantidadNotasACapturar .
