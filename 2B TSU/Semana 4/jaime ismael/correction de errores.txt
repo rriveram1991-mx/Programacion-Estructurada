@@ -1,0 +1,22 @@
+correction de errores 
+
+1. line 14 (salir=false): jamas entra en el while. se cambio a true 
+2. line 60 (mal uso de ;): se retira el punto y coma
+3. line 44 (mal uso de ;): se retira el ppunto y coma 
+4. line 45 (falta abrir y cerra llaves): se asignan las llaves correspondirntes
+5.line 49 (falta abrir y cerra llaves): se asignan llaves 
+6.line 23. (texto inecesario "\n"). se retira
+7.line 52 (falta cerrar el case): se coloca un break
+8.line 39 (contador cicla 4 veces): se cambia el contador a 1
+9.line 94 (falta cerrar el case): se coloca un break)
+10. line 56 (si se divide un 0 el programa truena):hacer un if para asegurarse que la cantidad siempre es mayor a 0
+11. mal uso de punto y coma: se retira punto y coma 
+12.variable aprobados no se reinicia ): se convierte a 0 
+13.while asigna no compara el true): se coloca ==
+14.el promedio solo divide enteros por la naturaleza del int. se agrega un "(double)" para parsear el int a double durante la division
+15.el programa no calcula las nutas idividuales solo el promedio general): se genera un arreglo tipo int[] en el que se le da 100 casillas para que ese vayan guardando las notas.
+16. cuando se captura agregamos nuestro arreglo para guardar la nota
+17. ciclo for recorre el arreglo comparando las notas guardadas para saber si son mayores a 7 y asi el if decide si incrementa el contador de aprobado o reprobado.
+18. salir debería ser igual atrue en case 5): se cambia a true
+19. falta un break n el case 5
+20. si el usuario mete una nota errónea el programa va a tronar. se asignan if correspondiente.
