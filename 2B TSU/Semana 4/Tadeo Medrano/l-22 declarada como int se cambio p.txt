@@ -1,0 +1,18 @@
+l-8 se agrega un import para el arraylist
+l-22 se agrega el arraylist para los promedios
+l-22 declarada como int se cambio por doublé para que el promedio lo diera como decimal
+l-26 falta de =error solución ==
+l-44 las notas estaban declaradas como int cuando pueden existir notas con punto decimal se cambia double
+l-46 al declarar i como 0 se cuenta un numero mas entonces se declara como 1
+l-51 el if contaba con ; 
+l-51 se agrego {}
+l-55 falta de de llaves 
+l-59 falta de break;
+l-66.69.72.74 falta de llaves y colocación correcta
+l-85 el contador esta en 0 lo iniciamos en 1
+l-86 el while tenia un punto y coma donde cerraba el ciclo y no dejaba entrar al while
+l-88,87 se elmina el i además del while y se remplaza por un arraylist para cada nota además que se elimina el contador de i
+l-87 se agregaron llaves en el if para que separa los aprobados y los reprobados y asi funcionara el contador
+l-103 falta de break;
+l-106 se agrego el clear para reinciar los datos de entrada
+l-108 falta de break;
