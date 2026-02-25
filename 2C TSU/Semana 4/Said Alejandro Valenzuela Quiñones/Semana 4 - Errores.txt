@@ -1,0 +1,48 @@
+Semana 4 - Sistema de Control de Notas.
+Said Alejandro Valenzuela Quiñones 2C.
+
+01. Error de Compilación Línea 14.- Quitar la inicialización de la variable opción.
+
+02. Error Lógico Línea 15.- Cambiar el int por double para poder calcular el promedio con decimal.
+
+03. Mala Practica Línea 18.- Para poder imprimir de forma correcta las materias aprobadas se inicializa la variable desde el principio.
+
+04. Mala Practica Línea 19.- Para poder imprimir de forma correcta las materias reprobadas se inicializa la variable desde el principio.
+
+05. Error de Compilación Línea 23.- La forma correcta para comparar el booleano es usando " == ", no " = ".
+
+06. Error Lógico Línea 36.- Si se ingresa la opción 1 varias veces seguidas, el total que ya tenía se reinicia para que solo calcule el promedio de las últimas notas ingresadas.
+
+07. Error Lógico Línea 37.- Lo mismo que lo anterior solo que reinicia la cantidad.
+
+08. Error Lógico Línea 38.- Misma lógica solo que para las materias aprobadas.
+
+09. Error Lógico Línea 39.- Y para materias reprobadas.
+
+10. Error Lógico Línea 43.- Inicializar " i = 1 ", si es igual a 0 calcula una nota extra.
+
+11. Error de Compilación Línea 46.- Cambiar el int por double en las notas.
+
+12. Mala Practica Línea 48.- Agregar las llaves ( {} ) al if.
+
+13. Error Lógico Línea 49.- Agregar el contador de materias aprobadas ( >= 7 ).
+
+14. Error Lógico Línea 52.- Agregar el contador de materias reprobadas.
+
+15. Mala Practica Línea 58.- Agregar las llaves ( {} ) al else.
+
+16. Error de Compilación Línea 62.- Agregar el break del case 1.
+
+17. Error Lógico Línea 65.- Agregar un if que verifique que haya notas registradas, de lo contrario va a dividir entre 0.
+
+18. Mala Practica Línea 72.- Agregar las llaves ( {} ) al if.
+
+19. Mala Practica Línea 76.- Agregar las llaves ( {} ) al else if.
+
+20. Mala Practica Línea 79.- Agregar las llaves ( {} ) al else if.
+
+21. Mala Practica Línea 82.- Agregar las llaves ( {} ) al else.
+
+22. Error de Compilación Línea 102.- Agregar el break del case 4.
+
+23. Error de Compilación Línea 109.- Agregar el break del case 5.
