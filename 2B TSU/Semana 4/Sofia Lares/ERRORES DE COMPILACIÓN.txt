@@ -1,0 +1,52 @@
+ ERRORES DE COMPILACIÓN
+
+while (salir = false) → usa asignación en vez de comparación.
+
+if (nota >= 0 && nota <= 10); → punto y coma después del if.
+
+else if (promedio >= 7); → punto y coma después del else if.
+
+while (i < cantidad); → punto y coma después del while.
+
+Falta break en case 1.
+
+Falta break en case 4.
+
+Uso incorrecto de bloque en while por punto y coma.
+
+El else queda sin if por el punto y coma.
+____________________________________________________________________________________________________________________________________________________________
+
+ERRORES LÓGICOS
+
+División entre cero si cantidad == 0.
+
+Promedio calculado con enteros (pierde decimales).
+
+En estadísticas se usa total / cantidad en lugar de evaluar cada nota.
+
+El while de estadísticas no recorre notas reales.
+
+for (int i = 0; i <= n; i++) captura una nota extra.
+
+No se valida si el usuario ingresa cantidad negativa.
+
+Estadísticas no funcionan porque no se almacenan notas individuales.
+
+En estadísticas se incrementan aprobados/reprobados sin revisar notas reales.
+
+Reiniciar datos no tenía break y seguía ejecutando case 5.
+__________________________________________________________________________________________________________________________________________________________
+
+ MALAS PRÁCTICAS
+
+while (salir == false) en lugar de while (!salir).
+
+Uso de números directos (7, 8, 9) sin constantes.
+
+No separar lógica de captura y cálculo.
+
+Variables declaradas fuera de donde se necesitan.
+
+No almacenar notas en arreglo para estadísticas reales.
+_________________________________________________________________________________________________________________________________________________________
