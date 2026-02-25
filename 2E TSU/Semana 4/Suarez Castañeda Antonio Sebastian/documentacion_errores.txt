@@ -1,0 +1,59 @@
+CLASIFICACION DE ERRORES
+------------------------------------------
+
+- error en linea 10 - mala practica
+el contador ya esta definido con un numero, debería estar definido como 0
+
+- error en linea 21 - mala practica
+al solo mandar "print" no ejecuta la siguiente linea, debería usarse println
+
+- error en linea 27 - mala practica
+uso inadecuado de ; antes de la llave 
+
+- error en linea 31 - mala practica
+ausencia de llave { para inicio del bloque if
+
+- error en linea 34 - mala practica
+ausencia de llave } para cerrar el ciclo if
+
+- error en linea 34 - mala practica
+ausencia de llave { para comenzar ciclo else
+
+- error en linea 36 - mala practica
+ausencia de llave } para cerrar el bloque for
+
+- error en linea 40 - error lógico
+la variable promedio está establecida como double, sin embargo el resultado de la operación no lo está
+
+- error en linea 45 - mala practica
+ausencia de llave { para comenar el bloque if
+
+- error en linea 47 - mala practica
+ausencia de llave } para cerrar bloque if, uso incorrecto de ; al terminar los paréntesis
+
+- error en linea 49 - mala practica
+ausencia de llave } para cerrar bloque else if
+
+- error en linea 49 - mala practica
+ausencia de llave { para comenzar bloque else if
+
+- error en linea 51 - mala practica
+ausencia de llave } para cerrar el bloque anterior 
+
+- error en linea 51 - mala practica
+ausencia de llave para abrir bloque else
+
+- error en linea 53 - mala practica
+ausencia de llaves }} para cerrar el bloque if
+
+¿Por qué el promedio no es correcto?
+no se obtiene el promedio correcto debido a un error de lógica a falta del factor (double) y por el contador que ya estaba establecido como 1
+
+¿Por qué el programa puede comportarse extraño en el case 1?
+debido al error de sintaxis en la linea 27, donde el ; perjudica la accion del bloque, también por la ausencia de las llaves en if
+
+¿Por qué el nivel no coincide con el promedio real?
+debido al ; que se encuentra en el else if, también porque la operación total/contador está establecida como entero
+
+¿Por qué podría mostrar “Bueno” siempre?
+por el mismo problema mencionado anteriormente, ya que la siguiente linea (la linea que hace el output de bueno) queda huérfana ejecutándose siempre
