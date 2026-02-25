@@ -1,0 +1,22 @@
+Linea 28: Error de compilación. Se usa "==" en vez de "=" en la condición de while
+Linea 51: Error de compilación. No se utiliza el punto y coma para terminar if 
+linea 46: Error Logico. Empieza el contador en el numero 0
+Linea 49: Error lógico. Esta declarada entera y no tomara en cuenta decimales importantes
+Linea 54: Error de compilación. Else no tenia llaves de inicio ni cierre
+Linea 56: Error de compilación. Faltaba "Break" en case 1
+Linea 61: Error lógico. Es división entera y para promedio se utilizan decimales
+Linea 64: Error de compilación. "if" no tiene las llaves de inicio ni de final
+Linea 66: Error de compilación. "Else if" no tiene las llaves de inicio ni de final
+Linea 68: Error de compilación. "Else if" no tiene las llaves de inicio ni de final
+Linea 68: Error de compilación. La condición de else if termina con dos puntos
+Linea 81: Error de compilación. La condición de while termina con dos puntos
+Linea 82: Error de compilación. If no tenia llaves
+Linea 84: Error de compilación. Else no tenia llaves
+Linea 93: Error lógico. Al ingresar 4 hace lo de case 4 pero se pasa a case 5 
+Linea 98: Error de compilación. Faltaba break en case 4
+Linea 103: Error de compilación. Faltaba break en case 5
+Linea 104: Default es afuera de case 5
+Linea 43: Error de compilación. Se agrega de nuevo los contadores para que reinicie cada alumno
+Linea 116 && 117. Mala practica. Sobran 2 llaves 
+
+
