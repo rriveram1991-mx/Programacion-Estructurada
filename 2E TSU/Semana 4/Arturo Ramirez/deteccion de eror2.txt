@@ -1,0 +1,39 @@
+detección y clasificación de errores
+1. Error de compilación - Punto y coma de más en el for
+En el caso 1, después del  for (int i = 1; i <= 5; i++)  le pusiste un punto y coma de más. Eso hace que el bucle no haga nada más que contar hasta 5, y el código que viene después no se ejecuta como parte del ciclo. ¡Totalmente al pedo el for así!
+ 
+2. Error de compilación/lógico - La variable i no existe donde la usas
+Por ese punto y coma que te acabo de decir, la variable  i  solo vive dentro del for, pero después intentas usarla para mostrar "Ingrese calificacion " + i. El programa ni siquiera sabe qué es esa  i  ahí, así que no compila o muestra cosas raras.
+ 
+3. Error lógico - Falta llaves en el if de la calificación
+En el caso 1, cuando checas si la calificación está entre 0 y 10, solo la línea de sumar al total depende de esa condición. La parte de  contador++  se ejecuta SIEMPRE, incluso si la calificación es inválida. ¡Así que el contador se va subiendo aunque metas basura!
+ 
+4. Error lógico - Contador empieza en 1 en lugar de 0
+El contador lo inicializaste en 1, pero si no has capturado ninguna calificación aún, debería ser 0. Imagínate: si metes 5 calificaciones buenas, el contador va a terminar en 6, así que el promedio sale mal.
+ 
+5. Error lógico - Promedio es división entera
+Cuando calculas  total / contador , como ambas son enteras, el programa te da un número entero sin decimales. Por ejemplo, si sumas 23 y tienes 5 calificaciones, en lugar de 4.6 te da 4. ¡El promedio no es real!
+ 
+6. Error de compilación - Punto y coma de más en el else if
+En el caso 3, después de  else if (total / contador >= 8)  le pusiste punto y coma. Eso corta la condición, así que la línea de "Bueno" se ejecuta sin importar nada más.
+ 
+7. Error lógico - Siempre muestra "Bueno" si no es "Excelente"
+Por ese punto y coma que mencioné arriba, después de checar si es "Excelente", el programa siempre imprime "Bueno", sin importar si el promedio es 7 o incluso 0. ¡Totalmente fuera de lugar!
+ 
+8. Error lógico - Nivel se calcula con el promedio truncado
+Además de que el else if está mal, el nivel usa la misma división entera que el promedio incorrecto. Así que incluso si arreglaras el punto y coma, el nivel no coincidiría con el promedio real.
+ 
+9. Error lógico - No reintenta calificaciones inválidas
+El for del caso 1 intenta pedir 5 calificaciones, pero si metes una inválida, no te pide otra para reemplazarla. Así que puedes terminar con menos de 5 calificaciones válidas y el total se queda corto.
+ 
+10. Mala práctica - No valida que las entradas sean números
+Si en lugar de un número pones una letra (como "a") cuando te pide la opción o la calificación, el programa se cae de golpe. No hay nada que controle eso.
+ 
+11. Error lógico - No reinicia total y contador
+Si capturas calificaciones una vez, luego vuelves a darle a la opción 1, el total y el contador siguen con los valores de la vez anterior. Así que se acumulan y el promedio sale súper mal.
+ 
+12. Mala práctica - No avisa si no hay calificaciones
+Si le das a mostrar promedio o nivel sin haber capturado nada, el programa calcula 0 entre 1 (por el contador inicial) y te muestra un promedio de 0 o "Reprobado", pero no te dice que no has metido ninguna calificación aún.
+ 
+13. Mala práctica - Mensaje de error poco claro
+Cuando la calificación es inválida, solo dice "Calificacion invalida", pero no te dice qué valor metiste mal ni que tiene que estar entre 0 y 10. El usuario no sabe qué hizo mal.
