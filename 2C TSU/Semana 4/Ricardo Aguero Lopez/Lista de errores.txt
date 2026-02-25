@@ -1,0 +1,21 @@
+------------LISTA DE ERRORES------------
+Error lógico linea 25 se cambia a true para que entre con ese valor 
+Error lógico en la linea 29 se le egrega == no = y se cambia a true para que pueda entrar
+Error en la linea 31 ya que debe indicar solo el numero del caso que corresponde 
+Error lógico se tiene que iniciar desde 1 no desde 0
+Error de compilación no lleva ; al final del if y se agrega llave en liena 52
+Error compilacion linea 55 falto abrir y cerrar llave del else 
+Error de compilacion en linea 59 falto poner el break
+Error de compilacion en linea 65 falto abrir llave y cerrarla en linea 67
+Error de compilacion en linea 67 falto abrir llave y cerrarla en linea 69
+Error de compilacion en linea 69 falto abrir llave y cerrarla en linea 71
+Error de compilacion en linea 71 falto abrir llave y cerrarla en linea 72
+Error logico en linea 76 ya que en ese case 3 se tiene que hacer con un arreglo para que guarde las notas anteriores
+Error de compilacion no se pone ; en lina 82 despues del while 
+Error de compilacion en linea 93 faltaba el break
+Error de compilacion en linea 100 faltaba el break
+Error de compilacion en linea 105 faltaba el break
+ 
+
+ 
+
