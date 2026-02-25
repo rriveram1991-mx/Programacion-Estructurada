@@ -1,0 +1,23 @@
+Clasificación de errores:
+
+
+Error de compilación:
+
+1 - Hay muchos ; en lugar de {} dentro del código que no permitían compilar correctamente (Líneas de código 55, 59, 91, 93, entre otras)
+2 - Había break faltantes en el caso 1, 4 y 5 (Líneas de código 63, 110, 116, 120)
+
+Error lógico:
+
+1 - Falta de un array o arraylist al inicio para guardar los datos de las notas uno por uno
+2 - Agrego un if al case 2 (Línea 67) para evitar errores de calculo
+3 - Cambiamos la lógica del if en la línea 93 para adaptarla al ArrayList
+4 - Agrego un notas.clear() en la línea 106 para eliminar también datos del array en caso de seleccionar case 4
+5 - Anexo la línea 61 para mejorar el rendimiento del código
+
+
+Mala practica:
+
+1 - En la línea 26 se cambia la variable de int a double para evitar problemas de calculo
+2 - En la línea 32 cambiamos de comparativo = a un ! por el uso correcto del booleano
+3 - Cambiamos i=0 por =1 en la línea 50
+4 - Un while utilizado que podría generar un bucle de error (Línea 91)
