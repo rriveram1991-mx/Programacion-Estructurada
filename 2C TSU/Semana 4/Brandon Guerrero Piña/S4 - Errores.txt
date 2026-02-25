@@ -1,0 +1,71 @@
+Brandon Guerrero Piña 2C
+Semana 4 -Sistema de notas
+
+
+1.  (Linea: double total = 0;) Se cambio el tipo de variable a double
+    para poder realizar operaciones con decimales al calcular el
+    promedio.
+
+2.  (Linea: int aprobados = 0;) Se declara como contador desde el inicio
+    para poder utilizarla en otros case del menú.
+
+3.  (Linea: int reprobados = 0;) Se declara como contador desde el
+    inicio para poder utilizarla en otros case del menú.
+
+4.  (Linea: while (salir == false)) Se usa doble igual (==) para
+    comparar, ya que un solo igual (=) es asignación.
+
+5.  (Linea: for (int i = 1; i <= n; i++)) La condición indica que la
+    nota debe ser mayor a 0, ya que 0 no se considera una calificación
+    valida.
+
+6.  (Linea: if (nota > 0 && nota <= 10)) No se debe colocar punto y coma
+    (;) al final de una condición if.
+
+7.  (Linea: if (nota < 7)) Se crea la condición para contar cuantas
+    notas son aprobadas o reprobadas.
+
+8.  (Linea: else { System.out.println(“Nota invalida”); }) Se deben
+    abrir y cerrar llaves correctamente en estructuras condicionales.
+
+9.  (Linea: i = i - 1;) Se resta 1 al contador para volver a pedir la
+    misma nota cuando es invalida.
+
+10. (Linea: break; en case 1) Se utiliza break para finalizar la
+    ejecucion del case.
+
+11. (Linea: if (promedio > 0 && promedio <=10)) Se condiciona el
+    promedio para evitar mostrar mensajes incorrectos.
+
+12. (Linea: if (promedio >= 9)) Uso correcto de llaves en estructura
+    condicional.
+
+13. (Linea: else if (promedio >= 8)) Uso correcto de llaves en
+    estructura condicional.
+
+14. (Linea: else if (promedio >= 7)) No se debe usar punto y coma (;) al
+    final de un else if.
+
+15. (Linea: else { System.out.println(“Reprobado”); }) Uso correcto de
+    llaves en la estructura else.
+
+16. (Linea comentada: while (i < cantidad)) Error común: no se debe
+    colocar punto y coma (;) al final de la condición del while.
+
+17. (Linea comentada: if (total / cantidad >= 7)) Uso correcto de llaves
+    en la estructura if.
+
+18. (Linea comentada: else) El else debe estar correctamente
+    condicionado con un if previo.
+
+19. (Linea comentada dentro del while) Uso correcto de llaves en la
+    estructura else.
+
+20. (Comentario en case 3) Las operaciones de conteo se movieron al case
+    1 para evaluar cada calificación individualmente.
+
+21. (Linea: total = 0; cantidad = 0; aprobados = 0; reprobados = 0;) Se
+    reinician todas las variables para limpiar los datos del sistema.
+
+22. (Linea: break; en case 4) Cada case debe cerrarse con break para
+    evitar ejecución en cascada.
