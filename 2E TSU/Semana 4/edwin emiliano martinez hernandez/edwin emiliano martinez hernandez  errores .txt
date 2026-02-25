@@ -1,0 +1,27 @@
+edwin emiliano martinez hernandez errores
+
+linea 37        if (nota >= 0 && nota <= 10); EL ; NO VA aqui(Error de compilación)
+linea 42        else NO TIENE IF(Error de compilación)
+linea 53        else if (promedio >= 8)(Error de compilación)
+linea 68        while (i < cantidad); {(Error de compilación)
+
+
+linea 16        while (salir = false) { entra en un BUCLE INFINITO(Error lógico)
+linea 34        for (int i = 0; i <= n; i++) { SE EJECUTA UNA COSA DE MAS(Error lógico)
+linea 40        total += nota; SE EJECUTA SIEMPRE POR EL ; DEL IF(Error lógico)
+linea 41        cantidad++; SE EJECUTA SIEMPRE POR EL ; DEL IF(Error lógico)
+linea 42        else NO TIENE IF(Error lógico)
+linea 45        FALTA EL BREAK DE CASE 1(Error lógico)
+linea 48        double promedio = total / cantidad; HAY UNA DIVISION ENTRE 0(Error lógico)
+linea 64        int aprobados = 0; NO TIENE CASO PORQUE NO SE GUARDA(Error lógico)
+linea 48        double promedio = total / cantidad; DIVIDE ENTRE 0(Error lógico)
+linea 55        else if (promedio >= 7); EL ; NO VA(Error lógico)
+linea 56        System.out.println("Regular"); SIEMPRE SE EJECUTA(Error lógico)
+linea 68        while (i < cantidad); EL ; entra en un BUCLE(Error lógico)
+linea 69        if (total / cantidad >= 7) ESTA USANDO EL PROMEDIO GENERAL Y NO EL DE CADA ALUMNO(Error lógico)
+linea 73        FALTA EL BREAK DE CASE 3(Error lógico)
+linea 90        FALTA BREAK DE CASE 4(Error lógico)
+linea 93        FALTA EL BREAK DEL DEFAULT(Error lógico)
+
+
+linea 67        int i = 0; prohibe LA VARIABLE CON EL MISMO NOMBRE DEL OTRO FOR (Mala práctica)
