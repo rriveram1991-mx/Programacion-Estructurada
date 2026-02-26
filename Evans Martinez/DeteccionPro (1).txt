@@ -1,0 +1,189 @@
+============================================================
+  DETECCION DE ERRORES - SistemaControlNotas
+============================================================
+  Instrucciones:
+  - Detectar minimo 20 errores
+  - Clasificarlos en: Error de compilacion, Error logico, Mala practica
+  - Corregir completamente el programa
+  - Explicar por que el sistema no funciona correctamente
+  - Justificar cada correccion
+============================================================
+
+--------------------------------------------------------------
+  ERRORES DE COMPILACION
+--------------------------------------------------------------
+
+ERROR 1
+  Linea:  while (salir = false)
+  Problema: Se usa "=" (asignacion) en lugar de "==" (comparacion), lo que
+            asigna false a salir y el compilador lo trata como condicion invalida.
+  Correccion: while (!salir)
+
+ERROR 2
+  Linea:  if (nota >= 0 && nota <= 10);
+  Problema: El punto y coma al final del if vacia su cuerpo, dejando el bloque
+            siguiente suelto y el "else" sin un "if" al que pertenecer,
+            causando error de compilacion.
+  Correccion: Eliminar el ";" y envolver el bloque con llaves { }
+
+ERROR 3
+  Linea:  else if (promedio >= 7);
+  Problema: El punto y coma vacia el else if, dejando el "else" siguiente
+            sin estructura valida y causando error de compilacion.
+  Correccion: Eliminar el ";" y agregar llaves { }
+
+ERROR 4
+  Linea:  while (i < cantidad); { ... }
+  Problema: El punto y coma convierte el while en un bucle infinito vacio,
+            y el bloque { } queda como codigo suelto fuera del bucle,
+            causando comportamiento de compilacion inesperado.
+  Correccion: Eliminar el ";" del while
+
+--------------------------------------------------------------
+  ERRORES LOGICOS
+--------------------------------------------------------------
+
+ERROR 5
+  Linea:  for (int i = 0; i <= n; i++)
+  Problema: El ciclo inicia en 0 y usa "<=", capturando n+1 notas en lugar de n.
+  Correccion: for (int i = 1; i <= n; i++)
+
+ERROR 6
+  Linea:  double promedio = total / cantidad;
+  Problema: Ambas variables son int, la division es entera y se pierden los decimales
+            antes de asignarse al double. Ejemplo: 15/2 da 7 en lugar de 7.5
+  Correccion: double promedio = (double) total / cantidad;
+
+ERROR 7
+  Linea:  case 1 sin break
+  Problema: Al terminar el case 1 no hay break, el flujo cae directamente al case 2
+            y muestra el promedio sin que el usuario lo haya solicitado (fall-through).
+  Correccion: Agregar break al final del case 1, o usar sintaxis de flecha "case 1 ->"
+
+ERROR 8
+  Linea:  case 4 sin break
+  Problema: Al reiniciar datos el flujo cae al case 5, haciendo que el sistema
+            se salga automaticamente cada vez que el usuario elige reiniciar.
+  Correccion: Agregar break al final del case 4
+
+ERROR 9
+  Linea:  case 5 sin break
+  Problema: Tras ejecutar salir = true, el flujo cae al default e imprime
+            "Opcion no valida" junto con "Saliendo del sistema".
+  Correccion: Agregar break al final del case 5
+
+ERROR 10
+  Linea:  case 3 - logica de conteo con total / cantidad
+  Problema: Se usa el promedio general para contar aprobados y reprobados,
+            en lugar de evaluar cada nota individualmente. Siempre incrementa
+            el mismo contador sin importar las notas reales.
+  Correccion: Guardar cada nota en una lista e iterar nota por nota.
+
+ERROR 11
+  Linea:  case 2 sin validacion de cantidad == 0
+  Problema: Si el usuario selecciona "Mostrar promedio" sin haber capturado notas,
+            ocurre una division entre cero (ArithmeticException) y el programa falla.
+  Correccion: Agregar if (cantidad == 0) antes de calcular el promedio.
+
+ERROR 12
+  Linea:  case 3 sin validacion de lista vacia
+  Problema: Si se llama al case 3 sin haber capturado notas, imprime
+            "Aprobados: 0, Reprobados: 0" sin avisar al usuario que no hay datos.
+  Correccion: Agregar validacion if (notas.isEmpty()) con mensaje informativo.
+
+ERROR 13
+  Linea:  int n = sc.nextInt() en case 1 sin validacion
+  Problema: El usuario puede ingresar 0 o un numero negativo como cantidad de notas
+            y el programa lo acepta sin ningun aviso, ejecutando un ciclo innecesario.
+  Correccion: Validar que n > 0 antes de ejecutar el ciclo.
+
+ERROR 14
+  Linea:  case 3 - contadores aprobados y reprobados no se reinician
+  Problema: Si el usuario llama al case 3 varias veces en la misma sesion,
+            los contadores acumulan valores de llamadas anteriores dando resultados incorrectos.
+  Correccion: Inicializar aprobados = 0 y reprobados = 0 dentro del case 3.
+
+ERROR 15
+  Linea:  while (salir = false) - logica del bucle principal
+  Problema: Ademas del error de compilacion, la condicion mal escrita hace que
+            el programa nunca entre al menu, inutilizando completamente el sistema.
+  Correccion: Usar while (!salir) para que el bucle funcione correctamente.
+
+--------------------------------------------------------------
+  MALAS PRACTICAS
+--------------------------------------------------------------
+
+ERROR 16
+  Linea:  Scanner sc = new Scanner(System.in) sin try-with-resources
+  Problema: El Scanner nunca se cierra si ocurre una excepcion antes de sc.close(),
+            lo que puede causar fuga de recursos.
+  Correccion: Usar try (Scanner sc = new Scanner(System.in)) { ... }
+
+ERROR 17
+  Linea:  sc.nextInt() sin manejo de excepcion
+  Problema: Si el usuario ingresa un valor no numerico (como una letra),
+            el programa lanza InputMismatchException y se cierra abruptamente.
+  Correccion: Envolver la lectura en un try-catch o validar con sc.hasNextInt().
+
+ERROR 18
+  Linea:  case 3 usa while con variable "i" manual
+  Problema: Usar un while con contador manual es propenso a errores como bucles
+            infinitos u off-by-one. Es mala practica cuando existe un for-each disponible.
+  Correccion: Usar for (int nota : notas) para iterar la lista.
+
+ERROR 19
+  Linea:  int i = 0 declarado dentro del case 3 sin bloque { }
+  Problema: Declarar variables de control dentro de un case sin llaves puede
+            causar problemas de alcance y hace el codigo dificil de leer y mantener.
+  Correccion: Usar bloques { } en cada case o sintaxis de flecha.
+
+ERROR 20
+  Linea:  switch sin llaves en los cases (case 1:, case 2:, etc.)
+  Problema: No usar llaves en los bloques de cada case facilita el fall-through
+            accidental y hace el codigo menos legible y mantenible.
+  Correccion: Usar sintaxis moderna "case X -> { }" o agregar llaves explicitas.
+
+ERROR 21
+  Linea:  No se importa ArrayList
+  Problema: El codigo original no incluye ArrayList ni ninguna estructura de datos
+            para almacenar notas individualmente, haciendo imposibles las estadisticas reales.
+  Correccion: Agregar import java.util.ArrayList y declarar ArrayList<Integer> notas.
+
+ERROR 22
+  Linea:  Variables aprobados y reprobados declaradas al inicio del main
+  Problema: Estas variables solo se usan en el case 3 pero se declaran al inicio
+            del metodo, ocupando espacio innecesario y reduciendo la legibilidad.
+  Correccion: Declararlas dentro del bloque del case 3 donde realmente se usan.
+
+ERROR 23
+  Linea:  System.out.print("Ingrese nota #" + i) con i iniciando en 0
+  Problema: Mostrar "nota #0" es confuso para el usuario ya que las notas
+            se cuentan comunmente desde 1.
+  Correccion: Iniciar el contador desde 1 para mostrar "nota #1", "nota #2", etc.
+
+ERROR 24
+  Linea:  No se usa ninguna estructura de datos para las notas
+  Problema: Guardar solo el total acumulado sin las notas individuales imposibilita
+            cualquier tipo de analisis o estadistica por nota en el futuro.
+  Correccion: Usar ArrayList<Integer> para guardar cada nota capturada.
+
+ERROR 25
+  Linea:  El menu no indica el rango valido de notas al usuario
+  Problema: El programa acepta notas de 0 a 10 pero nunca informa al usuario
+            este rango, lo que puede generar confusion y entradas invalidas repetidas.
+  Correccion: Mostrar el rango en el mensaje: "Ingrese nota #X (0-10): "
+
+ERROR 26
+  Linea:  Codigo sin comentarios
+  Problema: El programa no tiene ningun comentario que explique la logica,
+            las variables o los casos del menu, lo que dificulta su lectura y mantenimiento.
+  Correccion: Agregar comentarios en variables principales y bloques de logica importante.
+
+============================================================
+  RESUMEN
+============================================================
+  Errores de compilacion : 4
+  Errores logicos        : 11
+  Malas practicas        : 11
+  TOTAL                  : 26
+============================================================
