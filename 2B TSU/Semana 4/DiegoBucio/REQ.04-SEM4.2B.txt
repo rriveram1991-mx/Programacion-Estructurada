@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+/**
+ * Institución: Universidad Tecnológica de Torreón.
+ * Carrera: Ingeniería en Desarrollo de Software.
+ * Alumno: Juan Diego Arroyo Bucio.
+ * Materia: Programación Estructurada.
+ */
+
+/**
+ * @autor Juan Diego Arroyo Bucio
+ * @version 1.0
+ * @see java.util.Scanner
+ * La clase Main es el punto de entrada del programa.
+ * Contiene la lógica para un sistema de seguridad simple que autentica a un usuario
+ * y luego le permite elegir entre dos opciones.
+ */
+public class Main {
+    /**
+     * El método main es el punto de entrada de la aplicación.
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este programa).
+     */
+    public static void main(String[] args) {
+        // Se inicializa el Scanner para leer la entrada del usuario desde la consola.
+        Scanner read = new Scanner(System.in);
+
+        // Declaración de variables.
+        String User = "admin"; // Nombre de usuario correcto.
+        String passw = "1234"; // Contraseña correcta.
+        int trys = 0; // Contador de intentos fallidos.
+        String userIntento = ""; // Almacena el nombre de usuario ingresado por el usuario.
+        String passwIntento = ""; // Almacena la contraseña ingresada por el usuario.
+        int opcion = 0; // Almacena la opción del menú seleccionada por el usuario.
+
+        System.out.println("=== SISTEMA DE SEGURIDAD ===");
+
+        // Bucle que se ejecuta mientras el número de intentos sea menor a 3.
+        // Este bucle controla el proceso de inicio de sesión.
+        while (trys < 3) {
+            System.out.print("Ingrese su usuario: ");
+            userIntento = read.nextLine(); // Lee el nombre de usuario.
+
+            System.out.print("Ingrese su contraseña: ");
+            passwIntento = read.nextLine(); // Lee la contraseña.
+
+            // Se verifica si las credenciales ingresadas son correctas.
+            if (userIntento.equals(User) && passwIntento.equals(passw)) {
+                System.out.println("\n¡Ingresó con éxito!");
+                System.out.println("Selecciona una opción:");
+                System.out.println("1. Trabajar");
+                System.out.println("2. Morir");
+                System.out.print("Opción: ");
+
+                opcion = read.nextInt(); // Lee la opción del menú.
+
+                // Se utiliza una estructura switch para manejar la opción seleccionada.
+                switch (opcion) {
+                    case 1:
+                        System.out.println("\nWorking...");
+                        // El ciclo FOR solicitado para simular operaciones de trabajo.
+                        for (int i = 1; i <= 3; i++) {
+                            System.out.println("Procesando módulo #" + i + "...");
+                        }
+                        System.out.println("¡Trabajo terminado!");
+                        break; // Termina el switch.
+                    case 2:
+                        System.out.println("\nMorir x_x");
+                        break; // Termina el switch.
+                    default:
+                        System.out.println("\nOpción no válida.");
+                        break; // Termina el switch.
+                }
+                // Si el inicio de sesión es exitoso, se termina el bucle de intentos.
+                break;
+
+            } else {
+                // Si las credenciales son incorrectas, se incrementa el contador de intentos.
+                trys++;
+                System.out.println("Error. Le quedan " + (3 - trys) + " intento(s) cara alpaca\n");
+            }
+        }
+
+        // Si se han agotado los 3 intentos, se muestra un mensaje de bloqueo.
+        if (trys == 3) {
+            System.out.println("¡Cuenta bloqueada cara pepinillo!");
+        }
+
+        // Se cierra el objeto Scanner para liberar recursos.
+        read.close();
+    }
+}

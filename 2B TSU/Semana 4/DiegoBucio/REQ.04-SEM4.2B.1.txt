@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+/**
+ * Institución: Universidad Tecnológica de Torreón.
+ * Carrera: Ingeniería en Desarrollo de Software.
+ * Alumno: [Juan Diego Arroyo Bucio.]
+ * Materia: Programación Estructurada.
+ */
+public class Main {
+    public static void main(String[] args) {
+        // Se inicializa el objeto Scanner para leer la entrada del usuario.
+        Scanner read = new Scanner(System.in);
+        // Se inicializa el dinero disponible en la cuenta.
+        double money = 3500;
+        // Se inicializa la opción del menú seleccionada por el usuario.
+        int opcion = 0;
+        // Se inicializa un contador para el número de transacciones.
+        int contador = 0;
+        // Se declara una variable para almacenar la cantidad a depositar.
+        double deposito;
+        // Se declara una variable para almacenar la cantidad a retirar.
+        double retirar;
+
+        // El bucle while se ejecuta mientras la opción seleccionada no sea 4 (Salir).
+        while (opcion != 4) {
+            // Se muestra el menú de opciones.
+            System.out.println("Ingrese la opción que desea realizar: ");
+            System.out.println("1. Consultar saldo;");
+            System.out.println("2. Depositar;");
+            System.out.println("3. Retirar;");
+            System.out.println("4. Exit");
+            // Se lee la opción seleccionada por el usuario.
+            opcion = read.nextInt();
+            // Se utiliza una estructura switch para ejecutar la opción seleccionada.
+            switch (opcion) {
+                case 1:
+                    // Se muestra el saldo actual.
+                    System.out.println("Su saldo es: " + money);
+                    // Se incrementa el contador de transacciones.
+                    contador++;
+                    break;
+                case 2:
+                    // Se solicita al usuario que ingrese la cantidad a depositar.
+                    System.out.println("Ingrese la cantidad a depositar: ");
+                    deposito = read.nextDouble();
+                    // Se comprueba si la cantidad a depositar es válida.
+                    if (deposito > 0) {
+                        // Se añade la cantidad depositada al saldo.
+                        money += deposito;
+                        // Se incrementa el contador de transacciones.
+                        contador++;
+                    }else {
+                        // Se muestra un mensaje de error si la cantidad no es válida.
+                        System.out.println("La cantidad ingresada no es válida");
+                    }
+                  break;
+                    case  3:
+                        // Se solicita al usuario que ingrese la cantidad a retirar.
+                        System.out.println("Ingrese la cantidad a retirar: ");
+                        retirar = read.nextDouble();
+                        // Se comprueba si la cantidad a retirar es válida.
+                        if (retirar > 0 && retirar <= money) {
+                            // Se resta la cantidad retirada del saldo.
+                            money -= retirar;
+                            // Se incrementa el contador de transacciones.
+                            contador++;
+                        }else  {
+                            // Se muestra un mensaje de error si la cantidad no es válida.
+                            System.out.println("La cantidad ingresada no es válida");
+                        }
+                        break;
+                case 4:
+                    // Se muestra un mensaje de despedida.
+                    System.out.println("Gracias por utilizar American Pan");
+                    break;
+            }
+
+        }
+        // Se muestra el número total de transacciones realizadas.
+        System.out.println("Su total de operaciones es de: " + contador);
+    }
+}
