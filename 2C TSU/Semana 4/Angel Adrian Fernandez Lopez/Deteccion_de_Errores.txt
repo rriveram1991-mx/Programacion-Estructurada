@@ -1,0 +1,154 @@
+BLOG DE NOTAS
+SistemaControlNotas
+Total de errores detectados: 20
+
+------------------------------------------------------------
+
+ERROR 1
+Línea 17
+Se debe declarar la variable nota desde el principio.
+Si no se declara antes del while, no podrá utilizarse en todo el programa.
+
+------------------------------------------------------------
+
+ERROR 2
+Línea 18
+Se debe declarar la variable aprobados desde el principio. Ya que sino deberamos de utilizar un arreglo para saber cuantas aprobadas tiene el alumno
+Si no está declarada globalmente dentro del método main, genera error.
+
+------------------------------------------------------------
+
+ERROR 3
+Línea 19
+Se debe declarar la variable reprobados desde el principio. Ya que sino deberamos de utilizar un arreglo para saber cuantas reprobadas tiene el alumno
+Las variables contadoras deben declararse antes del ciclo principal.
+
+------------------------------------------------------------
+
+ERROR 4
+Línea 22
+El while necesitaba un "=" más.
+Debe usarse == para comparar valores.
+= asigna
+== compara
+
+------------------------------------------------------------
+
+ERROR 5
+Línea 28
+Mal uso de print.
+Debía usarse println para mostrar correctamente el menú.
+
+------------------------------------------------------------
+
+ERROR 6
+Línea 37
+El for iniciaba en i = 0.
+Provocaba una nota extra.
+Debe iniciar en 1.
+
+------------------------------------------------------------
+
+ERROR 7
+Línea 40
+La variable nota debía inicializarse desde arriba.
+No debe declararse dentro del for.
+
+------------------------------------------------------------
+
+ERROR 8
+Línea 42
+Error de sintaxis por punto y coma (;) después del if.
+El punto y coma terminaba la condición.
+
+------------------------------------------------------------
+
+ERROR 9
+Líneas 42-50
+Falta de llaves {} en estructura if.
+Puede provocar errores lógicos.
+
+------------------------------------------------------------
+
+ERROR 10
+Línea 60
+If (promedio >= 9) sin llaves correctamente colocadas.
+
+------------------------------------------------------------
+
+ERROR 11
+Línea 62
+No se cerraban correctamente los bloques if.
+
+------------------------------------------------------------
+
+ERROR 12
+Línea 64
+No se abrían correctamente los bloques else if.
+
+------------------------------------------------------------
+
+ERROR 13
+Línea 67
+Uso incorrecto del punto y coma en estructuras condicionales.
+
+------------------------------------------------------------
+
+ERROR 14
+Línea 76
+El caso 3 no debe tener while.
+Solo debe mostrar estadísticas.
+
+------------------------------------------------------------
+
+ERROR 15
+Línea 76
+El caso 3 no debe tener if.
+No necesita condiciones adicionales.
+
+------------------------------------------------------------
+
+ERROR 16
+Línea 86
+Falta break en el caso 4.
+Sin break el programa ejecuta el siguiente case automáticamente.
+
+------------------------------------------------------------
+
+ERROR 17
+Línea 92
+Falta break en el caso 5.
+Provoca ejecución no deseada del siguiente bloque.
+
+------------------------------------------------------------
+
+ERROR 18
+Línea 12
+La variable total debía ser double.
+Si fuera int, el promedio perdería los decimales.
+
+------------------------------------------------------------
+
+ERROR 19
+Línea 58
+Posible división entre cero.
+Si cantidad es 0, el promedio genera error matemático.
+
+------------------------------------------------------------
+
+ERROR 20
+Línea 104
+No es necesario usar sc.close() en este programa pequeño.
+
+------------------------------------------------------------
+
+Los 20 errores detectados fueron principalmente:
+- Declaración incorrecta de variables
+- Errores de sintaxis (;, {}, ==)
+- Falta de break en switch
+- Problemas de lógica matemática
+- Uso innecesario de estructuras
+
+El programa ahora funciona correctamente, valida datos, calcula promedio con decimales, cuenta aprobados y reprobados, reinicia datos y sale sin errores.
+
+------------------------------------------------------------
