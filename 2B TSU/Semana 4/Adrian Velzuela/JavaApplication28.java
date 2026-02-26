@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package javaapplication28;
-
+import java.util.Scanner;
 /**
  *
  * @author adrianvalenzuelaramirez
@@ -13,8 +13,89 @@ public class JavaApplication28 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+/**
+ *
+ * @author adrianvalenzuelaramirez
+ */
+
+
+    /**
+     * @param args the command line arguments
+     */
+        
+    public static void main(String[] args){
+
+   
+        try (Scanner sc = new Scanner(System.in)) {
+            
+            // variables iniciales
+            double saldo = 500.0; 
+            int contador = 0;     
+            boolean salir = false;
+            
+            System.out.println("Bienvenido al cajero");
+            
+            while (!salir) {
+                System.out.println("\nsaldo actual: $" + saldo);
+                System.out.println("1. consultar saldo");
+                System.out.println("2. depositar");
+                System.out.println("3. retirar");
+                System.out.println("4. salir");
+                System.out.print("seleccione una opcion: ");
+                
+                int opcion = sc.nextInt();
+                
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Su saldo es de: $" + saldo);
+                        contador++; // se cuenta como consulta realizada
+                        break;
+                        
+                    case 2:
+                        System.out.print("Ingrese el monto a depositar: ");
+                        double deposito = sc.nextDouble();
+                        
+                        if (deposito > 0) { // validación de cantidad negativa
+                            saldo += deposito;
+                            System.out.println("Deposito exitoso.");
+                            contador++;
+                        } else {
+                            System.out.println("Error: No puede depositar cantidades negativas o cero.");
+                        }
+                        break;
+                        
+                    case 3:
+                        System.out.print("Ingrese el monto a retirar: ");
+                        double retiro = sc.nextDouble();
+                        
+                        // validación doble, cantidad positiva y saldo suficiente
+                        if (retiro > 0 && retiro <= saldo) {
+                            saldo -= retiro;
+                            System.out.println("retiro exitoso.");
+                            contador++;
+                        } else if (retiro > saldo) {
+                            System.out.println("saldo insuficiente.");
+                        } else {
+                            System.out.println("cantidad no valida.");
+                        }
+                        break;
+                        
+                    case 4:
+                        salir = true;
+                        System.out.println("gracias por usar el sistema.");
+                        break;
+                        
+                    default:
+                        System.out.println("opcion incorrecta, intebta denuvo");
+                }
+            }
+            
+            System.out.println("\n--- resumen de sesion ---");
+            System.out.println("total de operaciones realizadas: " + contador);
+        } 
     }
-    
 }
+    
+    
+
