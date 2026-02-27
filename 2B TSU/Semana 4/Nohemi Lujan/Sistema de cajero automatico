@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author nohem
+ */
+public class SistemaDeCajeroAutomatico {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Veriables
+        int saldoi=10000;
+        boolean salir=false;
+        int opcion;
+        int deposito;
+        int retiro;
+        int cont1=0, cont2=0, cont3=0, cont4=0;
+        
+        Scanner leer=new Scanner (System.in);
+        
+        //while 
+        while (salir==false){
+            System.out.println("\n1.Consultar saldo");
+            System.out.println("2. Depositar");
+            System.out.println("3. Retirar");
+            System.out.println("4.Salir");
+            
+            System.out.println("elija una opcion");
+            opcion=leer.nextInt();
+            
+            
+            switch (opcion){
+                case 1-> {System.out.println("Su saldo inicial es de:"+saldoi);
+                        cont1++;}
+                
+                
+                case 2->{ System.out.println("¿cuanto desea depositar?");
+                cont2++;
+                         deposito=leer.nextInt();
+                         if (deposito>0){
+                              saldoi=saldoi+deposito; 
+                              System.out.println("su saldo ahora es de:"+saldoi);
+                         }else{
+                             System.out.println("cantidad no valida");
+                             
+                         }
+                      
+                      
+                }
+                case 3->{ System.out.println("indique la cantidad a retirar");
+                cont3++;
+                         retiro=leer.nextInt();
+                         if (retiro<saldoi){
+                             saldoi=saldoi-retiro;
+                             System.out.println("su saldo ahora es de:"+saldoi);
+                         }else{
+                             System.out.println("cantidad no valida");
+                         }
+                         
+                    
+                }
+                
+                case 4->{ 
+                    cont4++;
+                    salir = true;
+                    System.out.println("Saliendo del sistema");
+                }  
+                    
+              
+            }
+        }
+                    
+           //salida
+           System.out.println("----recibo de movimientos----");
+           System.out.println("operaciones realizadas en: consulta de saldo:"+cont1);
+           System.out.println("operaciones realizadas en: depositos:"+cont2);
+           System.out.println("operaciones realizadas en: retirar:"+cont3);
+           System.out.println("salida el sistema:"+cont4);
+           int sum=cont1+cont2+cont3+cont4;
+           System.out.println("total de operaciones realizadas"+sum);
+    }
+    
+}
