@@ -1,0 +1,64 @@
+ Scanner sc = new Scanner(System.in);
+        int i= 0;
+        int o= 0;
+        double saldo = 0;
+         
+         //lectura de saldo incial
+          System.out.println("ingrese la cantidad inicial");
+          saldo =sc.nextDouble();
+          //mientras que sea diferente a 4 hacer
+          while (i!=4){ 
+        System.out.println("---------MENÚ---------");
+        System.out.println("1.-Consultar saldo----");
+        System.out.println("2.-Depositar----------");
+        System.out.println("3.-retirar------------");
+        System.out.println("4.-Salir--------------");
+        i=sc.nextInt();
+        
+        switch (i)
+                {
+           
+            case 1:
+                //contador de movimientos en todos los casos
+                o++;
+                System.out.println("Su saldo es de:" + "$" + saldo);
+                break;
+            case 2:
+                o++;
+                System.out.println("cantidad que desea depositar");
+                double depo=sc.nextDouble();
+                if (depo>0){
+                saldo +=depo;
+                System.out.println("el saldo actual:" + "$" + saldo);
+                }
+                else
+                {
+                    System.out.println("ingresar un número positivo");
+                }
+                break;
+            case 3:
+                o++;
+                System.out.println("cantidad a retirar:");
+                double retiro=sc.nextDouble();
+                if (retiro>saldo || retiro<0){
+                    System.out.println("saldo insuficiente");
+                }
+                else {
+                    saldo-=retiro;
+                    System.out.println("el saldo actual:" + "$" + saldo);
+                }
+                    break;
+            case 4:
+                o++;
+                System.out.println("saliendo del sistema:");
+               break;
+               //en caso de poner un número invalido
+            default: System.out.println("ingrese un numero valido");
+        
+        }
+          }
+        System.out.println("movimientos realizados:" + o);
+        sc.close();
+    
+}
+}
