@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author nohem
+ */
+public class RegistroYAccesoIntentosLim {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // variables
+        String usuarioc="admin";
+        String contraseñac="admin";
+        String usuario, contraseña;
+        int intentos=0;
+        int intr;
+        int opcion;
+        int intmax=3;
+        Scanner leer=new Scanner (System.in);
+        
+        //while
+        while (intentos<intmax){
+            System.out.println("ingrese el usuario");
+            usuario=leer.nextLine();
+            System.out.println("ingrese la contraseña");
+            contraseña=leer.nextLine();
+            //uso de condiciones
+            
+            if(usuario.equals(usuarioc)&&contraseña.equals(contraseñac)){
+                System.out.println("acceso concedido");
+                System.out.println("\n--- MENÚ PRINCIPAL ---");
+                System.out.println("1. Consultar estado del servidor");
+                System.out.println("2. Generar reporte de logs");
+                System.out.print("Seleccione una opción: ");
+                opcion=leer.nextInt();
+                 for(int i=0; i<=100; i +=25){
+                     System.out.print(i + "% ");
+                 }
+                    break;
+               
+            }else{
+                intentos++;
+                intr=intmax-intentos;
+                System.out.println("intento fallido, intentos restantes:" +intr);
+       
+                    
+                        
+                        }
+            }
+            if (intentos==3) {
+                    System.out.println("cuenta bloqueada");
+                    System.out.println("numero total de intentos fallidos:"+intentos);
+            }
+        }
+    }
+    
+
