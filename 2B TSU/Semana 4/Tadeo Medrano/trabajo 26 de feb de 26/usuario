@@ -1,0 +1,39 @@
+  //lectura de datos
+        Scanner sc = new Scanner(System.in);
+        String usuario ="admin";
+        String password="123";
+        int i=1;
+        //ejecucion
+        while (i!=3){
+            
+            System.out.println("ingrese el usuario correcto:");
+            usuario=sc.nextLine();
+            System.out.println("ingrese la contraseña correcta");
+            password=sc.nextLine();
+            if(usuario.equals("admin") && password.equals("123")){
+                System.out.println("intentos usados:" + i);
+            System.out.println("-----Menu----");
+            System.out.println("1-hola-------");
+            System.out.println("2.-Adios-----");
+            int num=sc.nextInt();
+            for (int o=0; o<num; o++)
+            switch (num){
+                case 1:
+                    System.out.println("hola");
+                    break;
+                case 2:
+                    System.out.println("Adios");
+                    break;
+                default: System.out.println("ingrese un numero valido");
+            }
+            }
+            else {
+                i++;
+                System.out.println("contraseña o usuario incorrecto");
+        }
+        }
+        //finalizacion
+        System.out.println("cuenta bloqueada");
+            
+}
+}
