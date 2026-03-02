@@ -1,0 +1,88 @@
+//Sin resolver
+1    import java.util.Scanner;
+2    public class SistemaVentas {
+3    public static void main(String[] args) {
+4        Scanner sc = new Scanner(System.in);
+5        int opcion = 0;
+6        double totalVentas = 0;
+7        int contadorVentas = 0;
+8       while (opcion != 3); {   
+9            System.out.println("1. Registrar venta");
+10            System.out.println("2. Mostrar total vendido");
+11            System.out.println("3. Salir");
+12            System.out.print("Seleccione una opcion: ");
+13            opcion = sc.nextInt();
+14            switch (opcion) {
+15               case 1:
+16                  System.out.print("Ingrese monto de la venta: ");
+17                  double venta = sc.nextDouble();
+18                  if (venta < 0); {   // ERROR 2
+19                      System.out.println("Venta invalida");
+20                  } else {
+21                      totalVentas = venta;   
+22                      contadorVentas++;
+23                      System.out.println("Venta registrada");
+24                  }
+25                  break;
+26              case 2:
+27                  System.out.println("Total vendido: " + totalVentas);
+28                  for (int i = 0; i <= contadorVentas; i++) {   
+29                      System.out.println("Procesando venta...");
+30                  }
+31                  break;
+32              case 3:
+33                  System.out.println("Saliendo del sistema...");
+34                  break;
+35              default:
+36                  System.out.println("Opcion invalida");
+37          }
+39      }
+50      sc.close();
+50  }
+51 }
+
+
+Errores : 
+
+Linea 8 : al iniciar con una condición que ya se cumple el ciclo se repite sin fin o simplemente no se procesa , la solución es un (do-while)
+
+Linea 18 : al tener punto y coma ( ; ) la comparación no se realiza o se finaliza al mismo tiempo, solo es cuestión de quitarlo para que el programa lo procese
+
+Linea 21 : el total de ventas no se esta acumulando , solo se actualiza la variable y se le  da un nuevo valor , se necesita recordar a la variable su anterior valor y sumarle el nuevo ingresado con el valor de la variable venta : totalventa = totalventa + venta ;
+
+Linea 28 : Como tal no es un error, pero el (for ) que imprime "procesando venta" que depende del total de ventas , en la opción de imprimir el total de ventas , ese proceso no tiene mucho sentido si no es un programa tan pesado que tenga que procesar mas información, quedaría mejor en perspectiva algo asi :
+
+if (contadorVentas <1 ) 
+{
+	System.out.println("Ingrese al menos una venta ...");
+}
+else
+{
+System.out.println("Total vendido: " + totalVentas);
+System.out.println("Total de ventas :" + contadorVentas);
+}
+
+Linea 35 : como tal el programa se ejecuta sin problemas , pero por profesionalismo y evitar próximos errores, el default puede ir acompañado de la opción (break; ) para finalizar este cado del switch. 
+
+Preguntas : 
+
+1)¿Por qué el sistema entra en un comportamiento inesperado desde el inicio?
+R= Debido al error de iniciar el programa con un while de condición, pero eso significa mientras, no un hacer lo que si es el (do).
+
+2)¿Por qué el sistema acepta ventas negativas?
+R= Se aceptaban vents negativas ya que el if donde validaba las ventas, tenia punto y coma (;) que invalidaba las condiciones <0 .
+ 
+3)¿Por qué el total vendido no se acumula correctamente?
+R= Como mencione anteriormente , la variable solo se actualizaba, no se sumaba su valor con el de las ventas.
+
+4)¿Qué problema lógico existe en el for?
+R= El error en este caso es que esta contando desde cero , con eso entendemos que al iniciar el programa, cuenta como existente una venta ya.
+
+5)¿El sistema realmente termina cuando se elige la opción 3? Justifica tu respuesta.
+R= el programa termina hasta que la opcion es 3, ya que la condicion asi lo establece, si es otro numero , o hace otra operacion dentro de las opciones, o imprime una respuesta por default si esta opcion no esta en el programa , con la oportunidad de ingresar de nuevo una opcion.
+
+6)Explica qué hace el sistema actualmente (con los errores) y qué debería hacer realmente.
+R= el sistema desde un principio no dejaba ejecutarse, ya que aun si no se validaban las ventas de si heran negativas o no, al no tenere valido el (if) un (else) interrumpia el programa, ademas , en vez de sumar valores, y contar las ventas, solo imprimia el proceso de dichas ventas y el valor de la ultima venta, en cambio ahora, valida si es mayor de 0 la venta o menor, cuenta el numero de ventas, e imprime la suma total de estas.
+
+7)Reescribe el código completamente corregido.
+R= lo subi en un .java
