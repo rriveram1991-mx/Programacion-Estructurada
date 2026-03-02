@@ -1,0 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package s5array;
+
+/**
+ *
+ * @author crist
+ */
+public class S5Array {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         
+        double[] notas = {8.5, 7.0, 9.2, 6.8, 10.0}; //Aqui comenzamos con el array que sirve para guardar varias notas en una variable que en este caso es notas
+                                                       //en vez de definir muchas variables con el valor pues mejor usamos el array definimos con una variable y le doy los valores.
+        double suma = 0;
+
+       //En esta parte algo que aprendi bien es que el array siempre empezara en 0 y no en 1 como el "while".
+        for (int i = 0; i < notas.length; i++) {  //En "notas.length esa vale 5 ya ue hay 5 elementos 
+            suma += notas[i];   //El cico se va repetir mientras  "i" sea menor a 5.
+        }
+
+        // Calcular el promedio
+        double promedio = suma / notas.length;
+
+        System.out.println("El promedio es: " + promedio);
+    }
+
+}
+   
+    
+
