@@ -1,0 +1,10 @@
+ERROR LOGICO:
+	Linea 37: Si no hay un "=", el programa registraba la venta como valida, cosa que no debería.
+	Linea 42: El programa no sumaba los montos, usando el ultimo monto para imprimir, en vez de sumarlos. Por ello se utiliza el "+=".
+	Linea 49: Leía desde 0, imprimiendo una venta inexistente.
+ERROR DE SINTAXIS:
+	Linea 26: No debe de haber un ";" al colocar un "While".
+	Linea 37: No debe de haber un ";" al colocar un "if".
+MALA PRACTICA:
+ERROR DE COMPILACIÓN: 
+	
