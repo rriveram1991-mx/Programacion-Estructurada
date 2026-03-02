@@ -1,0 +1,198 @@
+PARTE 1 - DETECCION DE ERRORES NIVEL JAMES BOND 
+CODIGO CON ERRORES
+import java.util.Scanner;
+public class SistemaVentas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+        while (opcion != 3); {   
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    if (venta < 0); {   // ERROR 2
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas = venta;   
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    for (int i = 0; i <= contadorVentas; i++) {   
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+        sc.close();
+    }
+}
+
+1. ¿Por qué el sistema entra en un comportamiento inesperado desde el inicio?
+porque tenia un error sintáctico en el while ya que tenia ; y aunque al principio funcionaba después hacia que el programa no siguera
+
+2. ¿Por qué el sistema acepta ventas negativas?
+Porque el if también tiene un punto y coma:
+
+3. ¿Por qué el total vendido no se acumula correctamente?
+porque tenia un error lógico ya que solo guardaba el valor ingresado pero no lo sumaba
+
+4. ¿Qué problema lógico existe en el for?
+lo que tenia es que era <= lo cual hacia que se sumara uno extra
+
+5. ¿El sistema realmente termina cuando se elige la opción 3? Justifica tu respuesta.
+No el sistema no termina correctamente porque el while estaba mal escrido
+
+6. Explica qué hace el sistema actualmente (con los errores) y qué debería hacer realmente.
+
+Lo que hace actualmente (con errores):
+
+Muestra el menú sin control real
+Acepta ventas negativas
+No acumula correctamente el total vendido
+Ejecuta ciclos innecesarios
+No termina correctamente al elegir salir
+
+Lo que debería hacer:
+Repetir el menú hasta que el usuario elija salir
+Rechazar ventas negativas
+Acumular correctamente todas las ventas
+Mostrar información real
+Finalizar correctamente el programa
+
+7. Reescribe el código completamente corregido.
+No del todo solo los errores que tenia el código ya que el resto del código era funcional
+
+CÓDIGO CORREGIDO
+import java.util.Scanner;
+public class EXSDET_SEM5_2B {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+
+        while (opcion != 3) { // error sintáctico tenia ; y no deberia tener
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    if (venta < 0) { // error sintáctico tenia ; y no deberia tener
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas += venta;  // error lógico solo tenia = por ende nunca hacia la suma
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    for (int i = 0; i < contadorVentas; i++) {  // error lógico era <= lo cual hacia que se sumara uno extra
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+        sc.close();
+    }
+}
+
+Parte 2 – CREACION DE SISTEMA EASY SUPER EASY TIPO NIVEL MARIO BROS 1 
+CODIGO
+import java.util.Scanner;
+
+public class EXSREQ_SEM5_2B {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+
+        while (opcion != 3) {
+
+            System.out.println("===== SUPER MARIO ESCOLAR =====");
+            System.out.println("       1. Iniciar nivel");
+            System.out.println("       2. Instrucciones");
+            System.out.println("       3. Salir del juego");
+            System.out.println("===============================");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    int cantcal;
+                    int cal;
+                    double prom = 0;
+                    System.out.println("=========================================");
+                    System.out.print("  ¿Cuántas calificaciones quiere registrar?: ");
+                    cantcal = sc.nextInt();
+                    System.out.println("=========================================");
+
+                    for (int i = 1; i <= cantcal; i++) {
+                        System.out.print("Ingrese la calificación #" + i + ": ");
+                        cal = sc.nextInt();
+
+                        if (cal >= 0 && cal <= 100) {
+                            prom = prom + cal;
+                        } else {
+                            System.out.println("=========================================");
+                            System.out.println("  Calificación fuera del rango (0-100)");
+                            i--;
+                            System.out.println("=========================================");
+                        }
+                    }
+
+                    prom = prom / cantcal;
+                    System.out.println("         Su promedio es de: " + prom);
+                    System.out.println("=========================================");
+                    break;
+
+                case 2:
+                    System.out.println("=========================================");
+                    System.out.println("              INSTRUCCIONES");
+                    System.out.println(" Ingresa calificaciones válidas (0 a 100)");
+                    System.out.println("    El sistema calculará tu promedio");
+                    System.out.println("=========================================");
+                    break;
+
+                case 3:
+                    System.out.println("=========================================");
+                    System.out.println("Gracias por jugar Super Mario Escolar");
+                    System.out.println("=========================================");
+                    break;
+
+                default:
+                    System.out.println("Opción no reconocida");
+                    break;
+            }
+        }
+        sc.close();
+    }
+}
