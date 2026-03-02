@@ -1,0 +1,84 @@
+Scanner sc = new Scanner(System.in);                                                          erroes 
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;           
+        while (opcion != 3); {   
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");                                            
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    if (venta < 0); {   // ERROR 2
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas = venta;   
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    for (int i = 0; i <= contadorVentas; i++) {   
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+        sc.close();
+
+
+errores
+ N.1: while: ; el punto y coma c termina el while y solo funciona una vez
+ N.2: if: ; el punto y coma hace que no funcione el comando
+ N.3 toatlventas: le falta el + ya que asi se sumarian las otras ventas                                                errores logicos
+ N.4 if venta < 0 : le falta un <= ya q si no lo agregamos nos marcaria error o venta no valida
+ N.5  for i <= contador ventas: le quitaríamos el igual ya que se ejecutaría una vez mas cuando solo serian 3
+
+
+código sin errores
+
+Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+        while (opcion != 3) {
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    if (venta <= 0) {
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas += venta;
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    for (int i = 0; i < contadorVentas; i++) {
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+
