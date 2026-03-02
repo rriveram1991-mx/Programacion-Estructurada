@@ -1,0 +1,22 @@
+﻿Errores
+1.- Estructural Linea 10 - El “;” no debe ir ahi
+2.- Estructural Linea 20 - El “;” no debe ir ahi
+3.- Estructural Linea 23 - Cambia en valor de ventas en lugar de sumarlo
+4.- Lógico Linea 20 - Tampoco se debe considerar el valor de “0”
+5.- Estructural Linea 30 - ese for queda de mas y aunque busque conservarlo, no da el conteo de ventas al final
+
+
+Preguntas del examen
+1. ¿Por qué el sistema entra en un comportamiento inesperado desde el inicio?
+Porque el bucle no pude iniciarse por como se escribio el while
+2. ¿Por qué el sistema acepta ventas negativas?
+No acepta negativas pero aceptaba con valor “0” porque solo se prohibieron valores menores
+3. ¿Por qué el total vendido no se acumula correctamente?
+Porque se reemlazaba por el valor reciente
+4. ¿Qué problema lógico existe en el for?
+No indica el total del conteo que hizo
+5. ¿El sistema realmente termina cuando se elige la opción 3? Justifica tu respuesta.
+Si, el while indica que el sistema se repetirá una y otra vez hasta que la opción seleccionada sea =3
+6. Explica qué hace el sistema actualmente (con los errores) y qué debería hacer realmente.
+Con errores ni siquiera iniciaba, cerraba al instante, debía llevar un conteo de las ganancias adquiridas y en cuantas ventas
+7. Reescribe el código completamente corregido.
