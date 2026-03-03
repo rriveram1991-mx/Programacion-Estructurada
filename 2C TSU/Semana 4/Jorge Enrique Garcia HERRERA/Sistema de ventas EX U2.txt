@@ -1,0 +1,127 @@
+import java.util.Scanner;
+public class SistemaVentas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+        while (opcion != 3); {   //while se cierra antes ";"
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    if (venta < 0); {   // error termina el if  
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas = venta;   //no acumula ventas
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    for (int i = 0; i <= contadorVentas; i++) {   //imprime mal las ventas
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida"); //no valida 0 como invalido 
+            }
+        }
+        sc.close();
+    }
+}
+
+1.¿Por qué el sistema entra en un comportamiento inesperado desde el inicio? 
+R=Se crea un bucle infinito debido al while
+2.¿Por qué el sistema acepta ventas negativas? 
+R=Error lógico en el else y en el if que impide una buena 
+3.¿Por qué el total vendido no se acumula correctamente?
+R=Debido a que "Totalventas= ventas" da como resultado las ventas iniciales
+4.¿Qué problema lógico existe en el for?
+R=El que imprima 4 ventas en lugar de 3
+5.¿El sistema realmente termina cuando se elige la opción 3? Justifica tu respuesta.
+R=No debido al error en el while se generan errores que llevan a un bucle infinito
+6.Explica qué hace el sistema actualmente (con los errores) y qué debería hacer realmente.
+R=
+CON ERRORES
+1. genera un bucle infinito
+    2. no acumula ventas
+     3.no calcula bien vetas negativas
+    4.imprime mas ventas de las que debe
+LO QUE DEBERIA DE HACER
+1registrar ventas 
+2.ignorar ventas negativas
+3.acumular ventas
+4.registrarlas
+5.salir correctamente con opción 3
+
+
+7.Reescribe el código completamente corregido.
+import java.util.Scanner;
+
+public class SistemaVentas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+
+        while (opcion != 3) {
+
+            System.out.println("\n1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+
+                    if (venta <= 0) {
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas += venta; // Ahora acumula correctamente
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+
+                case 2:
+
+                    System.out.println("Total vendido: $" + totalVentas);
+                    System.out.println("Numero de ventas: " + contadorVentas);
+
+                    for (int i = 0; i < contadorVentas; i++) {
+                        System.out.println("Procesando venta...");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+
+        sc.close();
+    }
+}
