@@ -1,0 +1,48 @@
+     int[] calificaciones = new int[5];
+        int suma = 0;
+        int aprobados = 0;
+
+        // Captura de datos
+        for (int i = 0; i < calificaciones.length; i++) {
+//se agrega un uno para que comience en 1 y además que int=0
+            System.out.println("Ingrese calificación " + (i+1) + ": ");
+            calificaciones[i] = sc.nextInt();
+            //se cambio el && para que en cualquier caso si aplique
+while (calificaciones[i] < 0 || calificaciones[i] > 100) {
+                System.out.println("Calificación inválida. Intente nuevamente:");
+                calificaciones[i] = sc.nextInt();
+            }
+          
+        }
+  
+        // Mostrar calificaciones
+        for (int cal:calificaciones) {
+            System.out.println("Calificación: " + cal);
+            //agregamos el contador
+            suma += cal;
+        }
+
+        // Contar aprobados
+        //se agrega un cierre del ciclo al while
+        int j = 0;
+        while (j < calificaciones.length) {
+            if (calificaciones[j] > 70) {
+                aprobados++;
+            }
+            j++;
+        }
+
+        double promedio = suma / calificaciones.length;
+// se agregaron llaves
+        if (promedio >= 70)
+        {
+            System.out.println("Grupo aprobado");
+        }
+        else
+        {
+            System.out.println("Grupo reprobado");
+        }
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Aprobados: " + aprobados);
+    }
+}
