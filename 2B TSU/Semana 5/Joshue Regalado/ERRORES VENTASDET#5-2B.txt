@@ -1,0 +1,8 @@
+ERRORES VENTASDET#5-2B
+
+LINEA 25: ERROR DE COMPILACION: Se quito el = del for 
+LINEA 38: ERROR LOGICO: Se agrego el + al = ya que no se realizaba la sumatoria
+LINEA 42: ERROR LOGICO: Se cambio ventas[0] por v
+LINEA 52: ERROR DE COMPILACION: Se quito el = del while
+LINEA 57: ERRO DE COMPILACION: See agrego una sumatoria de j para que no quedara en bucle
+LINEA 60: ERROR LOGICO: El if no tenia {}

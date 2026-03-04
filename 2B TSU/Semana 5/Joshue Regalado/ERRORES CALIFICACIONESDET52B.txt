@@ -1,0 +1,10 @@
+ERRORES CALIFICACIONESDET52B
+
+LINEA 22: ERROR LOGICO: Se cambio la definición de suma de int a double
+LINEA 26: ERROR DE COMPILACION: El for i=0 empezaba con 1 en vez de 0 y el < tenia un = entonces esto hacia que diera un error
+LINEA 28: ERROR LOGICO: Se agrego un +1 al i para que se vea mas bonito
+LINEA 31: ERROR LOGICO: En el while nunca se iba a ejecutar ya que tenia un && en vez de un ||
+LINEA 40: ERROR LOGICO: Nunca se realizaba la suma de las calificaciones
+LINEA 44: ERROR LOGICO: El valor de j nunca aumenta asi que se queda en bucle
+LINEA 49: ERROR DE COMPILACION: Se agrego un aumentador de valor al j
+
