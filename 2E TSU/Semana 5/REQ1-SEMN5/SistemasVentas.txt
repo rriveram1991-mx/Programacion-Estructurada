@@ -1,0 +1,163 @@
+Requerimientos del Sistema
+
+El sistema debe:
+
+Registrar 6 ventas (montos en pesos).
+No permitir ventas negativas.
+Calcular:
+Total vendido
+Promedio de ventas
+Venta mayor
+Mostrar cuántas ventas fueron mayores al promedio.
+
+CODIGO CON ERRORES
+import java.util.Scanner;
+
+public class SistemaVentas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double[] ventas = new double[6];
+        double total = 0;
+        double mayor = 0;
+
+        // Captura de ventas
+        for (int i = 0; i <= ventas.length; i++) {   //ERROR
+ 
+            System.out.println("Ingrese venta #" + (i + 1) + ": ");
+            ventas[i] = sc.nextDouble();
+
+            while (ventas[i] < 0) {
+                System.out.println("No se permiten ventas negativas. Intente de nuevo:");
+                ventas[i] = sc.nextDouble();
+            }
+        }
+
+        // Calcular total y mayor
+        for (double v : ventas) {
+            total = v;  //ERROR
+
+            if (v > mayor) {
+                mayor = ventas[0];  //ERROR
+            }
+        }
+
+        double promedio = total / ventas.length;
+
+        // Contar ventas mayores al promedio
+        int contador = 0;
+        int j = 0;
+
+        while (j <= ventas.length) {  //ERROR
+
+            if (ventas[j] >= promedio) { //ERROR
+                contador++;
+            }
+        }
+
+        if (contador > 0)
+            System.out.println("Hay ventas mayores al promedio");
+
+        System.out.println("Total vendido: " + total);
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Venta mayor: " + mayor);
+        System.out.println("Cantidad mayores al promedio: " + contador);
+    }
+}
+
+ERRORES DETECTADOS
+
+Error en el for de captura de ventas 
+
+Error al capturar el total vendido 
+
+Error en el calculo de la venta mayor
+
+Error en la condicion del ciclo while
+
+Falta de incremento en el ciclo while 
+
+Error logico en la comparacion con el promedio
+
+
+
+CODIGO CORREGIDO
+
+
+
+import java.util.Scanner;
+
+public class SistemaVentas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double[] ventas = new double[6];
+        double total = 0;
+        double mayor = 0;
+
+        // Captura de ventas
+        for (int i = 0; i < ventas.length; i++) {
+
+            System.out.println("Ingrese venta #" + (i + 1) + ": ");
+            ventas[i] = sc.nextDouble();
+
+            while (ventas[i] < 0) {
+                System.out.println("No se permiten ventas negativas. Intente de nuevo:");
+                ventas[i] = sc.nextDouble();
+            }
+        }
+
+        // Calcular total y mayor
+        for (double v : ventas) {
+            total += v;
+
+            if (v > mayor) {
+                mayor = v;
+            }
+        }
+
+        double promedio = total / ventas.length;
+
+        // Contar ventas mayores al promedio
+        int contador = 0;
+        int j = 0;
+
+        while (j < ventas.length) {
+
+            if (ventas[j] > promedio) {
+                contador++;
+            }
+
+            j++;
+        }
+
+        System.out.println("Total vendido: " + total);
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Venta mayor: " + mayor);
+        System.out.println("Cantidad mayores al promedio: " + contador);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
