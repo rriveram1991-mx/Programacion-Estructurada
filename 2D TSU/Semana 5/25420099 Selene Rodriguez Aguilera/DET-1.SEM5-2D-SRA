@@ -1,0 +1,69 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication65;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author crist
+ */
+public class JavaApplication65 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+  
+
+  
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] calificaciones = new int[5];
+        int suma = 0;
+        int aprobados = 0;
+
+        // Captura de datos
+        for (int i = 0;i <= calificaciones.length; i++) {  //Empiezan en 0 no en 1.
+
+            System.out.println("Ingrese calificación " + i + ": ");
+            calificaciones[i] = sc.nextInt();
+
+            while (calificaciones[i] < 0 || calificaciones[i] > 100) { // Quitamos la  "&&" ya que hay una probabilidad de que no funcione ya que no puede ser menor que 0 y mayor a 100 al mismo tiempo.
+                System.out.println("Calificación inválida. Intente nuevamente:");
+                calificaciones[i] = sc.nextInt();
+            }
+        }
+
+        // Mostrar calificaciones
+        for (int cal : calificaciones) {
+            System.out.println("Calificación: " + cal);
+            suma +=    cal; //Aqui quito el "=" ya que no los estoy acumulando
+        }
+
+        // Contar aprobados
+        int j = 0;
+        while (j < calificaciones.length) {
+            if (calificaciones[j] > 70) {
+                aprobados++;
+            }
+        }
+
+        double promedio =   (double) suma / calificaciones.length;  //corrijo aqui ya que como es division se lleva decimales asi que le implemento (double).
+
+        if (promedio >= 70){ //Aqui lleva una llave 
+            System.out.println("Grupo aprobado");
+    }else{ //Faltaban esas llaves 
+            System.out.println("Grupo reprobado");
+
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Aprobados: " + aprobados);
+        }
+    }
+}
+
+
+  
