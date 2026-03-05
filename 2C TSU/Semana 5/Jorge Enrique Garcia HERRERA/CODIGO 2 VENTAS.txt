@@ -1,0 +1,117 @@
+/CODIGO 2 ERRORES
+import java.util.Scanner;
+
+public class SistemaVentas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double[] ventas = new double[6];
+        double total = 0;
+        double mayor = 0;
+
+        // Captura de ventas
+        for (int i = 0; i <= ventas.length; i++) { // ERROR: debe ser < porque el arreglo llega hasta 5
+
+            System.out.println("Ingrese venta #" + (i + 1) + ": ");
+            ventas[i] = sc.nextDouble(); // ERROR: cuando i = 6 intentará acceder a una posición que no existe
+
+            while (ventas[i] < 0) {
+                System.out.println("No se permiten ventas negativas. Intente de nuevo:");
+                ventas[i] = sc.nextDouble();
+            }
+        }
+
+        // Calcular total y mayor
+        for (double v : ventas) {
+            total = v; // ERROR: se está reemplazando el total, debería acumularse
+
+            if (v > mayor) {
+                mayor = ventas[0]; // ERROR: debería guardarse v, no ventas[0]
+            }
+        }
+
+        double promedio = total / ventas.length;
+
+        // Contar ventas mayores al promedio
+        int contador = 0;
+        int j = 0;
+
+        while (j <= ventas.length) { // ERROR: debe ser < para evitar salir del arreglo
+
+            if (ventas[j] >= promedio) {
+                contador++;
+            }
+
+            // ERROR: falta incrementar j, provoca ciclo infinito
+        }
+
+        if (contador > 0)
+            System.out.println("Hay ventas mayores al promedio");
+
+        System.out.println("Total vendido: " + total);
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Venta mayor: " + mayor);
+        System.out.println("Cantidad mayores al promedio: " + contador);
+    }
+}
+
+CODIGO CORREGIDO
+import java.util.Scanner;
+
+public class SistemaVentas {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double[] ventas = new double[6];
+        double total = 0;
+        double mayor = 0;
+
+        // Captura de ventas
+        for (int i = 0; i < ventas.length; i++) { // corregido
+
+            System.out.print("Ingrese venta #" + (i + 1) + ": ");
+            ventas[i] = sc.nextDouble();
+
+            while (ventas[i] < 0) { // validación correcta
+                System.out.print("No se permiten ventas negativas. Intente de nuevo: ");
+                ventas[i] = sc.nextDouble();
+            }
+        }
+
+        // Calcular total y mayor
+        for (double v : ventas) {
+
+            total += v; // corregido: acumular ventas
+
+            if (v > mayor) {
+                mayor = v; // corregido: guardar la venta mayor
+            }
+        }
+
+        double promedio = total / ventas.length;
+
+        // Contar ventas mayores al promedio
+        int contador = 0;
+        int j = 0;
+
+        while (j < ventas.length) { // corregido
+
+            if (ventas[j] > promedio) { // contar las mayores al promedio
+                contador++;
+            }
+
+            j++; // corregido: incremento para evitar ciclo infinito
+        }
+
+        System.out.println("Total vendido: " + total);
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Venta mayor: " + mayor);
+        System.out.println("Cantidad de ventas mayores al promedio: " + contador);
+
+        sc.close();
+    }
+}

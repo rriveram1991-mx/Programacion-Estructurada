@@ -1,0 +1,112 @@
+CODIGO 1 ERRORES
+import java.util.Scanner;
+
+public class SistemaCalificaciones {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] calificaciones = new int[5];
+        int suma = 0;
+        int aprobados = 0;
+
+        // Captura de datos
+        for (int i = 1; i <= calificaciones.length; i++) { // ERROR: los arreglos empiezan en 0, debería iniciar en 0 y usar <
+
+            System.out.println("Ingrese calificacion " + i + ": ");
+            calificaciones[i] = sc.nextInt(); // ERROR: cuando i = 5 se intenta acceder a una posición que no existe
+
+            while (calificaciones[i] < 0 && calificaciones[i] > 100) { // ERROR: condición imposible (no puede ser menor que 0 y mayor que 100 al mismo tiempo)
+                System.out.println("Calificacion invalida . Intente nuevamente:");
+                calificaciones[i] = sc.nextInt();
+            }
+        }
+
+        // Mostrar calificaciones
+        for (int cal : calificaciones) {
+            System.out.println("Calificacion: " + cal);
+            suma = cal; // ERROR: debería acumularse (suma += cal)
+        }
+
+        // Contar aprobados
+        int j = 0;
+        while (j < calificaciones.length) {
+            if (calificaciones[j] > 70) { // ERROR: debería ser >= 70 según el requerimiento
+                aprobados++;
+            }
+            // ERROR: falta incrementar j, esto provoca un ciclo infinito
+        }
+
+        double promedio = suma / calificaciones.length; // ERROR: división entre enteros (puede perder decimales)
+
+        if (promedio >= 70)
+            System.out.println("Grupo aprobado");
+        else
+            System.out.println("Grupo reprobado");
+
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Aprobados: " + aprobados);
+    }
+}
+
+CODIGO CORREGIDO
+import java.util.Scanner;
+
+public class SistemaCalificaciones {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] calificaciones = new int[5];
+        int suma = 0;
+        int aprobados = 0;
+
+        // Captura de datos
+        for (int i = 0; i < calificaciones.length; i++) { // corregido: iniciar en 0 y usar <
+
+            System.out.print("Ingrese calificacion " + (i + 1) + ": ");
+            calificaciones[i] = sc.nextInt();
+
+            // Validación correcta
+            while (calificaciones[i] < 0 || calificaciones[i] > 100) { // corregido: usar OR
+                System.out.print("Calificacion invalida. Intente nuevamente: ");
+                calificaciones[i] = sc.nextInt();
+            }
+        }
+
+        // Mostrar calificaciones y sumar
+        for (int cal : calificaciones) {
+            System.out.println("Calificacion: " + cal);
+            suma += cal; // corregido: acumular valores
+        }
+
+        // Contar aprobados
+        int j = 0;
+        while (j < calificaciones.length) {
+
+            if (calificaciones[j] >= 70) { // corregido: >= 70
+                aprobados++;
+            }
+
+            j++; // corregido: incremento para evitar ciclo infinito
+        }
+
+        // Calcular promedio
+        double promedio = (double) suma / calificaciones.length; // corregido: división con decimal
+
+        if (promedio >= 70)
+            System.out.println("Grupo aprobado");
+        else
+            System.out.println("Grupo reprobado");
+
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Aprobados: " + aprobados);
+
+        sc.close();
+    }
+}
+
+
+/
