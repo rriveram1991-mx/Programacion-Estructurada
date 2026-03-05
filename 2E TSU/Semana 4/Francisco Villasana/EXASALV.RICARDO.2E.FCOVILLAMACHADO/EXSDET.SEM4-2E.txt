@@ -1,0 +1,96 @@
+DETECCION DE ERRORES
+
+1- while (opcion != 3); --- El PUNTO Y COMA hace que el while quede vacío y provoque un bucle infinito
+
+2- if (venta < 0); -- Ese ; hace que la condición no controle nada.
+El bloque se ejecuta siempre
+
+3- if (venta < 0); -- no puede ser solo menor, tendría que ser menor igual a 0 para que registre correctamente la venta
+
+4- totalVentas = venta; -- Reemplaza el total anterior en vez de sumarlo
+
+5- for (int i = 0; i <= contadorVentas; i++) -- Se ejecuta una vez más de lo necesario
+si hay 3 ventas, imprime 4 veces
+
+QUE TIPO DE ERROR SON 
+
+1- Error lógico
+2- Error Sintatico 
+3- Error Lógico
+4- Error Lógico
+5- Error Lógico
+
+PREGUNTAS DEL EXAMEN
+
+1.¿Por qué el sistema entra en un comportamiento inesperado desde el inicio?
+   ES CAUSADO POR EL PUNTO Y COMA DESPUES DEL WILE HACIENO QUE EL CICLO QUEDE VACIO Y EL BLOQUE NO SE EJECUTE COMO PARTE DEL WHILE, HACIENDO QUE EL MENU NO SE PUEDA REPETIR O SE QUEDE COMO CONGELADO EN UN BUCLE INFINITO
+
+2.¿Por qué el sistema acepta ventas negativas?
+   EL PUNTO Y COMA DESPUES DEL IF HACE QUE EL BLOQUE SE EJECUTE SIEMPRE IGNORANDO A CONDICION HACIENDO QUE EL PROGRAMA PUEDA REGISTRAR VENTAS NEGATIVAS O IGNORARLAS JIJIJA
+
+3.¿Por qué el total vendido no se acumula correctamente?
+   PORQUE LA VARIABLE "TOTALVENTAS" USA UN = SOLAMENTE AL MOMENTO DE SUMARLO CON LA VENTA HACIENDO QUE NO SE ACUMULEN LA FORMA ADECUADA ES USAR UN +=
+
+4.¿Qué problema lógico existe en el for?
+   EL PROBLEMA LOGICO DEL FOR ES QUE HAY 3 VENTAS Y IMPRIME 4 VECES (0,1,2,3) EN LUGAR DE IMPRIMER SOLO 3, SE DEBERIA USAR UN < EN LUGAR DE UN <=
+
+5.¿El sistema realmente termina cuando se elige la opción 3? Justifica tu respuesta.
+   NO, PORQUE EL SISTEMA NUNCA LLEGARIA CERRARSE PORQUE NI SIQUIERA LOGRA MOSTRAR EL MENU, EL PUNTO Y COMA DESPUES DEL PARENTESIS CREA UNA INSTRUCCION VACIA QUE HACE QUE SE REPITA INFINITAMENTE 
+
+6.Explica qué hace el sistema actualmente (con los errores) y qué debería hacer realmente.
+     El código se queda congelado de primeras, falla la compilación ya que si intentas ejecutarlo, te saldrá un error también tiene perdida de datos porque si lograra ejecutarse el sistema olvida las ventas anteriores por el error de totalventas ya que sobrescribe el valor en vez de sumarlo
+
+lo que debería hacer realmente el programa es que debería mostrar el menu repetidamente hasta que el usuario ya no lo desee ose presionando 3, acumulación de compras, debería registrar una venta y sumar a otra si es que hubo otra, validar datos como proteger la lógica haciendo que no se puedan hacer compras de 0 pesos o números negativos, en la opción 2 debería de mostrar no solo el dinero si no que un historial o confirmación visual 
+  
+7.Reescribe el código completamente corregido.
+
+import java.util.Scanner;
+
+public class SistemaVentas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion = 0;
+        double totalVentas = 0;
+        int contadorVentas = 0;
+
+            while (opcion != 3) {  
+            System.out.println("\n--- Menú de Ventas ---");
+            System.out.println("1. Registrar venta");
+            System.out.println("2. Mostrar total vendido");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opcion: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese monto de la venta: ");
+                    double venta = sc.nextDouble();
+                    // Se eliminó el ";" después del if
+                    if (venta < 0) {   
+                        System.out.println("Venta invalida");
+                    } else {
+                        totalVentas += venta; // Se cambió "=" por "+=" para acumular
+                        contadorVentas++;
+                        System.out.println("Venta registrada");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total vendido: " + totalVentas);
+                    // Se cambió "<=" por "<" para un conteo exacto
+                    for (int i = 0; i < contadorVentas; i++) {   
+                        System.out.println("Procesando registro " + (i + 1) + "...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+        sc.close();
+    }
+}
+
+
+ 
