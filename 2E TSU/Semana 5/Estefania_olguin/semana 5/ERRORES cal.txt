@@ -1,0 +1,9 @@
+ERRORES 
+1.Error en el for, en los arreglos empiezan de 0. Error lógico
+2. Error en el for no se puede poner <= por que el ultimo indice valido es -1. Error de ejecución
+3. Un número no puede ser menor que 0 y mayor que 100 al mismo tiempo, en while usamos &&, lo correcto sería || para comparar. Error lógico
+4.Error al sumar, suma=cal no acumula las calificaciones debe ser. Error lógico
+5. no se incrementa j, por lo que el ciclo se vuelve infinito Error lógico 
+6. Error en el promedio la division es entera, entonces se tiene q declarar double, Error lógico
+7. Se usa escala del 1 al 10, entonces en el if de calificaciones se coloca un 7 para que lean los  alumnos aprobados 
+8.Faltan corchetes, en el ultimo if -else, Error sintático 

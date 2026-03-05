@@ -1,0 +1,7 @@
+ERRORES SISTEMAVENTAS
+
+1.Error en el for, se utiliza <= EL ULTIMO INDICE VALIDO ES -1, Error de ejecución
+2.Error en el total del segundo for, no se acula el valor de ventas, total +=v; Error lógico
+3.Error en calcular la venta mayor, debe colocarse = v, para que lea la venta actual, Error lógico 
+4.Error en el while, se usa <=, Error de ejecución 
+5. Falta incrementar en el while , Error lógico
