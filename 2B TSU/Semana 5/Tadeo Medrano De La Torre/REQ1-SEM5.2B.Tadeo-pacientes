@@ -1,0 +1,55 @@
+     Scanner leer =new Scanner (System.in);
+        System.out.println("cuantos paceintes quiere registrar?");
+        //declaracion de datos
+        int pacientes =leer.nextInt();
+        leer.nextLine();
+        String[] nombres =new String[pacientes];
+        int[] edades =new int[pacientes];
+        //operaciones correspondientes
+        for (int i=0; i<pacientes; i++) {
+            System.out.println("ingrese el nombre del paciente:" +"   "+ (i+1) + ":");
+            nombres[i] =leer.nextLine();
+           
+            System.out.println("ingrese la edad del paciente" +"  "+ (i+1) + ":");
+            edades[i] = leer.nextInt();
+            leer.nextLine();
+            //while de validacion
+             while (edades[i]<0 || edades[i]>120){
+                System.out.println("edad invalidad, ingrese de nuevo");
+                edades[i] = leer.nextInt();
+                leer.nextLine();
+                
+            }
+           
+        }
+        //declaracion para el uso de los contadores
+        
+            int viejito =0;
+            int adulto =0;
+            int niño=0;
+            for (String paciente:nombres)
+            {
+                System.out.println("nombre del paciente:" + paciente);
+              
+        }
+            //for each para las edades
+         for (int edad:edades)
+               {
+                    System.out.println("edad:" + edad);
+                       if (edad>=60){
+                       
+                       viejito++;
+                   }
+                   else if(edad>=18){
+                     
+                       adulto++;
+            }
+                   else if (edad<18){
+                    
+                       niño++;
+                   }
+            }
+        System.out.println("total de pacientes prioritarios:" + viejito);
+    }
+    }
+
