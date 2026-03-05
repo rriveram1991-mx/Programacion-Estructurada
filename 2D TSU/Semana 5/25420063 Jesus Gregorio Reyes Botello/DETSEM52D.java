@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.det.sem5.d;
+package com.mycompany.detsem52d;
 
 import java.util.Scanner;
 
@@ -13,53 +13,56 @@ import java.util.Scanner;
 public class DETSEM52D {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        int[] calificaciones = new int[5];
-        int suma = 0;
-        int aprobados = 0;
+        double[] ventas = new double[6];
+        double total = 0;
+        double mayor = 0;
 
-        // Captura de datos
-        //#1 i inicia en 1 debe seo 0
-        //#2 tambiem en i <= calificaciones debe ser < 
-        for (int i = 0; i < calificaciones.length; i++) {
+        // Captura de ventas
+        //#1 el for esta fuera de rango
+        for (int i = 0; i < ventas.length; i++) {
 
-            System.out.println("Ingrese calificación " + (i + 1) + ": ");
-            calificaciones[i] = sc.nextInt();
+            System.out.println("Ingrese venta #" + (i + 1) + ": ");
+            ventas[i] = sc.nextDouble();
 
-            while (calificaciones[i] < 0 || calificaciones[i] > 100) {
-                System.out.println("Calificación inválida. Intente nuevamente:");
-                calificaciones[i] = sc.nextInt();
+            while (ventas[i] < 0) {
+                System.out.println("No se permiten ventas negativas. Intente de nuevo:");
+                ventas[i] = sc.nextDouble();
+            }
+        }
+//#2 la suma debe acumular
+        // Calcular total y mayor
+        for (double v : ventas) {
+            total += v;
+
+            if (v > mayor) {
+                mayor = v;
             }
         }
 
-        // Mostrar calificaciones
-        //#3 En la suma falta el + para acumular 
-        for (int cal : calificaciones) {
-            System.out.println("Calificación: " + cal);
-            suma += cal;
-        }
+        double promedio = total / ventas.length;
 
-        // Contar aprobados
+        // Contar ventas mayores al promedio
+        int contador = 0;
         int j = 0;
-        while (j < calificaciones.length) {
-            if (calificaciones[j] > 70) {
-                aprobados++;
+
+        while (j < ventas.length) {
+
+            if (ventas[j] >= promedio) {
+                contador++;
             }
-        //#4 Falta el contador
+            //#3 falta el contador
             j++;
         }
-//#5 posible division entre 0 agregamos el couble al suma
-        double promedio = (double) suma / calificaciones.length;
-
-        if (promedio >= 70)
-            System.out.println("Grupo aprobado");
-        else
-            System.out.println("Grupo reprobado");
-
+//#4 faltan llaves
+        if (contador > 0){
+            System.out.println("Hay ventas mayores al promedio");
+        }
+        System.out.println("Total vendido: " + total);
         System.out.println("Promedio: " + promedio);
-        System.out.println("Aprobados: " + aprobados);
+        System.out.println("Venta mayor: " + mayor);
+        System.out.println("Cantidad mayores al promedio: " + contador);
 
     }
 }
