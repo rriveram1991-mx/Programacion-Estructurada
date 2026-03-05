@@ -1,0 +1,15 @@
+ejercicio 1
+linea 16 //error lógico// i mal definido no lee correctamente el arreglo. debe ser definido como 0.
+linea 16 //error de sintaxis// mal uso de <=, da error debido a que lenght vale 5(numero de espacios) el numero de iteraciones es superior a lo que el arreglo fue definido (0,1,2,3,4) se validan de 0 a 4 pero el for lanza otra iteración dando error.
+linea 21 //error lógico// mal uso de AND &&. forma correcta OR ||
+linea 30 //error lógico// falta de + antes del =
+linea 36 //error lógico// calificación de aprobatoria mínima es de 70 pero el programa solo valida adelante de 70.
+linea 38 //error lógico// falta suma de j en cada iteración creando un bucle.
+
+ejercicio 1.1
+linea 16 //error de sintaxis// uso indebido de <= for crea una iteración mas ya que lenght se lee como valor de 6 el igual crea mas de 6 iteraciones mientras que el arreglo solo puede almacenar 6 cantidades.
+linea 29 //error lógico// falta de + en = no suma nada
+
+linea 32 //error lógico// mal asignado la variable mayor, ventas[0] solo asignara el mismo valor sin cambios, forma correcta usar v en cada iteración compara correctamente si es mayor o no.
+linea 42 //error lógico// uso incorrecto de >=
+linea 46 //error lógico// falta suma de j para cerrar el ciclo de while
