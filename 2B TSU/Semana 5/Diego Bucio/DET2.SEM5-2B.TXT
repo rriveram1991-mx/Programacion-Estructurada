@@ -1,0 +1,30 @@
+Notas de Corrección - Sistema de Ventas
+1. Desbordamiento de Arreglo en Captura (Error de Ejecución):
+
+El Problema: El ciclo for original usaba la condición i <= ventas.length. Como los arreglos en Java tienen índice cero, intentar acceder a la posición 6 (la longitud total) provoca una excepción ArrayIndexOutOfBoundsException que crashea el programa.
+
+La Solución: Se cambió la condición a estrictamente menor que (<), quedando como i < ventas.length.
+
+2. Asignación Destructiva del Total (Error Lógico):
+
+El Problema: Dentro del ciclo for-each, la instrucción total = v; estaba reemplazando el valor anterior en cada iteración en lugar de sumarlo. El resultado final siempre era igual a la última venta registrada, ignorando las demás.
+
+La Solución: Se utilizó el operador de acumulación += (total += v;) para que cada venta se vaya sumando al acumulado global.
+
+3. Lógica Estática para el Número Mayor (Error Lógico):
+
+El Problema: Al evaluar si la venta actual era mayor al récord registrado (if (v > mayor)), la asignación estática mayor = ventas[0]; forzaba al sistema a guardar siempre el valor del primer elemento capturado, ignorando al verdadero número mayor.
+
+La Solución: Se modificó la asignación para capturar dinámicamente el valor iterado actual: mayor = v;.
+
+4. Ciclo Infinito y Desbordamiento en el While (Error Lógico/Ejecución):
+
+El Problema: El ciclo while encargado de contar las ventas mayores al promedio carecía de un incremento para su variable de control (j). Además, conservaba el error de desbordamiento al usar <= ventas.length.
+
+La Solución: Se agregó la instrucción de incremento j++; al final del bloque del while para garantizar que el ciclo avance, y se ajustó la condición a j < ventas.length.
+
+5. Condición de Promedio No Estricta (Error Lógico):
+
+El Problema: El requerimiento del sistema pedía contar estrictamente las ventas "mayores al promedio". La condición original ventas[j] >= promedio estaba incluyendo erróneamente las ventas que fueran iguales al promedio.
+
+La Solución: Se eliminó el signo de igual para hacer la evaluación estrictamente mayor: if (ventas[j] > promedio).

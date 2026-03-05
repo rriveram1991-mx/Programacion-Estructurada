@@ -1,0 +1,11 @@
+Desbordamiento de Arreglo (Array Out of Bounds): En la captura de datos original, el ciclo for empezaba en 1 y llegaba hasta <= calificaciones.length. Esto causaba un error fatal porque los índices en Java empiezan en 0. Se corrigió inicializando i = 0 y usando estrictamente menor que (<).
+
+Validación Inalcanzable (Error Lógico): El while que validaba las calificaciones usaba el operador && (requiriendo que el número fuera menor a 0 Y mayor a 100 al mismo tiempo, lo cual es matemáticamente imposible). Se cambió por el operador lógico OR (||).
+
+La Suma con Amnesia (Error Lógico): En el ciclo for-each, la variable suma estaba siendo reasignada constantemente (suma = cal;), aplastando el valor anterior. Se modificó por un operador de acumulación (suma += cal;) para obtener el total real.
+
+El Agujero Negro (Ciclo Infinito): El ciclo while encargado de contar a los alumnos aprobados no tenía un incremento para su variable de control. Se agregó la instrucción j++; antes de cerrar la llave para permitir que el ciclo avance y el programa no se congele en la memoria.
+
+El Falso Decimal (Pérdida de Precisión): La variable suma estaba declarada como int. Al dividir dos enteros, Java recorta los decimales antes de asignarlos al double promedio. Se cambió la declaración a double suma = 0; para forzar una división con punto flotante y obtener el promedio exacto.
+
+Mejora de Experiencia de Usuario (UX): Se modificó la impresión de texto al pedir datos. En lugar de imprimir el índice técnico i (que empezaría pidiendo la "Calificación 0"), se agregó la operación (i + 1) para que el usuario visualice "Calificación 1, 2, 3...", haciendo el sistema más intuitivo
