@@ -1,0 +1,63 @@
+Requerimiento del Sistema
+
+El sistema debe:
+
+Permitir capturar 5 calificaciones.
+Validar que cada calificación esté entre 0 y 100.
+Mostrar todas las calificaciones ingresadas.
+Calcular el promedio.
+Mostrar cuántos alumnos aprobaron (>= 70).
+
+
+CODIGO 
+
+import java.util.Scanner;
+
+public class SistemaCalificaciones {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] calificaciones = new int[5];
+        int suma = 0;
+        int aprobados = 0;
+
+        // Captura de datos
+        for (int i = 1; i <= calificaciones.length; i++) { // Error: el índice debe ser menor que la longitud del arreglo
+
+            System.out.println("Ingrese calificación " + i + ": "); //Se le agrega 1 para el programa no empiece a contar desde 0.
+            calificaciones[i] = sc.nextInt();
+
+            while (calificaciones[i] < 0 && calificaciones[i] > 100) {
+                System.out.println("Calificación inválida. Intente nuevamente:");
+                calificaciones[i] = sc.nextInt();
+            }
+        }
+
+        // Mostrar calificaciones
+        for (int cal : calificaciones) {
+            System.out.println("Calificación: " + cal);
+            suma = cal; suma += cal; //Error: No se estaba acumulando. 
+        }
+
+        // Contar aprobados
+        int j = 0;
+        while (j < calificaciones.length) {
+            if (calificaciones[j] > 70) { //Error: La aprobación es 70 o más.
+                aprobados++;
+            }
+		//Error: No se estaba incrementando.
+        }
+
+        double promedio = suma / calificaciones.length; //Error: La división da como resultdo entero, deberia ser decimal. 
+
+        if (promedio >= 70)
+            System.out.println("Grupo aprobado");
+        else
+            System.out.println("Grupo reprobado");
+
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Aprobados: " + aprobados);
+    }
+}
