@@ -1,0 +1,8 @@
+linea 15 en la i debe de ser (i+1) Error logico
+linea 13 debe ser < y no <= Error logico
+linea 18 tenia un && debia de ser un || Error logico
+linea 40 le falta un { al if Error sitactico
+linea 42 le falta un } al if Error sitactico
+linea 42 le falta un { al else Error sitactico
+linea 44 le falta un } al else Error sitactico
+linea 35 falta j++; para que no sea infinito el while Error logico

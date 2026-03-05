@@ -1,0 +1,7 @@
+linea 14 debe de ser < no <= Error logico
+linea 19 debe de ser <= no < Error logico
+linea 27 debe de ser += no = Error logico
+linea 29 dentro del if debe de ser == no > Error logico
+linea 45 falta j++; para no ser infinito Error logico
+linea 48 le falta un { al if Error sitactico
+linea 50 le falta un } al if Error sitactico
