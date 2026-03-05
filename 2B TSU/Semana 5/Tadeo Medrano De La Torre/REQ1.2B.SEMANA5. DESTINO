@@ -1,0 +1,53 @@
+     Scanner leer =new Scanner (System.in);
+        //declaracion de numeros
+        System.out.println("numero de pasajeros;");
+        int pasajeros=leer.nextInt();
+        leer.nextLine();
+        String[] nombres= new String[pasajeros];
+        String[] destinos =new String[pasajeros];
+        //inicio de los datos de resgistro
+        for(int i =0; i<pasajeros; i++) {
+            System.out.println("ingrese el nombre" + " "+ (i+1) + ":" );
+            nombres[i]=leer.nextLine();
+            System.out.println("ingrese el destino" + " " + (i+1) + ":");
+            destinos[i]=leer.nextLine();
+            //validacion y error 
+            if ( nombres[i].isEmpty()){
+                System.out.println("error falta de nombre");    
+            }
+            while (nombres[i].isEmpty()){
+                System.out.println("escriba su nombre:");
+                nombres[i] = leer.nextLine();
+                
+            }
+        }
+        //declaracion de datos
+        int c =0;
+        int cd=0;
+        int lo=0;
+        //tabla de datos
+        for (String nombre:nombres){
+            System.out.println("nombres del pasajero:" + nombre);
+            c++;
+        }
+       for(String destino:destinos){
+           if (destino.equals("local")){
+               lo++;
+               System.out.println("destino largo");
+       }
+           else if (destino.equals("cdmx")){
+               cd=0;
+               System.out.println("destino corto");
+           }
+        
+       } 
+       //uso de ternario
+        System.out.println("total de pasajeros:" + c);
+        String m_mas= (lo>cd)? "local":"cdmx";
+        System.out.println("viaje con mas pasajeros:" + m_mas);
+        int nmm= (lo>cd)? lo:cd;
+        System.out.println("con un numero de:" + nmm);
+    }       
+    }
+    
+
