@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class sistema1 {
+    public static void main(String[] args) {
+        List<String> nombres = new ArrayList<>();
+        List<Integer> edad = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        
+        String nombre;
+        int edades, pacientesT, cont1 = 0, cont2 = 0, cont3 = 0;
+
+        System.out.println("Teclea el total de pacientes a registrar");
+        pacientesT = sc.nextInt();
+        sc.nextLine(); // Limpiar buffer
+
+        for (int i = 1; i <= pacientesT; i++) {
+            System.out.println("Teclea el nombre del paciente " + i);
+            nombre = sc.nextLine();
+            nombres.add(nombre);
+
+            System.out.println("Teclea su edad");
+            edades = sc.nextInt();
+
+            // Validar edad
+            while (edades < 0 || edades > 120) {
+                System.out.println("Edad invalida");
+                System.out.println("Teclea la edad nuevamente");
+                edades = sc.nextInt();
+            }
+            edad.add(edades);
+            sc.nextLine(); // Limpiar buffer
+        }
+
+        // Mostrar nombres
+        System.out.println("\n--- Nombres registrados ---");
+        for (String mostrar : nombres) {
+            System.out.println(mostrar);
+        }
+
+        // Analizar edades
+        System.out.println("\n--- Análisis de edades ---");
+        for (Integer integer : edad) {
+            System.out.println("Edad: " + integer);
+            if (integer < 18) {
+                cont1++;
+            }
+            if (integer >= 18 && integer <= 59) {
+                cont2++;
+            }
+            if (integer >= 60) {
+                cont3++;
+                System.out.println("Paciente prioritario");
+            }
+        }
+
+        // Resultados
+        System.out.println("\n--- Resumen ---");
+        System.out.println("Menores de edad: " + cont1);
+        System.out.println("Adultos (18-59): " + cont2);
+        System.out.println("Pacientes prioritarios (60+): " + cont3);
+
+        sc.close();
+    }
+}   
