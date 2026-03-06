@@ -17,11 +17,9 @@ public class S5Ventas {
      */
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
-
         double[] ventas = new double[6];
         double total = 0;
         double mayor = 0;
-
         // Captura de ventas
         /*
         El arreglo "ventas" tiene 6 posiciones, pero los índices válidos van de 0 a 5.
@@ -34,16 +32,13 @@ public class S5Ventas {
         arreglo (0 a 5) y no se salga del límite.
         */
         for (int i = 0; i < ventas.length; i++) {
-
             System.out.println("Ingrese venta #" + (i + 1) + ": ");
             ventas[i] = sc.nextDouble();
-
             while (ventas[i] < 0) {
                 System.out.println("No se permiten ventas negativas. Intente de nuevo:");
                 ventas[i] = sc.nextDouble();
             }
         }
-
         // Calcular total y mayor
         for (double v : ventas) {
             /*
@@ -51,29 +46,22 @@ public class S5Ventas {
             reemplazaba el contenido de "total" por el nuevo valor.
             */
             total += v; //Se agrego + antes del = para generar la suma correctamente
-
             if (v > mayor) {
                 //Cuando encontraba una venta mayor, guardaba siempre el valor de la primera 
                 //venta (ventas[0]) en lugar del valor actual que se estaba evaluando.
                 mayor = v; //Corrección: Ahora se guarda directamente el valor actual que es mayor.
             }
         }
-
         double promedio = total / ventas.length;
-
         // Contar ventas mayores al promedio
         int contador = 0;
         int j = 0;
-        
-        
-        
         /*
         Problema:
         De nuevo se usa "<=", lo que permite que j llegue a 6.
         El arreglo solo tiene índices de 0 a 5, por lo que intentar acceder a ventas[6] provoca error.
         */
         while (j < ventas.length) { //Codigo corregido eliminando el =
-            
             /*
             Problema:
             Habia un >= promedio 
@@ -87,15 +75,12 @@ public class S5Ventas {
             Dentro del ciclo nunca se incrementa el valor de j.
             Esto provoca que j siempre sea el mismo valor y el ciclo se repita infinitamente.
             */
-
             j++; //Se agregó "j++" para que el índice avance en cada iteración y el ciclo pueda terminar.
         }
-
         System.out.println("Total vendido: " + total);
         System.out.println("Promedio: " + promedio);
         System.out.println("Venta mayor: " + mayor);
         System.out.println("Cantidad mayores al promedio: " + contador);
-
         sc.close();
     }
 }
