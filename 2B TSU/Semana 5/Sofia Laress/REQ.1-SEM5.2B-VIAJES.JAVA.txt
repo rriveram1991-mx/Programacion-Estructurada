@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class RegistroPasajeros {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("¿Pasajeros?: ");
+        int pasajeros = sc.nextInt();
+        sc.nextLine(); 
+
+        String[] nombres = new String[pasajeros];
+        String[] destinos = new String[pasajeros];
+
+        for (int i = 0; i < pasajeros; i++) {
+            String n = "";
+            
+            // Validar que no esté vacío
+            while (n.equals("")) {
+                System.out.print("Nombre " + (i + 1) + ": ");
+                n = sc.nextLine();
+                
+                if (n.equals("")) {
+                    System.out.println("Error: No escribiste nada");
+                }
+            }
+            nombres[i] = n;
+
+            System.out.print("Destino: ");
+            destinos[i] = sc.nextLine();
+        }
+
+        int cdmx = 0;
+        int local = 0;
+        int i = 0;
+
+        for (String n : nombres) {
+            String d = destinos[i];
+            System.out.print("Pasajero: " + n + "  Destino: " + d);
+
+      
+            if (d.equals("CDMX")) {
+                System.out.print("  Viaje largo");
+                cdmx++;
+            } 
+            
+            if (d.equals("Local")) {
+                System.out.print("  Viaje corto");
+                local++;
+            }
+            System.out.println();
+            i++;
+        }
+
+       
+        if (cdmx > local) {
+            System.out.println("Mas gente a: CDMX");
+        } else if (local > cdmx) {
+            System.out.println("Mas gente a: Local");
+        } else {
+            System.out.println("Empate");
+        }
+
+        System.out.println("Total pasajeros: " + pasajeros);
+    }
+}
