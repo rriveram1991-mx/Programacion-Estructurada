@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class SistemaPasajeros {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("¿Cuántos pasajeros se registrarán?: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String[] nombres = new String[n];
+        String[] destinos = new String[n];
+
+        // CAPTURA
+        for (int i = 0; i < n; i++) {
+
+            System.out.print("Ingrese nombre del pasajero: ");
+            nombres[i] = sc.nextLine();
+
+            // Validar nombre vacío
+            while (nombres[i].isEmpty()) {
+                if (nombres[i].isEmpty()) {
+                    System.out.println("Error: el nombre no puede estar vacío.");
+                    nombres[i] = sc.nextLine();
+                }
+            }
+
+            System.out.print("Ingrese destino: ");
+            destinos[i] = sc.nextLine();
+        }
+
+        int contadorCDMX = 0;
+        int contadorLocal = 0;
+
+        System.out.println("\n=== LISTA DE PASAJEROS ===");
+
+        int index = 0;
+
+        // FOR-EACH
+        for (String nombre : nombres) {
+
+            String destino = destinos[index];
+
+            System.out.println("Pasajero: " + nombre + " | Destino: " + destino);
+
+            if (destino.equalsIgnoreCase("CDMX")) {
+                System.out.println("Viaje largo");
+                contadorCDMX++;
+            }
+
+            if (destino.equalsIgnoreCase("Local")) {
+                System.out.println("Viaje corto");
+                contadorLocal++;
+            }
+
+            index++;
+        }
+
+        // Determinar destino con más pasajeros
+        String destinoMayor;
+
+        if (contadorCDMX > contadorLocal)
+            destinoMayor = "CDMX";
+        else if (contadorLocal > contadorCDMX)
+            destinoMayor = "Local";
+        else
+            destinoMayor = "Empate";
+
+        System.out.println("\nDestino con más pasajeros: " + destinoMayor);
+        System.out.println("Total pasajeros registrados: " + n);
+
+        sc.close();
+    }
+}

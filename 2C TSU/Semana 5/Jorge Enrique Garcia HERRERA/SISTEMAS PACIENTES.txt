@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class SistemaPacientes {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("¿Cuántos pacientes se registrarán?: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+
+        String[] nombres = new String[n];
+        int[] edades = new int[n];
+
+        // CAPTURA DE DATOS
+        for (int i = 0; i < n; i++) {
+
+            System.out.print("Ingrese nombre del paciente: ");
+            nombres[i] = sc.nextLine();
+
+            System.out.print("Ingrese edad: ");
+            edades[i] = sc.nextInt();
+
+            // Validación de edad
+            while (edades[i] < 0 || edades[i] > 120) {
+                if (edades[i] < 0 || edades[i] > 120) {
+                    System.out.println("Edad inválida. Intente nuevamente.");
+                    edades[i] = sc.nextInt();
+                }
+            }
+
+            sc.nextLine(); // limpiar buffer
+        }
+
+        int menores = 0;
+        int adultos = 0;
+        int adultosMayores = 0;
+        int prioritarios = 0;
+
+        System.out.println("\n=== LISTA DE PACIENTES ===");
+
+        int index = 0;
+
+        // FOR-EACH para mostrar pacientes
+        for (String nombre : nombres) {
+
+            int edad = edades[index];
+
+            System.out.println("Nombre: " + nombre + " | Edad: " + edad);
+
+            if (edad < 18)
+                menores++;
+            else if (edad <= 59)
+                adultos++;
+            else {
+                adultosMayores++;
+                System.out.println("Paciente prioritario");
+                prioritarios++;
+            }
+
+            index++;
+        }
+
+        System.out.println("\nMenores de edad: " + menores);
+        System.out.println("Adultos: " + adultos);
+        System.out.println("Adultos mayores: " + adultosMayores);
+        System.out.println("Total pacientes prioritarios: " + prioritarios);
+
+        sc.close();
+    }
+}
