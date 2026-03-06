@@ -1,0 +1,55 @@
+package atarea1;
+
+import java.util.Scanner;
+
+public class RegistroPacientes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("¿Cuántos pacientes desea registrar? ");
+        int cantidad = sc.nextInt();
+        sc.nextLine();
+        String[] nombres = new String[cantidad];
+        int[] edades = new int[cantidad];
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Nombre del paciente " + (i + 1) + ": ");
+            nombres[i] = sc.nextLine();
+            System.out.print("Edad de " + nombres[i] + ": ");
+            int edadTemporal = sc.nextInt();
+            while (edadTemporal < 0 || edadTemporal > 120) {
+                if (edadTemporal < 0 || edadTemporal > 120) {
+                    System.out.println("Edad inválida. Debe estar entre 0 y 120.");
+                    System.out.print("Ingrese la edad nuevamente: ");
+                    edadTemporal = sc.nextInt();
+                    sc.nextLine();
+                }
+            }
+            edades[i] = edadTemporal;
+        }
+        int menores = 0, adultos = 0, mayores = 0, totalPrioritarios = 0;
+        System.out.println("Resumen de Pacientes");
+        int indice = 0;
+        for (String nombre : nombres) {
+            int edad = edades[indice];
+            String categoria = "";
+            if (edad < 18) {
+                menores++;
+                categoria = "Menor de edad";
+            } else if (edad <= 59) {
+                adultos++;
+                categoria = "Adulto";
+            } else {
+                mayores++;
+                totalPrioritarios++;
+                categoria = "Adulto Mayor PACIENTE PRIORITARIO";
+            }
+            System.out.println("Paciente: " + nombre + " | Edad: " + edad + " | " + categoria);
+            indice++;
+        }
+        System.out.println("Reporte Estadístico");
+        System.out.println("Menores de edad (<18): " + menores);
+        System.out.println("Adultos (18-59): " + adultos);
+        System.out.println("Adultos mayores (60+): " + mayores);
+        System.out.println("TOTAL DE PACIENTES PRIORITARIOS: " + totalPrioritarios);
+        sc.close();
+    }
+}
