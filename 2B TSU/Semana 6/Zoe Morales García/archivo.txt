@@ -1,0 +1,5 @@
+Nombre  de el alumno: Zoe
+Edad: 18
+Especialidad: Software
+Escuela: de la vida
+Lenguaje favoritos: inglesxd
