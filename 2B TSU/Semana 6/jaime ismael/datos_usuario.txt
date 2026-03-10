@@ -1,0 +1,6 @@
+Nombre del alumno: jaime 
+Edad: 22
+Especialidad: ninguna
+Escuela: trunca
+Lenguaje favorito: no verbal
+Inicial de Pokemon favorito: charmander
