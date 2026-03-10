@@ -1,0 +1,11 @@
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+      //creacion del archivo
+      FileWriter myWriter = new FileWriter("holis.txt");
+       myWriter.write("hola como estas !\n");
+        myWriter.write("bien pero loco ");
+         myWriter.write("juego fav. lol!\n");
+          myWriter.write("jugador delol!\n");
+           myWriter.write("adios!\n");
+    }
+}
