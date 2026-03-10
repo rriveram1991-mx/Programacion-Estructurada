@@ -1,0 +1,109 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package sistema1ç;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author crist
+ */
+public class Sistema1ç {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner leer = new Scanner (System.in);
+//El sistema debe solicitar:
+//Cuántos pacientes se registrarán.
+//Crear dos arrays:
+//String[] nombres
+//int[] edades
+//Captura de datos:
+//Usar un for para capturar nombre y edad.
+//Validar con while que la edad no sea negativa ni mayor a 120.
+//Si la edad es inválida, pedirla nuevamente usando if.
+//Análisis del sistema:
+//Usar for-each para mostrar todos los pacientes registrados.
+//Contar:
+//Cuántos son menores de edad (<18)
+//Cuántos son adultos (18–59)
+//Cuántos son adultos mayores (60 o más)
+//Condiciones:
+//Si un paciente es mayor o igual a 60 → mostrar "Paciente prioritario".
+//Al final mostrar:
+//Total de pacientes prioritarios
+  
+
+        System.out.print("¿Cuántos pacientes se registrarán? ");
+        int n = leer.nextInt();
+        leer.nextLine(); // limpiar buffer
+
+        String[] nombres = new String[n];
+        int[] edades = new int[n];
+ // Este es el Array para guardar los nombres y dedades de los pacientes
+
+       // Ciclo for para capturar los datos de cada paciente
+        for (int i = 0; i < n; i++) {
+              // Muestra el número de paciente que se está registrando
+            System.out.println("Paciente #" + (i + 1));
+
+            System.out.print("Nombre: ");
+            nombres[i] = leer.nextLine();
+// Guarda el nombre del paciente en el array
+
+            System.out.print("Edad: ");
+            edades[i] = leer.nextInt();
+// guarda las edades de los pacientes como el anterior
+            //  While para validar que la edad sea correcta
+            while (edades[i] < 0 || edades[i] > 120) {
+                // // If que verifica si la edad está fuera del rango permitido
+                if (edades[i] < 0 || edades[i] > 120) {
+                    System.out.println("Edad inválida. Ingrese nuevamente:"); // esto sirve para que si la edad esta fuera del if, vuelva a preguntar al paciente la edad
+                    edades[i] = leer.nextInt();
+                }
+            }
+
+            leer.nextLine(); // este es para que limpie los datos
+        }
+         
+       // Estas  variables son  para poder contar los tipos de pacientes
+        int menores = 0;
+        int adultos = 0;
+        int adultosMayores = 0;
+        int prioritarios = 0;
+
+        System.out.println("\nPacientes registrados:");
+
+        // for para mostrar pacientes
+        for (String nombre : nombres) {
+            System.out.println("Paciente: " + nombre);
+        }
+
+          // For para analizar las edades de los pacientes
+        for (int edad : edades) {
+
+            if (edad < 18) {  // Si es menor de 18 se incrementa el contador de menores
+                menores++;
+            } else if (edad >= 18 && edad <= 59) { 
+                adultos++; // Si tiene entre 18 y 59 se cuenta como adulto
+            } else {
+                adultosMayores++;
+                System.out.println("Paciente prioritario");
+                prioritarios++; // Si tiene 60 o más se cuenta como adulto mayor
+            }
+        }
+
+    
+        System.out.println("Menores de edad: " + menores);
+        System.out.println("Adultos (18o59): " + adultos);
+        System.out.println("Adultos mayores (60 o más): " + adultosMayores);
+        System.out.println("Total de pacientes prioritarios: " + prioritarios);
+    }
+
+
+    
+}
