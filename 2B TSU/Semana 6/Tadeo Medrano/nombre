@@ -1,0 +1,13 @@
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+      
+      FileWriter myWriter = new FileWriter("filename.txt");
+       myWriter.write("nombre: tadeo medrano !\n");
+        myWriter.write("edad: 18 !\n");
+         myWriter.write("especialidad: tic !\n");
+          myWriter.write("escuela: UTT !\n");
+           myWriter.write("nombre: pseint !\n");
