@@ -1,0 +1,48 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package s6.archivo1;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ *
+ * @author leidy
+ */
+public class S6Archivo1 {
+    public static void main(String[] args) {
+        
+        try {
+            
+            File myObj = new File("alumno.txt");
+           
+            if (myObj.createNewFile()) {
+               
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                
+                System.out.println("File already exists.");
+            }
+           
+            FileWriter myWriter = new FileWriter("alumna.txt");
+           
+            myWriter.write("Nombre del alumno: Leidy Ibarra \n");
+            myWriter.write("Edad: 19\n");
+            myWriter.write("Especialidad: Desarrollo de Software\n");    
+            myWriter.write("Escuela: Universidad Tecnologica\n");    
+            myWriter.write("Lengu aje favorito:JAVA\n");    
+          
+            myWriter.close();
+           
+            System.out.println("ARCHIVO CREADO CON EXITO");  
+        } 
+       
+        catch (IOException e) {
+            System.out.println("ERROR");    
+            e.printStackTrace();
+           
+        }
+    }
+}
