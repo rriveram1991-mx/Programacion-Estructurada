@@ -1,0 +1,13 @@
+Calificaciones; 8 9 7 
+Materia: Programacion
+Alumno: 8.0
+
+Calificaciones; 10 9 9 
+Materia: Redes
+Alumno: 9.333333333333334
+Alumno destacado
+
+Calificaciones; 6 7 8 
+Materia: base de Datos
+Alumno: 7.0
+
