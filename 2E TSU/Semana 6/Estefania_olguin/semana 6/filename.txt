@@ -1,0 +1,5 @@
+Nombre: Estefania Olguin Villa
+Edad: 19 años.
+Especialidad: Desarrollo de Software y Multiplataforma.
+Escuela: Universidad Tecnologica de Torreón.
+Lenguaje favorito: Java
