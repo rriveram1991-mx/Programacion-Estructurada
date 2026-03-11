@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication69;
+
+/**
+ *
+ * @author crist
+ */
+
+ import java.io.File;       // permite crear y manejar archivos
+import java.io.FileWriter; // permite escribir dentro de un archivo
+import java.io.IOException; // maneja errores de entrada/salida
+
+public class JavaApplication69 {
+
+    /**
+     * @param args the command line arguments
+     * 
+     */
+    
+  
+public class Main {
+    
+    public static void main(String[] args) {
+
+        try {
+            // crear el archivo
+            File myObj = new File("filename.txt");
+
+            if (myObj.createNewFile()) {
+                // si el archivo se creó correctamente
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                // si el archivo ya existía
+                System.out.println("File already exists.");
+            }
+
+            // crear un objeto FileWriter para escribir en el archivo
+            FileWriter myWriter = new FileWriter("filename.txt");
+
+            // escribir texto en el archivo
+            myWriter.write("Hola Selene!\n");
+            myWriter.write("Este archivo fue creado desde Java.\n");
+
+            // cerrar el archivo después de escribir
+            myWriter.close();
+
+            System.out.println("Successfully wrote to the file");
+
+        } catch (IOException e) {
+            // si ocurre un error se muestra este mensaje
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+}
+
+

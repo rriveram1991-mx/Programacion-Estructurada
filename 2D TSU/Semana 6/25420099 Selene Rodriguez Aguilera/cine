@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication70;
+
+/**
+ *
+ * @author crist
+ */
+public class JavaApplication70 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+     
+  public class Cine {
+    public static void main(String[] args) {
+
+        // Declaración de un array bidimensional para representar los asientos del cine
+        // Cada fila representa una fila de asientos
+        // Cada columna representa un asiento
+        String[][] asientos = {
+            {"Libre", "Ocupado", "Libre", "Libre"},
+            {"Ocupado", "Libre", "Libre", "Ocupado"},
+            {"Libre", "Libre", "Ocupado", "Libre"}
+        };
+
+        // Recorrer las filas del arreglo
+        for (int fila = 0; fila < asientos.length; fila++) {
+
+            // Recorrer las columnas del arreglo
+            for (int col = 0; col < asientos[fila].length; col++) {
+
+                // Mostrar el estado del asiento (Libre u Ocupado)
+                System.out.print(asientos[fila][col] + " ");
+            }
+
+            // Salto de línea para separar cada fila
+            System.out.println();
+        }
+    }
+  }
+}
+
+    

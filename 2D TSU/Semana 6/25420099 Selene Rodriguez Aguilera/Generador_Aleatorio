@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication72;
+
+/**
+ *
+ * @author crist
+ */
+public class JavaApplication72 {
+ import java.io.File;        // crear y manejar archivos
+import java.io.FileWriter;  // Permite escribir dentro de un archivo
+import java.io.IOException; // Permite manejar errores
+
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+
+
+    public static void main(String[] args) {
+
+        try {
+            // Crear un archivo llamado datos.txt
+            File archivo = new File("datos.txt");
+
+            if (archivo.createNewFile()) {
+                // Si el archivo se crea correctamente
+                System.out.println("Archivo creado: " + archivo.getName());
+            } else {
+                // Si el archivo ya existía
+                System.out.println("El archivo ya existe.");
+            }
+
+            // Crear un objeto FileWriter para escribir en el archivo
+            FileWriter escribir = new FileWriter("datos.txt");
+
+            // Escribir información dentro del archivo
+            escribir.write("Registro de usuario\n");
+            escribir.write("Nombre: Selene\n");
+            escribir.write("Edad: 18\n");
+            escribir.write("Ciudad: Matarmoros.\n");
+
+            // Cerrar el archivo después de escribir
+            escribir.close();
+
+            System.out.println("Se escribió la información correctamente.");
+
+        } catch (IOException e) {
+            // Si ocurre un error
+            System.out.println("Ocurrió un error al crear o escribir el archivo.");
+            e.printStackTrace();
+        }
+    }
+}
+    
+    
+

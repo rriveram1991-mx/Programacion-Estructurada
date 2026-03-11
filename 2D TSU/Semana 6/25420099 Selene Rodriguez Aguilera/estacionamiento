@@ -1,0 +1,45 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication71;
+
+/**
+ *
+ * @author crist
+ */
+public class JavaApplication71 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+  
+
+        // Array bidimensional que representa un estacionamiento
+        // Cada fila es una fila de lugares
+        // Cada columna es un espacio para vehículo
+        String[][] estacionamiento = {
+            {"Auto", "Libre", "Moto"},
+            {"Libre", "Auto", "Libre"},
+            {"Auto", "Auto", "Libre"}
+        };
+
+        // Recorrer las filas
+        for (int fila = 0; fila < estacionamiento.length; fila++) {
+
+            // Recorrer las columnas
+            for (int col = 0; col < estacionamiento[fila].length; col++) {
+
+                // Imprimir el tipo de vehículo o si está libre
+                System.out.print(estacionamiento[fila][col] + " ");
+            }
+
+            // Salto de línea para mostrar la siguiente fila
+            System.out.println();
+        }
+    }
+}
+    
+   
