@@ -1,0 +1,3 @@
+Práctica de Programación Estructurada y Desarrollo de Software Multiplataforma.
+ID de registro generado: 107
+Validación de datos mediante arreglos completada exitosamente.
