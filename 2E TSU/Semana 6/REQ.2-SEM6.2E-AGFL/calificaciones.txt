@@ -1,0 +1,17 @@
+Alumno 1
+Calificaciones: 8 9 7
+Materia: Español
+El promedio del alumno es: 8.0
+
+Alumno 2
+Calificaciones: 10 9 9
+Materia: Inglés
+El promedio del alumno es: 9.333333333333334
+
+Alumno destacado 
+
+Alumno 3
+Calificaciones: 6 7 8
+Materia: Programación
+El promedio del alumno es: 7.0
+
