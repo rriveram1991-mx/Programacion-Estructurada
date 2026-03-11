@@ -59,7 +59,8 @@ public class Genarchivo {
             e.printStackTrace(); // Muestra información detallada del error y sirve para depuración
         } // Estos cierran el catch 
     } // Estos cierran el main 
-} // Estos cierran la class 
+} // Estos cierran la class pd: solo lo use de practica por eso lo subi el bueno es el otro que se llama Gencali.
     
     
+
 
