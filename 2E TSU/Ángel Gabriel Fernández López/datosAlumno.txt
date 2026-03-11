@@ -1,5 +1,0 @@
-Nombre del alumno: Angel Gabriel Fernández López
-Edad: 18
-Especialidad: Desarrollo de Software multiplataforma
-Escuela: UTT
-Lenguaje favorito: Java

@@ -1,3 +1,0 @@
-Hola Ricardo!
-Este archivo fue creado desde Java.
-Estamos practicando manejo de archivos.
