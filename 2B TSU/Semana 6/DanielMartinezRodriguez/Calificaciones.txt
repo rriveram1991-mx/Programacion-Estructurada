@@ -1,0 +1,18 @@
+Alumno 1:
+ - redes: 8.0
+ - Calculo: 9.0
+ - programacion: 1.0
+ Promedio: 6.0
+--------------------------
+Alumno 2:
+ - redes: 7.0
+ - Calculo: 6.0
+ - programacion: 2.0
+ Promedio: 5.0
+--------------------------
+Alumno 3:
+ - redes: 9.0
+ - Calculo: 10.0
+ - programacion: 9.5
+ Promedio: 9.5
+--------------------------
