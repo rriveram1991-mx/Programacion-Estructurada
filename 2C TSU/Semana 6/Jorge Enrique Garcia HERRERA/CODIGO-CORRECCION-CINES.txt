@@ -1,0 +1,96 @@
+//CODIGO 2
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CineErrores {
+
+    public static void main(String[] args) {
+
+        int[][] asientos = {
+            {1,0,0},
+            {1,1,0},
+            {0,0,0}
+        };
+
+        int ocupados = 0;
+
+        try {
+
+            FileWriter writer = new FileWriter("reporte_cine.txt");
+
+            for (int i = 0; i < asientos.length; i++) {
+
+                for (int j = 0; j <= asientos[i].length; j++) { // ERROR 1: Debe ser <
+
+                    writer.write(asientos[i][j] + " ");
+
+                    if (asientos[i][j] = 1) { // ERROR 2: Uso de = en lugar de ==
+                        ocupados++;
+                    }
+
+                }
+
+                writer.write("\n") // ERROR 3: Falta ;
+
+            }
+
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            writer.close();
+
+        } catch (IOException e) {
+
+            System.out.println("Error"); // ERROR 4: Mensaje poco claro
+
+        }
+
+    }
+}
+
+//CORREGIDO 
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CineCorregido {
+
+    public static void main(String[] args) {
+
+        int[][] asientos = {
+            {1,0,0},
+            {1,1,0},
+            {0,0,0}
+        };
+
+        int ocupados = 0;
+
+        try {
+
+            FileWriter writer = new FileWriter("reporte_cine.txt");
+
+            for (int i = 0; i < asientos.length; i++) {
+
+                for (int j = 0; j < asientos[i].length; j++) { // corregido
+
+                    writer.write(asientos[i][j] + " ");
+
+                    if (asientos[i][j] == 1) { // corregido
+                        ocupados++;
+                    }
+
+                }
+
+                writer.write("\n"); // corregido
+            }
+
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            writer.close();
+
+        } catch (IOException e) {
+
+            System.out.println("Error al crear archivo"); // mejor mensaje
+
+        }
+
+    }
+}
