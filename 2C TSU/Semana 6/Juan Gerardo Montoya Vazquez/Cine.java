@@ -4,7 +4,9 @@
  */
 package cine;
 
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 /**
  *
@@ -17,63 +19,41 @@ public class Cine {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Scanner sc = new Scanner(System.in);
+           int[][] asientos = {
+            {1, 0, 0},
+            {0, 1, 1},
+            {0, 1, 0}
+        };
 
-        int filas = 5;
-        int columnas = 6;
+        int ocupados = 0;
 
-        int[][] asientos = new int[filas][columnas];
+        try {
 
-        int fila, asiento;
-        int opcion;
+            FileWriter writer = new FileWriter("reporte_cine.txt");
 
-        do {
+            for (int i = 0; i < asientos.length; i++) {
 
-            System.out.println("\n--- CINE ---");
-            System.out.println("1. Mostrar asientos");
-            System.out.println("2. Reservar asiento");
-            System.out.println("3. Salir");
-            System.out.print("Seleccione una opcion: ");
-            opcion = sc.nextInt();
+                for (int j = 0; j < asientos[i].length; j++) {
 
-            switch(opcion){
+                    writer.write(asientos[i][j] + " ");
 
-                case 1:
-
-                    System.out.println("\nEstado de los asientos:");
-                    for(int i=0;i<filas;i++){
-                        for(int j=0;j<columnas;j++){
-                            System.out.print(asientos[i][j] + " ");
-                        }
-                        System.out.println();
+                    if (asientos[i][j] == 1) {
+                        ocupados++;
                     }
+                }
 
-                break;
-
-                case 2:
-
-                    System.out.print("Ingrese fila (0-4): ");
-                    fila = sc.nextInt();
-
-                    System.out.print("Ingrese asiento (0-5): ");
-                    asiento = sc.nextInt();
-
-                    if(asientos[fila][asiento]==0){
-                        asientos[fila][asiento]=1;
-                        System.out.println("Asiento reservado.");
-                    }else{
-                        System.out.println("Asiento ocupado.");
-                    }
-
-                break;
-
+                writer.write("\n");
             }
 
-        }while(opcion!=3);
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            writer.close();
+
+        } catch (IOException e) {
+
+            System.out.println("Error");
+
+        }
 
     }
-
 }
-    
-    
-
