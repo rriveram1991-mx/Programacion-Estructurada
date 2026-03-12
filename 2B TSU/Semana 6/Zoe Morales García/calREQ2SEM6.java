@@ -12,7 +12,6 @@ public class calREQ2SEM6 {
         String[] materias = {"Programacion", "Redes", "Bases de Datos"};
 
         try {
-            // No escribas "fileName:", solo las comillas
             FileWriter escritor = new FileWriter("calificaciones.txt");
             
             for (int i = 0; i < calificaciones.length; i++) {
@@ -44,3 +43,4 @@ public class calREQ2SEM6 {
         }
     }
 }
+
