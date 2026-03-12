@@ -1,0 +1,8 @@
+DETECCION DE ERRORES ASIENTOS DE CINE
+
+LINEA 7: ERROR COMPILACION: Faltaba un import
+LINEA 29: ERROR LOGICO: Faltaba el comando de crear el archivo
+LINEA 34: ERROR LOGICO: El for tenia <= y debia tener solo <
+LINEA 38: ERROR LOGICO: Tenia solo un = y debian ser 2
+LINEA 44: ERROR COMPILACION: Faltaba un ;
+LINEA 55: ERROR LOGICO: Faltaba poner el e.printStackTrace();

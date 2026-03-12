@@ -1,0 +1,11 @@
+DETECCION DE ERRORES SISTEMA DE INVENTARIO
+
+LINEA 7: ERROR COMPILACION: Faltaba un import
+LINEA 26: ERROR LOGICO: Nunca se creaba el archivo
+LINEA 27: ERROR COMPILACION: Faltaba ;
+LINEA 29: ERROR LOGICO: Tenia un <= en vez de un < solo
+LINEA 34: ERROR LOGICO: Tenia un =+ y es +=
+LINEA 37: ERROR COMPILACION: Faltaba ;
+LINEA 42: ERROR LOGICO: Nunca se imprimia el total, entonces se agrego que se imprimiera
+LINEA 43: ERROR COMPILACION: Faltaba ()
+LINEA 50: ERROR COMPILACION: Faltaba e.printStackTrace(); para cerrar bien la creacion de archivo bien y depure
