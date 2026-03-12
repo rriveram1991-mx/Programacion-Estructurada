@@ -1,0 +1,69 @@
+package calificacionearrayytxt;
+import java.util.Scanner;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ *
+ * @author paola
+ */
+public class CALIFICACIONEarrayytxt {
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException
+     */
+    
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+         FileWriter myWriter = new FileWriter("calificaciones.txt");
+         //array para asignar las materias y nombres
+        String[] nombres = new String[3];
+    String[] materias = new String[3];
+        Scanner leer =new Scanner(System.in);
+        int[][] tabla=new int[3][3];
+        //asignacion de datos 
+        for (int i=0;i<3; i++){
+            System.out.println("alumno:" +(i+1));
+           nombres[i] = leer.nextLine();
+        }
+      
+         for (int j =0;j<3; j++){
+              System.out.println("materias:" + (j+1));
+           materias[j] = leer.nextLine();
+           
+         }
+         for (int i=0;i<3; i++){
+             System.out.println("nombre:" + nombres[i]);
+            for (int j =0;j<3; j++){
+                System.out.println("calificacion de la materia:  " + materias[j]);
+                tabla[i][j]=leer.nextInt(); 
+                myWriter.write(tabla[i][j] + " ");
+            }
+         }
+            
+            
+  for (int i=0;i<3; i++){
+      double prom=0;
+      double suma=0;
+      System.out.println("nombre:" + nombres[i]);
+            for (int j =0;j<3; j++){ 
+  System.out.println("materia:" + materias[j] + ",  calificacion:" + tabla[i][j]);
+  suma = suma + tabla[i][j];
+  }
+            prom =suma /3;
+            myWriter.write(prom + "\n");
+            if(prom>90){
+    System.out.println("Destacado");
+}
+else{
+    System.out.println("promedio:" + prom);
+            }
+           
+    }
+   
+    myWriter.close();
+    }
+
+} 
