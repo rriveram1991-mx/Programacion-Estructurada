@@ -1,0 +1,55 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ *
+ * @author paola
+ */
+public class Det2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+               int[][] asientos = {
+            {1,0,0},
+            {1,1,0},
+            {0,0,0}
+        };
+
+        int ocupados = 0;
+
+        try {
+     
+            FileWriter writer= new FileWriter("reporte_cine.txt");
+
+            for (int i = 0; i < asientos.length; i++) { 
+                  // el programa no funciona correctamente 
+                for (int j = 0; j < asientos[i].length; j++) {
+
+                    writer.write(asientos[i][j] + " ");
+                       // EL programa detecta que se asigne el valor de uno cuando debe de ser igual a con ==
+                    if (asientos[i][j]== 1) {
+                        ocupados++;
+                    }
+
+                }
+                //falta de punto y coma
+                writer.write("\n");
+
+            }
+
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            writer.close();
+            //falto un sistema de comprobacion de guardado
+            System.out.println("guardado");
+        } catch (IOException e) {
+
+            System.out.println("Error");
+
+        }
+
+    }
+}
