@@ -1,0 +1,10 @@
+Alumno miguel
+Promedio 10.0
+Alumno destacado
+
+Alumno angel
+Promedio 7.333333333333333
+
+Alumno gutierrez
+Promedio 7.0
+

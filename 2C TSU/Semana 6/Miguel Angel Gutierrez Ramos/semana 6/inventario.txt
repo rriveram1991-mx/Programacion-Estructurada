@@ -1,0 +1,17 @@
+Producto: Mouse
+Precio: 200.0
+
+Producto: Teclado
+Precio: 350.0
+
+Producto: Monitor
+Precio: 3200.0
+Producto caro
+
+Producto: USB
+Precio: 150.0
+
+Producto: Laptop
+Precio: 15000.0
+Producto caro
+
