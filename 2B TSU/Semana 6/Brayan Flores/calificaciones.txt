@@ -1,0 +1,19 @@
+CALIFICACIONES: 
+
+Alumno 1:
+ - Matemáticas: 8
+ - Historia: 9
+ - Ciencias: 7
+Promedio Final: 8.00
+
+Alumno 2:
+ - Matemáticas: 10
+ - Historia: 9
+ - Ciencias: 9
+Promedio Final: 9.33 (Excelente desempeño)
+
+Alumno 3:
+ - Matemáticas: 6
+ - Historia: 7
+ - Ciencias: 8
+Promedio Final: 7.00
