@@ -1,0 +1,16 @@
+Alumno 1
+Calificaciones: 8 9 7
+Materia: Programacion
+Promedio: 8.0
+
+Alumno 2
+Calificaciones: 10 9 9
+Materia: Redes
+Promedio: 9.3
+Alumno destacado
+
+Alumno 3
+Calificaciones: 6 7 8
+Materia: Bases de Datos
+Promedio: 7.0
+
