@@ -1,0 +1,51 @@
+1. Sistema de Inventario (InventarioErrores.java)
+
+Error 1: Desbordamiento de Arreglo (IndexOutOfBounds)
+
+Falla: La condición del ciclo for usaba el operador menor o igual que (i <= productos.length). Como los índices en Java comienzan en 0, esto obligaba al programa a buscar un sexto producto inexistente en la posición [5], causando la caída del sistema.
+
+Solución: Se ajustó la condición a estrictamente menor que (i < productos.length).
+
+Error 2: Operador de Acumulación Incorrecto (Lógica Matemática)
+
+Falla: La suma del total usaba la sintaxis total =+ precios[i];. El compilador interpretaba esto como una asignación directa de un valor positivo, por lo que la variable total se sobrescribía en cada iteración en lugar de sumar los montos.
+
+Solución: Se corrigió el orden de los operadores a total += precios[i]; para habilitar la acumulación.
+
+Error 3: Error de Sintaxis en Método (Compilación)
+
+Falla: Se intentó cerrar el flujo de escritura utilizando writer.close;. Al ser un método de la clase FileWriter, la falta de paréntesis impedía que el programa compilara.
+
+Solución: Se agregaron los paréntesis correspondientes para invocar el método correctamente: writer.close();.
+
+2. Sistema de Asientos de Cine (CineErrores.java)
+
+Error 1: Desbordamiento de Arreglo Bidimensional (IndexOutOfBounds)
+
+Falla: El ciclo for anidado encargado de recorrer las columnas incluía el operador de igualdad (j <= asientos[i].length), provocando un desbordamiento de memoria al intentar leer fuera de los límites de la matriz.
+
+Solución: Se modificó la condición a estrictamente menor que (j < asientos[i].length).
+
+Error 2: Asignación vs. Comparación (Lógica Condicional)
+
+Falla: La estructura de control if evaluaba los asientos ocupados utilizando un solo signo de igual (asientos[i][j] = 1). Esto forzaba el valor a 1 en lugar de realizar una pregunta lógica, alterando los datos originales.
+
+Solución: Se implementó el operador relacional de igualdad (==) para realizar la comparación correcta.
+
+Error 3: Omisión de Cierre de Instrucción (Compilación)
+
+Falla: La instrucción writer.write("\n") carecía de su respectivo punto y coma al final, lo que generaba un error de compilación inmediato.
+
+Solución: Se agregó el punto y coma ; al final de la instrucción.
+
+Error 4: Falta de Salida Visual - Matriz (Requerimiento)
+
+Falla: El sistema guardaba los datos en el archivo de texto, pero omitía el requerimiento explícito de "Mostrar los asientos" al usuario en la consola.
+
+Solución: Se añadió la instrucción System.out.print(asientos[i][j] + " "); dentro de los ciclos anidados para imprimir la cuadrícula.
+
+Error 5: Falta de Salida Visual - Total (Requerimiento)
+
+Falla: El programa calculaba correctamente la cantidad de asientos ocupados, pero nunca comunicaba este resultado final en la pantalla.
+
+Solución: Se incluyó un System.out.println al finalizar los ciclos para mostrar la variable ocupados al usuario.
