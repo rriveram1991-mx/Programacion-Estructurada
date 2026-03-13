@@ -2,79 +2,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication43;
+package javaapplication46;
 import java.io.FileWriter;
 import java.io.IOException;
 /**
  *
  * @author adrianvalenzuelaramirez
  */
-public class JavaApplication43 {
+public class JavaApplication46 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-         // matriz de calificaciones
-        int[][] calificaciones = {
-            {8, 9, 7},
-            {10, 9, 9},
-            {6, 7, 8}
+
+        int[][] asientos = {
+            {1, 0, 0},
+            {1, 1, 0},
+            {0, 0, 0}
         };
 
-        // arreglo auxiliar para los nombres de las materias según el ejemplo
-        String[] materias = {"programacion", "redes", "bases de Datos"};
-        String nombreArchivo = "calificaciones.txt";
+        int ocupados = 0;
 
-        // bloque try-catch para el manejo de archivos
-        try (FileWriter escritor = new FileWriter(nombreArchivo)) {
-            
-            System.out.println("=== procesando calificaciones ===");
+        // se usa try-with-resources para asegurar el cierre del archivo (Mejora el Error #5)
+        try (FileWriter writer = new FileWriter("reporte_cine.txt")) {
 
-            // uso de ciclo for para recorrer los alumnos (filas)
-            for (int i = 0; i < calificaciones.length; i++) {
-                double suma = 0;
-                String lineaCalificaciones = "";
-
-                // escribir y mostrar encabezado del alumno
-                String encabezado = "alumno " + (i + 1);
-                escritor.write(encabezado + "\n");
-                System.out.println(encabezado);
-
-                // ciclo for anidado para obtener calificaciones y calcular promedio
-                for (int j = 0; j < calificaciones[i].length; j++) {
-                    int nota = calificaciones[i][j];
-                    suma += nota;
-                    lineaCalificaciones += nota + " ";
+            for (int[] asiento : asientos) {
+                // 1: se cambió '<=' por '<' para respetar los límites del arreglo
+                for (int j = 0; j < asiento.length; j++) {
+                    // 2: se concatena con String "" para que escriba el número como texto
+                    writer.write(String.valueOf(asiento[j]) + " ");
+                    // 3: se cambió '=' por '==' para realizar una comparación lógica
+                    if (asiento[j] == 1) {
+                        ocupados++;
+                    }
                 }
-
-                double promedio = suma / calificaciones[i].length;
-
-                // escritura de datos según el formato solicitado
-                escritor.write("calificaciones: " + lineaCalificaciones.trim() + "\n");
-                escritor.write("materia: " + materias[i] + "\n");
-                // usamos String.format para mostrar un decimal como en el ejemplo (9.3)
-                escritor.write("promedio: " + String.format("%.1f", promedio) + "\n");
-
-                // 6. Regla adicional: Alumno destacado (if)
-                if (promedio >= 9) {
-                    escritor.write("alumno destacado\n");
-                    System.out.println("alumno destacado detectado.");
-                }
-
-                escritor.write("\n"); // espacio entre alumnos
-                
-                // Mostrar en consola para verificar
-                System.out.println("materia: " + materias[i] + " | promedio: " + String.format("%.1f", promedio));
-                System.out.println("---------------------------------");
+                // 4: se agregó el punto y coma (;) faltante
+                writer.write("\n");
             }
 
-            System.out.println("proceso terminadoatos, datos guardados en: " + nombreArchivo);
+            writer.write("--------------------------\n");
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            System.out.println("reporte de cine generado exitosamente.");
+            System.out.println("total de ocupados: " + ocupados);
 
         } catch (IOException e) {
-            // manejo de errores técnicos
-            System.err.println("error al escribir en el archivo: " + e.getMessage());
+            System.out.println("error al crear el reporte: " + e.getMessage());
         }
     }
 }
