@@ -1,0 +1,10 @@
+Linea 19 faltaba ;
+linea 21 no es <=
+linea 27 en vez de += es =+
+linea 30 faltaba ;
+linea 36 lleva paretesis ()
+---------------------------------
+Codigo 2
+Linea 30  no se debe poner <=
+Linea 35 debe de ser ==
+Linea 42 faltaba ;
