@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package ejerciciosingricardo54;
+
+/**
+ *
+ * @author yahir
+ */
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class EjerciciosIngRicardo54{
+
+    public static void main(String[] args) {
+
+        int[][] asientos = {
+            {1,0,0},
+            {1,1,0},
+            {0,0,0}
+        };
+
+        int ocupados = 0;
+
+        try {
+
+            FileWriter writer = new FileWriter("reporte_cine.txt");
+
+            for (int i = 0; i < asientos.length; i++) {
+//Error 3: Le sobraba un signo de "=", para que fuera verdadera la línea
+//y así poder seguir con la ejecución del código
+                for (int j = 0; j < asientos[i].length; j++) {
+
+                    //Error #2: Le faltaba nu "=" para qué fuera comparación
+                    //Y lo aceptara dentro del if
+                    writer.write(asientos[i][j] + " ");
+
+                    if (asientos[i][j] == 1) {
+                        ocupados++;
+                    }
+
+                }
+//Error #1; Le faltaba un ;, si no tiene esa sintaxis, no sirve la línea de código
+                writer.write("\n");
+
+            }
+
+            writer.write("Asientos ocupados: " + ocupados + "\n");
+
+            writer.close();
+            //Error #4: Le falta un mensaje para saber qué si se guardó el archivo
+            System.out.println("Archivo guardado exitosamente");
+            
+        } catch (IOException e) {
+
+            System.out.println("Error");
+
+        }
+
+    }
+}
