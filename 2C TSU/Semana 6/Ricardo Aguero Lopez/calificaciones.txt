@@ -1,0 +1,16 @@
+Alumno 1
+Calificaciones: 9 9 9 
+Materia: Programacion
+Promedio: 9.0
+Alumno destacado
+
+Alumno 2
+Calificaciones: 8 8 8 
+Materia: Programacion
+Promedio: 8.0
+
+Alumno 3
+Calificaciones: 7 7 7 
+Materia: Programacion
+Promedio: 7.0
+
