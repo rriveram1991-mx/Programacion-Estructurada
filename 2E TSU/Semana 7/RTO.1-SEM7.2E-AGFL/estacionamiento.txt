@@ -1,0 +1,14 @@
+Espacios del Estacionamiento: 
+
+Lugar 1: Ocupado 
+Lugar 2: Ocupado 
+Lugar 3: Ocupado 
+Lugar 4: Libre 
+Lugar 5: Libre 
+Lugar 6: Libre 
+Lugar 7: Libre 
+Lugar 8: Libre 
+Lugar 9: Libre 
+Lugar 10: Libre 
+
+Espacios ocupados: 3
