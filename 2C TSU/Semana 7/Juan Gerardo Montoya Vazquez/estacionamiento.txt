@@ -1,0 +1,10 @@
+Espacio 1: LIBRE
+Espacio 2: LIBRE
+Espacio 3: LIBRE
+Espacio 4: LIBRE
+Espacio 5: LIBRE
+Espacio 6: OCUPADO
+Espacio 7: OCUPADO
+Espacio 8: LIBRE
+Espacio 9: LIBRE
+Espacio 10: OCUPADO
