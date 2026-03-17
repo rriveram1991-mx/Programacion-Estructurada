@@ -1,0 +1,6 @@
+ESTADO DEL ESTACIONAMIENTO
+
+Fila 0: 0 1 0 0 0 
+Fila 1: 0 0 0 0 0 
+
+Espacios ocupados: 1
