@@ -1,0 +1,4 @@
+012345
+100010
+201001
+Total de espacios ocupados: 3
