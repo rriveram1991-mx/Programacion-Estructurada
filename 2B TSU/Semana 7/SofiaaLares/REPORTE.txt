@@ -1,0 +1,14 @@
+===== REPORTE DEL ESTACIONAMIENTO =====
+Espacio 1: LIBRE
+Espacio 2: LIBRE
+Espacio 3: LIBRE
+Espacio 4: LIBRE
+Espacio 5: LIBRE
+Espacio 6: LIBRE
+Espacio 7: LIBRE
+Espacio 8: LIBRE
+Espacio 9: LIBRE
+Espacio 10: LIBRE
+
+TOTAL DE AUTOS AL SALIR: 0
+======================================
