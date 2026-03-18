@@ -1,0 +1,11 @@
+--- REPORTE DE ESTACIONAMIENTO ---
+Espacio 1: Libre
+Espacio 2: Ocupado
+Espacio 3: Libre
+Espacio 4: Ocupado
+Espacio 5: Libre
+Espacio 6: Libre
+Espacio 7: Libre
+Espacio 8: Ocupado
+Espacio 9: Ocupado
+Espacio 10: Libre
