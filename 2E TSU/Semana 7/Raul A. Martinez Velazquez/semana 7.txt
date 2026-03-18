@@ -1,0 +1,8 @@
+No es error, pero para evitar problemas con los Break recomiendo utilizar los Switch a Rule
+Se le agrego sc.close y el default al final del Switch para cerrar el programa
+En la linea 28 se debe de quitar el igual al i <= juegos porque intenta acceder a una posición que no existe
+Y se debe de romper el if de la linea 29 para que se detenga al encontrar una fila libre
+La opción de la linea 21 deja un enter pendiente, se le agrega sc.nextline
+En el if de la linea 58 esta comparando con == lo cual es un error, debe de ser con != porque si no estarías comparando memoria
+En la linea 50 nos muestra datos nulos, por eso se le pone un if para corregir la salida de los datos 
+En el caso 4 linea 68 si hay una fila vacia el programa truena, por eso se le agrega un contador y un for para evitar esto
