@@ -1,0 +1,110 @@
+ */
+package estacionamiento;
+import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+/**
+ *
+ * @author paola
+ */
+public class Estacionamiento {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        //lectura de datos iniciales
+        Scanner leer= new Scanner(System.in);
+        int sel=0;
+         int fila;
+          int columna;
+        int[][] estacionamiento=new int[10][10]; 
+               
+       
+        while (sel!=5 ){// mientras que no sea 5 todo chido
+            System.out.println("1.-ver estacionamiento.");
+            System.out.println("2.-estacionar auto");
+            System.out.println("3.-retirar auto");
+            System.out.println("4.-contar espacios ocupados");
+            System.out.println("5.-salir");
+            System.out.println("escoja una opcion");
+            sel=leer.nextInt();
+            //aqui se reparte en cada cosa
+            switch(sel){
+                case 1:
+                    int lu=0;
+                     int o=0;
+                     for(int i=0;i<10; i++){
+                         
+                 for(int j=0;j<10; j++){ 
+                     String lugar=estacionamiento[i][j]==0 ? "libre":"ocupado";
+               
+                     o++;
+                     System.out.println("lugar" +" " + o + ":" + lugar );
+                 }}
+            break;
+                case 2:
+                    
+                    System.out.println("diga la fila y la columna empieza desde 0");
+                    fila=leer.nextInt();
+                    columna=leer.nextInt();
+                    if (estacionamiento[fila][columna]==0)
+                    {
+                        System.out.println("cambiando a ocupado");
+                        estacionamiento[fila][columna]=1;
+                    }
+                    else{
+                        System.out.println("esta ocupado asigne otro lugar");
+                    }
+                    break;
+                case 3:
+                     System.out.println("diga la fila y la columna empieza desde 0");
+                     fila=leer.nextInt();
+                     columna=leer.nextInt();
+                    if (estacionamiento[fila][columna]==1)
+                    {
+                        System.out.println("cambiando a libre");
+                        estacionamiento[fila][columna]=0;
+                    }
+                    else{
+                        System.out.println("ya esta libre intente otro");
+                    }
+                  
+                     
+                    break;
+                case 4:
+                    int ocu=0;
+                     for(int i=0;i<10; i++){
+                         
+                 for(int j=0;j<10; j++){ 
+                     String lugar=estacionamiento[i][j]==0 ? "libre":"ocupado";
+               
+                    if(estacionamiento[i][j]==1)
+                    {
+                       ocu++;
+                       System.out.println("lugares ocupados:" + ocu);
+                    }
+                 }
+                     }
+                    break;
+                case 5:
+                    FileWriter writer= new FileWriter("reporte_estacionamiento.txt");
+                    for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+               
+                String lol = (estacionamiento[i][j] == 0) ? "[0]" : "[1]";
+                 writer.write(lol + " ");   
+                  writer.write("\n");
+        
+                   System.out.println("se guardo!");
+            }
+                writer.close();  
+                 System.out.println("guardado");
+            }
+                    return;
+                default: System.out.println("opcion invalidad");
+        }
+    }
+}
+}
