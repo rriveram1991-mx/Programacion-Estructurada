@@ -1,0 +1,80 @@
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 1                               
+
+Estado del estacionamiento:
+Espacio 1: LIBRE
+Espacio 2: LIBRE
+Espacio 3: LIBRE
+Espacio 4: LIBRE
+Espacio 5: LIBRE
+Espacio 6: LIBRE
+Espacio 7: LIBRE
+Espacio 8: LIBRE
+Espacio 9: LIBRE
+Espacio 10: LIBRE
+
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 2
+Ingrese el número de espacio (1-10): 9
+Auto estacionado en el espacio 9.
+
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 1
+
+Estado del estacionamiento:
+Espacio 1: LIBRE
+Espacio 2: LIBRE
+Espacio 3: LIBRE
+Espacio 4: LIBRE
+Espacio 5: LIBRE
+Espacio 6: LIBRE
+Espacio 7: LIBRE
+Espacio 8: LIBRE
+Espacio 9: OCUPADO
+Espacio 10: LIBRE
+
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 3
+Ingrese el número de espacio (1-10): 5
+El espacio 5 ya está libre.
+
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 4
+
+Espacios ocupados: 1 de 10
+
+
+--- Sistema de Estacionamiento ---
+1. Ver estacionamiento
+2. Estacionar auto
+3. Retirar auto
+4. Contar espacios ocupados
+5. Salir
+Elige una opción: 5
+Saliendo...
+PS C:\Users\nabec\OneDrive\Escritorio\act.java>
