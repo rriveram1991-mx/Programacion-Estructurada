@@ -1,0 +1,41 @@
+Errores Corregidos y Explicaciones:
+Línea ~10 (Menú y Salida):
+Error: El menú mostraba 7. Salir pero no había un case 7 en el switch.
+Corrección: Se añadió case 7: al switch y se ajustaron los números de las opciones del menú para que sean secuenciales (1 a 4 y 7 para salir).
+
+Línea ~16 (Consumo de nextLine después de nextInt):
+Error: sc.nextInt() dejaba un carácter de nueva línea (\n) en el búfer, que luego era consumido por la primera sc.nextLine() en el case 1 (para el nombre), resultando en un nombre vacío.
+Corrección: Se añadió sc.nextLine(); inmediatamente después de opcion = sc.nextInt(); dentro del bloque try. Esto asegura que el \n se consuma de inmediato, permitiendo que las siguientes llamadas a sc.nextLine() lean la entrada deseada del usuario. Lo mismo se aplicó después de leer las horas en case 1.
+
+Línea ~20 (Bucle for para encontrar fila libre):
+Error: El bucle iba de i = 0 hasta i <= juegos.length. Esto intentaba acceder a juegos[10] cuando juegos.length es 10, causando ArrayIndexOutOfBoundsException.
+Corrección: El bucle ahora va de i = 0 a i < juegos.length. Además, se añade un break; una vez que se encuentra la primera fila libre (filaLibre = i;) para evitar seguir buscando y asegurar que se usa la primera disponible.
+
+Línea ~20 (Lógica de encontrar fila libre):
+Error: Si había múltiples filas libres, fila tomaba el valor de la última fila libre encontrada, no la primera.
+Corrección: Se inicializa filaLibre a -1. Si se encuentra una fila libre, se asigna el índice y se usa break. Si al final del bucle filaLibre sigue siendo -1, significa que no hay espacio.
+
+Línea ~27 y 37 (Comparación de String con ==):
+Error: Se usaba juegos[i][0] == null (correcto para comparar con null) pero luego juegos[i][0] == buscar (incorrecto para comparar contenido de String).
+Corrección:
+La comparación con null se mantiene como juegos[i][0] == null (es la forma correcta de verificar si una referencia es nula).
+Para comparar el nombre del juego con el término de búsqueda, se usa juegos[i][0].equalsIgnoreCase(buscar). equalsIgnoreCase es útil porque no distingue entre mayúsculas y minúsculas, haciendo la búsqueda más amigable.
+Importante: Se añade una comprobación juegos[i][0] != null antes de llamar a .equalsIgnoreCase() para prevenir NullPointerException si esa celda del array estuviera vacía.
+
+Línea ~34 (Consumo de nextLine en case 3):
+Error: Similar al punto 2, el nextInt() de la opción del menú dejaba un \n que podía afectar la lectura del nextLine() para la búsqueda si no se consumía adecuadamente.
+Corrección: El sc.nextLine() después del sc.nextInt() principal en el bucle while se encarga de esto ahora.
+
+Línea ~42 (Conversión de String a int y NumberFormatException):
+Error: Se intentaba leer las horas como String (sc.nextLine()) y luego convertirlo a int con Integer.parseInt(). Esto fallaba si el usuario no ingresaba un número.
+Corrección:
+En case 1, ahora se usa sc.nextInt() para leer las horas.
+Se envuelve la lectura de horas en un bucle while (!entradaValida) con un bloque try-catch (InputMismatchException) para manejar entradas no numéricas. Si el usuario ingresa algo que no es un número, se muestra un mensaje de error y se le pide que intente de nuevo.
+El sc.nextLine() después de sc.nextInt() para las horas es crucial para consumir el \n restante.
+
+Línea ~43 (División por cero / Promedio incorrecto):
+Error: Se dividía la suma de horas entre juegos.length (que es 10), sin importar cuántos juegos se hubieran registrado realmente. Si solo se registraban 3 juegos, el promedio estaría falseado.
+Corrección:
+Se introduce int numeroJuegosRegistrados = 0; para llevar la cuenta de cuántos juegos se han añadido. Este contador se incrementa en case 1.
+Las operaciones de case 2, case 3 y case 4 ahora iteran o usan numeroJuegosRegistrados en lugar de juegos.length cuando es apropiado (por ejemplo, para mostrar la lista o calcular el promedio).
+En case 4, el promedio se calcula como (double) sumaHoras / numeroJuegosRegistrados;. Se usa (double) para forzar una división de punto flotante y así obtener un promedio decimal.
