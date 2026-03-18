@@ -1,0 +1,133 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication74;
+
+import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class JavaApplication73 {
+
+    public static void main(String[] args) {
+
+        Scanner leer = new Scanner(System.in);
+
+        int[] estacionamientos = {0,0,0,0,0,0,0,0,0,0};
+
+        int opcion;
+        boolean salir = false;
+
+        while (!salir){
+
+            System.out.println("\nMENU");
+            System.out.println("1. Ver estacionamiento");
+            System.out.println("2. Estacionar auto");
+            System.out.println("3. Retirar auto");
+            System.out.println("4. Contar espacios ocupados");
+            System.out.println("5. Generar recibo");
+            System.out.println("6. Salir");
+            System.out.print("Elige una opcion: ");
+
+            opcion = leer.nextInt();
+
+            switch (opcion){
+
+                case 1:
+                    System.out.println("0 = libre | 1 = ocupado");
+                    for (int x = 0; x < estacionamientos.length; x++){
+                        System.out.println("Espacio " + (x+1) + ": ["+ estacionamientos[x] + "]");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("¿Dónde se estacionará?");
+                    int estacionada = leer.nextInt();
+
+                    if (estacionada > 0 && estacionada <= 10){
+                        if (estacionamientos[estacionada-1] == 0 ){
+                            estacionamientos[estacionada-1] = 1;
+                            System.out.println("Auto estacionado");
+                        } else {
+                            System.out.println("Espacio ocupado");
+                        }
+                    } else {
+                        System.out.println("Opcion no valida");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("¿Qué lugar está su auto?");
+                    int quitar = leer.nextInt();
+
+                    if (quitar > 0 && quitar <= 10){
+                        if (estacionamientos[quitar-1] == 1){
+                            estacionamientos[quitar-1] = 0;
+                            System.out.println("Auto retirado");
+                        } else {
+                            System.out.println("Ese espacio ya esta libre");
+                        }
+                    } else {
+                        System.out.println("Opcion no valida");
+                    }
+                    break;
+
+                case 4:
+                    int contador = 0;
+
+                    for (int estado : estacionamientos){
+                        if (estado == 1){
+                            contador++;
+                        }
+                    }
+
+                    System.out.println("Autos estacionados: " + contador);
+                    break;
+
+                case 5:
+                    generarRecibo(estacionamientos);
+                    break;
+
+                case 6:
+                    System.out.println("Saliendo del sistema...");
+                    salir = true;
+                    break;
+
+                default:
+                    System.out.println("Opcion invalida");
+            }
+        }
+
+        leer.close();
+    }
+
+    
+    public static void generarRecibo(int[] estacionamientos) {
+
+        try {
+            FileWriter writer = new FileWriter("recibo.txt");
+
+            int x = 0;
+
+            writer.write("estacionamiento");
+
+            for (int y = 0; y < estacionamientos.length; y++) {
+                if (estacionamientos[y] == 1) {
+                    writer.write("Espacio " + (y + 1) + ": ocupado");
+                    x++;
+                }
+            }
+
+            writer.write("Total de autos estacionados: " + x );
+            
+
+            writer.close();
+
+            System.out.println("Recibo generado correctamente.");
+
+        } catch (IOException e) {
+            System.out.println("Error al crear el archivo.");
+        }
+    }
+}
