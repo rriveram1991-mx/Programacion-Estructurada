@@ -1,13 +1,10 @@
 import java.util.Scanner;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 public class Practica23 {
-    /**
-     * @param args
-     */
     public static void main(String[]args){
         Scanner leer = new Scanner(System.in);
+        boolean salir = true;
         String[][] estacionamiento = new String[5][5];
 
         for (int i = 0; i < estacionamiento.length; i++){
@@ -15,7 +12,7 @@ public class Practica23 {
                 estacionamiento[i][n]= "[Libre]";
             }
         }
-            while (true){
+            while (salir){
                  System.out.println("== Bienvenido al estacionamiento Mr K ==");
                  System.out.println("== Seleccione una opción ==");
                  System.out.println("== 1. Ver estacionamiento ==");
@@ -65,7 +62,7 @@ public class Practica23 {
                         else {
                             System.out.println("== El lugar ya esta libre ==");
                         }
-                        case 4: 
+                    case 4: 
                         int contador = 0;
                         for (String[] fila2 : estacionamiento){
                             for (String estado : fila2){
@@ -77,8 +74,9 @@ public class Practica23 {
                         System.out.println("== El numero de espacios ocupados es: " + contador + " ==");    
                         break;
 
-                        case 5:
+                    case 5:
                             System.out.println("== Gracias por usar el estacionamiento Mr K, saliendo... ==");
+                            salir = false;
                             break;
                         default:
                             System.out.println("== Opcion invalida ==");
@@ -97,6 +95,7 @@ public class Practica23 {
 
         } catch (IOException e) {
             System.out.println("== Error al crear el archivo. ==");
+            
         }
 
     }
