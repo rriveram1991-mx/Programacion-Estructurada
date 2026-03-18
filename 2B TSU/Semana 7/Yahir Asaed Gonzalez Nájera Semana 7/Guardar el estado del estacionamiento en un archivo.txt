@@ -1,0 +1,11 @@
+ESTADO FINAL DEL ESTACIONAMIENTO:
+Espacio 1: LIBRE
+Espacio 2: LIBRE
+Espacio 3: OCUPADO
+Espacio 4: OCUPADO
+Espacio 5: LIBRE
+Espacio 6: OCUPADO
+Espacio 7: OCUPADO
+Espacio 8: LIBRE
+Espacio 9: LIBRE
+Espacio 10: LIBRE
