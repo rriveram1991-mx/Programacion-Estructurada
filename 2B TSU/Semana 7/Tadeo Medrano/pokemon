@@ -1,0 +1,163 @@
+package pokemon;
+import java.util.Scanner;
+/**
+ *
+ * @author paola
+ */
+public class Pokemon {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner leer= new Scanner(System.in);
+        //agrupacion de los grupos
+        String[][] pokemon =new String[3][2];
+        int[][] vida = new int[3][2];
+       int[][] ataque = new int[3][2];
+       int sel=0;
+       int pt=0;
+       int p1g=0;
+       int p2g=0;
+       while(sel!=3){
+           System.out.println("====Bienvenido a este juego===");
+           System.out.println("1.-jugar una nueva partida");
+           System.out.println("2.-numero de partidas jugadas");
+           System.out.println("salir :(");
+           sel=leer.nextInt();
+           switch(sel){
+               case 1:
+                pt++;   
+       //datos iniciales 
+       //solo un for porque no tenemos que leer la columna solo asignarle el valor 
+        System.out.println("===TIEMPO DE ESCOJER JUGADOR 1===");
+      for(int i =0 ; i<3; i++){
+         
+          System.out.println("Nombre del pokemon " + (i + 1) + ":" );
+          pokemon[i][0]=leer.nextLine();
+          while (pokemon[i][0].equals("magnetine")) {
+              System.out.println("eres puto, vuelve a escojer");
+             pokemon[i][0]=leer.nextLine();
+          }
+          System.out.println("vida del pokemon " + (i+1) + ":");
+          vida[i][0]=leer.nextInt();
+          System.out.println("ataque del pokemon " + (i+1) + ":");
+          ataque[i][0] = leer.nextInt();
+          //salto
+          leer.nextLine();
+      } 
+        System.out.println("===TIEMPO DE ESCOJER JUGADOR 2===");
+         for(int i =0 ; i<3; i++){
+          System.out.println("Nombre del pokemon " + (i+1) + ":");
+          pokemon[i][1]=leer.nextLine();
+            while (pokemon[i][0].equals("magnetine")) {
+              System.out.println("eres puto, vuelve a escojer");
+            }
+          System.out.println("vida del pokemon " + (i+1) + ":");
+          vida[i][1] = leer.nextInt();
+          System.out.println("ataque del pokemon " + (i+1) + ":");
+          ataque[i][1] = leer.nextInt();
+          leer.nextLine();
+         }
+         //escojer pokemon
+        System.out.println("===EMPIEZA EL DESAFIO===");
+                   System.out.println("jugador 1 llame a su mejor pokemon");
+                   for (int i = 0; i < 3; i++) {
+                       System.out.println( i+ ".-" + pokemon[i][0]);
+                       
+                   }
+                   
+                   int jugador1=leer.nextInt();
+                   while(vida[jugador1][0]<0){
+                       System.out.println("Ya dejalo ir ya esta en un mejor lugar");
+                       jugador1=leer.nextInt();
+                       leer.nextLine();
+                   }
+                   System.out.println("jugador 2 llame a su mejor pokemon");
+                   for (int i = 0; i < 3; i++) {
+                       System.out.println(i + ".-" + pokemon[0][i]);
+                   }
+                   int jugador2=leer.nextInt();
+                      while(vida[jugador2][1]<0){
+                       System.out.println("Ya dejalo ir ya esta en un mejor lugar");
+                       jugador2=leer.nextInt();
+                       leer.nextLine();
+                   }
+                   //ciclo para la batalla
+                   while(vida[jugador1][0]>0 && vida[jugador2][1]>0){
+                       System.out.println(pokemon[jugador1][0] + "ataca a:" + pokemon[jugador2][1]);
+                       vida[jugador2][1]-=ataque[jugador1][0];
+                       if(vida[jugador2][1]<=0){
+                           System.out.println("tas potente jugador 1");
+                           p1g++;
+                           break;
+                       }
+                       System.out.println(pokemon[jugador2][1]+"ataca a:" + pokemon[jugador1][0]);
+                       vida[jugador1][0]-=ataque[jugador2][1];
+                       if (vida[jugador1][0]<=0) {
+                           System.out.println("tas potente jugador 2 ");
+                           p2g++;
+                           break;
+                       }
+                       //vida del jugador 1
+                       System.out.println(pokemon[jugador1][0] +":\t[");
+                       for (int i = 0; i < (vida[jugador1][0]/10); i++) {System.out.print("#"); System.out.print("]" + vida[jugador1][0] + " HP"  );
+                       }
+                       //vida del jugador 1
+                       System.out.println(pokemon[jugador2][1] +":\t[");
+                       for (int i = 0; i < (vida[jugador2][1]/10); i++) {System.out.print("#"); System.out.print("]" + vida[jugador2][1] + " HP"  );
+                       }
+                       
+                   }
+                       
+        break;
+               case 2:
+                   System.out.println("===Estadisticas===");
+                   System.out.println("partidas totales jugadas:" + pt);
+                   System.out.println("partidas ganadas por jugador 1:" + p1g);
+                   System.out.println("partifas ganadas por jugador 2:" + p2g);
+                   //los chavos mas pesados y los menos
+                   int maxfuerte=0;
+                   int menosfuerte=999;
+                   int maxvida=0;
+                   int menosvida=999;
+                   String fortachon="h", golem="g", debilucho="2", mosca="2";
+                   for (int i = 0; i < 3; i++) {
+                       for(int j=0;j<2; j++){
+                           if(ataque[i][j]>maxfuerte){
+                               maxfuerte =ataque[i][j];
+                               fortachon= pokemon[i][j];
+                           }
+                           if(vida[i][j]>maxvida){
+                               maxvida =vida[i][j];
+                               golem= pokemon[i][j];
+                           }
+                           if(ataque[i][j]<menosfuerte){
+                               menosfuerte =ataque[i][j];
+                               debilucho= pokemon[i][j];
+                           }
+                           if(vida[i][j]<menosvida){
+                               menosvida =vida[i][j];
+                               mosca= pokemon[i][j];
+                           }
+                       }
+                       System.out.println("====Los Goats===");
+                   System.out.println("el tanque fue:" + golem +"con:" + maxvida);
+                       System.out.println("el mas cabron fue:" + fortachon+"con:"+ maxfuerte);
+                       System.out.println("===Los Botsitos de agencia===");
+                       System.out.println("el mas debil:" + mosca + "con:" + menosvida);
+                       System.out.println("el menos fuerte:" + debilucho +"con:" + menosfuerte );
+                   }
+                  
+                   break;
+               case 3:
+                   System.out.println("sliendo del juego");
+                  return;
+     
+                  default: System.out.println("seleccione una opcion valida");
+               
+    }
+}
+}
+}
