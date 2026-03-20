@@ -1,0 +1,138 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication54;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ *
+ * @author ssjoa
+ */
+public class JavaApplication54 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)
+    {
+    Scanner leer = new Scanner(System.in);
+    String[] estacionamiento = new String[10]; //limite de la matriz de opciones//
+    
+   for (int x = 0; x < estacionamiento.length; x++) { //contador de las filas para nuestro matriz//
+   estacionamiento[x] = "disponible";
+        }
+
+        boolean sistema = true; //entrada automatica sl sitema//
+
+        while (sistema) //condicion de entrada al sistema//
+        {
+            System.out.println("1.- Crear estacionamiento");
+            System.out.println("2.- Estacionar auto");
+            System.out.println("3.- Retirar auto");
+            System.out.println("4.- Contar espacios ocupados");
+            System.out.println("5.- Salir");
+            int numero = leer.nextInt();//lector para la opcion de accion del cliente//
+
+            switch (numero)//casos segun la opcion de accion//
+            { 
+                case 1:
+                    for (int x = 0; x < estacionamiento.length; x++) //administrador del estacionamiento//
+                    {
+                        System.out.println("Espacio " + (x + 1) + ": " + estacionamiento[x]);
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("seleccione un espacio");
+                    int eleccion = leer.nextInt() - 1; //aparentemente, este -1 arregla los espacios para mantenerlos dentro de un sistema normal 1 a 10//
+                    
+                    if (eleccion >= 0 && eleccion < 10)//limites para los espacios disponibles//
+                    {
+                            if (estacionamiento[eleccion].equals("disponible")) {
+                            estacionamiento[eleccion] = "Lugar no disponible";
+                            System.out.println("Lugar ocupado con exito"); 
+                        } else 
+                            {
+                           
+                            System.out.println("Eror en estacinar el auto, eliga algun otro espacio disponible");
+                        }
+                    } else
+                    {
+                        System.out.println("Opcionn fuera de rango");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Seleccione el auto que va a retirar");
+                    int retirar = leer.nextInt() - 1;
+                    
+                    if (retirar >= 0 && retirar < 10)//el arreglo se repite puesto que la idea siempre es ejemplificar la opcion segun el tamaño//
+                    {
+                        if (estacionamiento[retirar].equals("Lugar no disponible"))
+                        {
+                            estacionamiento[retirar] = "disponible";
+                            System.out.println("Lugar disponible");
+                        } else 
+                        {
+                            System.out.println("Error; el espacio ya esta disponible");
+                        }
+                    } else
+                    {
+                        System.out.println("Opcion fuera de rango");
+                    }
+                    break;
+
+                case 4:
+                    int contador = 0;
+                    for (String lugar : estacionamiento)
+                    {
+                        if (lugar.equals("Lugar no disponible"))//acumulador de los espacios no disponibles//
+                        {
+                            contador++;//contador que racionaliza el total de espacios que el usuario encuentre ocupados//
+                        }
+                    }
+                    System.out.println("Autos ya estacionados:" + contador);
+                    break;
+
+                case 5:
+                try (FileWriter reporte = new FileWriter("reporte_estacionamiento.txt")) //primera accion para el guardado en txt//
+                {
+                int ocupados =0;
+                            for (int i = 0; i < estacionamiento.length; i++) { //contador de espacios finalmente ocupados//
+                            reporte.write("Espacio " + (i + 1) + ": " + estacionamiento[i] + "\n");
+                            if (estacionamiento[i].equals("Lugar no disponible")) {
+                                ocupados++;
+                            }
+                        }
+                        
+                
+                        reporte.write("Total de autos estacionados: " + ocupados + "\n"); //total de espacios//
+                        reporte.write("Que tenga un buen dia");
+                       
+                    } catch (IOException e)
+                    {
+                        System.out.println("error");//solo en caso de un fallo//
+                        e.printStackTrace();
+                    }
+
+                    System.out.println("Que tenga un buen dia");//ultima intruccion para el usuario//
+                    sistema = false;
+                    break;
+
+                default:
+                    System.out.println("Opcion invalida");//en caso de que el numero de opcion se salga del 1 al 5//
+            }
+        }
+        leer.close();
+    }
+    }
+
+        
+        
+        
+        
+    
