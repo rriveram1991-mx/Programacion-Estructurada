@@ -1,0 +1,144 @@
+import java.util.Scanner;
+
+public class JuegoBatalla {
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+        String[][] nombres = new String[2][3];
+        int[][] vida = new int[2][3];
+        int[][] ataque = new int[2][3];
+        int[][] magia = new int[2][3];
+        int[][] energia = new int[2][3];
+        boolean[][] vivo = new boolean[2][3];
+        int[][] curaciones = new int[2][3];
+        
+        int sel = 0;
+
+        while (sel != 2) {
+            System.out.println("===BIENVENIDO AL MENU DE INICIO===");
+            System.out.println("1.- Empezar nueva partida");
+            System.out.println("2.- Salir del juego");
+            sel = leer.nextInt();
+            leer.nextLine(); // Limpiar el buffer
+
+            switch (sel) {
+                case 1:
+                    // --- REGISTRO DE DATOS ---
+                    for (int p = 0; p < 2; p++) {
+                        System.out.println("=== JUGADOR " + (p + 1) + " ===");
+                        for (int i = 0; i < 3; i++) {
+                            System.out.print("Nombre del heroe " + (i + 1) + ": ");
+                            nombres[p][i] = leer.nextLine();
+                            System.out.print("Vida: ");
+                            vida[p][i] = leer.nextInt();
+                            System.out.print("Ataque: ");
+                            ataque[p][i] = leer.nextInt();
+                            System.out.print("Magia: ");
+                            magia[p][i] = leer.nextInt();
+                            System.out.print("Energia inicial: ");
+                            energia[p][i] = leer.nextInt();
+                            leer.nextLine(); // Limpiar buffer
+                            
+                            vivo[p][i] = true;
+                            curaciones[p][i] = 0;
+                            System.out.println("--------------------");
+                        }
+                    }
+
+                    // --- SISTEMA DE PELEA ---
+                    System.out.println("=== EMPIEZA LA BATALLA ===");
+                    int turno = 0; // 0 para Jugador 1, 1 para Jugador 2
+
+                    while (true) {
+                        int rival = (turno == 0) ? 1 : 0;
+                        
+                        // Verificar si el jugador actual tiene heroes vivos
+                        boolean alguienVivo = false;
+                        for(int i=0; i<3; i++) if(vivo[turno][i]) alguienVivo = true;
+                        
+                        if (!alguienVivo) {
+                            System.out.println("¡EL JUGADOR " + (rival + 1) + " HA GANADO LA PARTIDA!");
+                            break;
+                        }
+
+                        System.out.println("\nTURNO DEL JUGADOR " + (turno + 1));
+                        System.out.println("Escoge tu heroe (0, 1, 2):");
+                        for(int i=0; i<3; i++) {
+                            if(vivo[turno][i]) System.out.println(i + ". " + nombres[turno][i] + " (HP: " + vida[turno][i] + ")");
+                        }
+                        
+                        int hSel = leer.nextInt();
+                        if (hSel < 0 || hSel > 2 || !vivo[turno][hSel]) {
+                            System.out.println("Heroe no valido o muerto. Intenta de nuevo.");
+                            continue;
+                        }
+
+                        System.out.println("1. Ataque fisico\n2. Ataque magico\n3. Curarse\n4. Pasar turno");
+                        int accion = leer.nextInt();
+
+                        switch (accion) {
+                            case 1: // ATAQUE FISICO
+                                System.out.println("¿A quien atacas? (0, 1, 2):");
+                                int target = leer.nextInt();
+                                if (vivo[rival][target]) {
+                                    int dano = ataque[turno][hSel];
+                                    
+                                    // Evento Aleatorio: Critico
+                                    if ((int)(Math.random() * 100) < 20) {
+                                        dano *= 2;
+                                        System.out.println("¡GOLPE CRITICO!");
+                                    }
+
+                                    vida[rival][target] -= dano;
+                                    System.out.println(nombres[turno][hSel] + " hace " + dano + " de dano a " + nombres[rival][target]);
+                                    
+                                    if (vida[rival][target] <= 0) {
+                                        vida[rival][target] = 0;
+                                        vivo[rival][target] = false;
+                                        System.out.println("¡" + nombres[rival][target] + " ha muerto!");
+                                    } else {
+                                        System.out.println("Vida restante de " + nombres[rival][target] + ": " + vida[rival][target]);
+                                    }
+                                } else {
+                                    System.out.println("Ese enemigo ya esta muerto. Perdiste el turno.");
+                                }
+                                break;
+
+                            case 2: // ATAQUE MAGICO
+                                if (energia[turno][hSel] >= 10) {
+                                    System.out.println("¿A quien lanzas magia? (0, 1, 2):");
+                                    int tMag = leer.nextInt();
+                                    if (vivo[rival][tMag]) {
+                                        vida[rival][tMag] -= magia[turno][hSel];
+                                        energia[turno][hSel] -= 10;
+                                        System.out.println("Dano magico: " + magia[turno][hSel] + ". Energia restante: " + energia[turno][hSel]);
+                                    }
+                                } else {
+                                    System.out.println("No tienes suficiente energia (Minimo 10).");
+                                }
+                                break;
+
+                            case 3: // CURARSE
+                                if (curaciones[turno][hSel] < 2) {
+                                    vida[turno][hSel] += 20;
+                                    curaciones[turno][hSel]++;
+                                    System.out.println(nombres[turno][hSel] + " se curo. Vida actual: " + vida[turno][hSel]);
+                                } else {
+                                    System.out.println("Ya no puedes curarte mas veces (Max 2).");
+                                }
+                                break;
+                        }
+
+                        // Cambiar turno
+                        turno = (turno == 0) ? 1 : 0;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Saliendo...");
+                    break;
+
+                default:
+                    System.out.println("Opcion invalida.");
+            }
+        }
+    }
