@@ -1,0 +1,211 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication81;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author crist
+ */
+public class JavaApplication81 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+
+
+public class BienestarMental {
+  
+    private static final int MAX_DIAS = 7;
+    private static final int NUM_ACTIVIDADES = 3;
+    private static final String[] NOMBRES_ACTIVIDADES = {"Hacer ejercicio caminar, correr, yoga", "Practicar meditación o respiración consciente", "Dormir al menos 7 horas"};
+
+    // Arrays para almacenar datos
+    private static int[] estadoAnimo = new int[MAX_DIAS];
+    private static boolean[][] actividades = new boolean[MAX_DIAS][NUM_ACTIVIDADES];
+    private static Scanner scanner = new Scanner(System.in);
+
+ 
+
+public class SistemaBienestarMental {
+   
+    private static final int MAX_DIAS = 7;
+    private static final int NUM_ACTIVIDADES = 3; // Ejemplo: Ejercicio, Meditación, Sueño saludable
+    private static final String[] NOMBRES_ACTIVIDADES = {"Ejercicio", "Meditación", "Sueño saludable"};
+
+    // Arrays para almacenar datos
+    private static int[] estadoAnimo = new int[MAX_DIAS];
+    private static boolean[][] actividades = new boolean[MAX_DIAS][NUM_ACTIVIDADES];
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int opcion;
+        do {
+            
+            System.out.println("1. Registrar estado de ánimo");
+            System.out.println("2. Registrar actividades saludables");
+            System.out.println("3. Ver resumen");
+            System.out.println("4. Ver recomendación");
+            System.out.println("5. Salir");
+            System.out.print("Seleccione una opción: ");
+            
+            while (!scanner.hasNextInt()) {
+                System.out.print("Entrada inválida. Ingrese un número entre 1 y 5: ");
+                scanner.next();
+            }
+            opcion = scanner.nextInt();
+
+          
+            switch (opcion) {
+                case 1:
+                    registrarEstadoAnimo();
+                    break;
+                case 2:
+                    registrarActividades();
+                    break;
+                case 3:
+                    mostrarResumen();
+                    break;
+                case 4:
+                    mostrarRecomendacion();
+                    break;
+                case 5:
+                    System.out.println("¡Hasta pronto! Que tengas un excelente bienestar.");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Seleccione entre 1 y 5.");
+            }
+        } while (opcion != 5);
+        scanner.close();
+    }
+
+    private static void registrarEstadoAnimo() {
+        
+        System.out.println("Valores permitidos: 1.Muy mal 2.Mal 3.Neutral 4.Bien 5.Excelente");
+        
+        for (int dia = 0; dia < MAX_DIAS; dia++) {
+            System.out.print("Ingrese estado de ánimo para el día " + (dia + 1) + ": ");
+          
+            while (!scanner.hasNextInt() || scanner.nextInt() < 1 || scanner.nextInt() > 5) {
+                System.out.print("Valor inválido. Ingrese un número entre 1 y 5: ");
+                scanner.next();
+            }
+            estadoAnimo[dia] = scanner.nextInt();
+        }
+        System.out.println("Estado de ánimo registrado correctamente para todos los días.");
+    }
+
+    private static void registrarActividades() {
+        System.out.println("REGISTRO DE ACTIVIDADES");
+        
+        for (int dia = 0; dia < MAX_DIAS; dia++) {
+            System.out.println("\nDía " + (dia + 1));
+            for (int act = 0; act < NUM_ACTIVIDADES; act++) {
+                System.out.print("¿Realizó la actividad '" + NOMBRES_ACTIVIDADES[act] + "'? (S/N): ");
+                String respuesta = scanner.next().toUpperCase();
+              
+                while (!respuesta.equals("S") && !respuesta.equals("N")) {
+                    System.out.print("Respuesta inválida. Ingrese S o N: ");
+                    respuesta = scanner.next().toUpperCase();
+                }
+                actividades[dia][act] = respuesta.equals("S");
+            }
+        }
+        System.out.println("Actividades registradas correctamente para todos los días.");
+    }
+
+    private static void mostrarResumen() {
+        System.out.println("\n--- RESUMEN DE BIENESTAR ---");
+        
+       
+        int sumaAnimo = 0;
+        int diasRegistrados = 0;
+        for (int i = 0; i < MAX_DIAS; i++) {
+            if (estadoAnimo[i] != 0) { 
+                sumaAnimo += estadoAnimo[i];
+                diasRegistrados++;
+            }
+        }
+        double promedioAnimo = diasRegistrados > 0 ? (double) sumaAnimo / diasRegistrados : 0;
+        System.out.printf("Promedio de estado de ánimo: %.2f%n", promedioAnimo);
+
+        int totalActividades = 0;
+        for (boolean[] diaActividades : actividades) {
+            for (boolean realizada : diaActividades) {
+                if (realizada) {
+                    totalActividades++;
+                }
+            }
+        }
+        System.out.println("Total de actividades saludables realizadas: " + totalActividades);
+
+      
+        String nivelBienestar;
+        if (promedioAnimo < 3) {
+            nivelBienestar = "Bajo";
+        } else if (promedioAnimo >= 3 && promedioAnimo < 4) {
+            nivelBienestar = "Medio";
+        } else {
+            nivelBienestar = "Alto";
+        }
+        System.out.println("Nivel de bienestar: " + nivelBienestar);
+
+  
+        if (diasRegistrados > 0) {
+            int peorDia = 0;
+            int minAnimo = estadoAnimo[0];
+            for (int i = 1; i < MAX_DIAS; i++) {
+                if (estadoAnimo[i] != 0 && estadoAnimo[i] < minAnimo) {
+                    minAnimo = estadoAnimo[i];
+                    peorDia = i;
+                }
+            }
+            System.out.println("Peor día de la semana: Día " + (peorDia + 1));
+            
+            String mensajeMotivacional;
+            switch (minAnimo) {
+                case 1:
+                    mensajeMotivacional = "Recuerda que los días difíciles son temporales, cada nuevo amanecer es una oportunidad para mejorar 😊";
+                    break;
+                case 2:
+                    mensajeMotivacional = "Un mal día no define tu semana. Toma un momento para cuidarte, tu bienestar es importante 💪";
+                    break;
+                default:
+                    mensajeMotivacional = "Aunque este día no fue el mejor, estás en el camino correcto. Sigue adelante! ✨";
+                    break;
+            }
+            System.out.println("Mensaje motivacional: " + mensajeMotivacional);
+        }
+    }
+
+    private static void mostrarRecomendacion() {
+        System.out.println(" RECOMENDACIÓN AUTOMÁTICA");
+        
+        int sumaAnimo = 0;
+        int diasRegistrados = 0;
+        for (int animo : estadoAnimo) {
+            if (animo != 0) {
+                sumaAnimo += animo;
+                diasRegistrados++;
+            }
+        }
+        double promedioAnimo = diasRegistrados > 0 ? (double) sumaAnimo / diasRegistrados : 0;
+
+        if (promedioAnimo < 3) {
+            System.out.println("Recomendación: Prioriza el descanso adecuado y practica meditación diaria (incluso 5 minutos pueden marcar la diferencia).");
+        } else if (promedioAnimo >= 3 && promedioAnimo < 4) {
+            System.out.println("Recomendación: Incorpora ejercicio físico regular ");
+        } else {
+            System.out.println("Felicitaciones Tu estado de bienestar es excelente. Sigue manteniendo tus hábitos saludables y disfruta cada momento.");
+        }
+    }
+}
+ //comclusion:  
+    }
+    
+}
