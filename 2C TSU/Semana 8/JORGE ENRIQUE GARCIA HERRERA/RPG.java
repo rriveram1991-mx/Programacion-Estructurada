@@ -1,0 +1,192 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package rpg;
+import java.util.Scanner;
+/**
+ *
+ * @author LABTICS
+ */
+public class RPG {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    
+        Scanner entrada = new Scanner(System.in);
+
+        // MATRICES (como pide el ejercicio)
+        String nombres[][] = new String[2][3];
+        int vida[][] = new int[2][3];
+        int ataque[][] = new int[2][3];
+        int magia[][] = new int[2][3];
+        int energia[][] = new int[2][3];
+        boolean vivo[][] = new boolean[2][3];
+        int curaciones[][] = new int[2][3];
+
+        // JUGADOR 1
+        nombres[0][0] = "Caballero"; vida[0][0] = 100; ataque[0][0] = 20; magia[0][0] = 10; energia[0][0] = 30; vivo[0][0] = true; curaciones[0][0] = 0;
+        nombres[0][1] = "Mago"; vida[0][1] = 70; ataque[0][1] = 10; magia[0][1] = 30; energia[0][1] = 50; vivo[0][1] = true; curaciones[0][1] = 0;
+        nombres[0][2] = "Arquero"; vida[0][2] = 80; ataque[0][2] = 25; magia[0][2] = 15; energia[0][2] = 40; vivo[0][2] = true; curaciones[0][2] = 0;
+
+        // JUGADOR 2
+        nombres[1][0] = "Orco"; vida[1][0] = 90; ataque[1][0] = 22; magia[1][0] = 10; energia[1][0] = 30; vivo[1][0] = true; curaciones[1][0] = 0;
+        nombres[1][1] = "Bruja"; vida[1][1] = 110; ataque[1][1] = 15; magia[1][1] = 35; energia[1][1] = 60; vivo[1][1] = true; curaciones[1][1] = 0;
+        nombres[1][2] = "Hada"; vida[1][2] = 85; ataque[1][2] = 18; magia[1][2] = 20; energia[1][2] = 40; vivo[1][2] = true; curaciones[1][2] = 0;
+
+        int turno = 0;
+
+        System.out.println("=== BATALLA RPG ===");
+
+        // WHILE PRINCIPAL
+        while (true) {
+
+            // VER SI HAY VIVOS
+            boolean p1 = false;
+            boolean p2 = false;
+
+            for (int i = 0; i < 3; i++) {
+                if (vivo[0][i]) p1 = true;
+                if (vivo[1][i]) p2 = true;
+            }
+
+            if (!p1) {
+                System.out.println("GANA JUGADOR 2");
+                break;
+            }
+            if (!p2) {
+                System.out.println("GANA JUGADOR 1");
+                break;
+            }
+
+            // TURNO JUGADOR 1
+            if (turno == 0) {
+
+                System.out.println("\nTURNO JUGADOR 1");
+
+                // MOSTRAR HÉROES
+                for (int i = 0; i < 3; i++) {
+                    if (vivo[0][i]) {
+                        System.out.println((i+1) + ". " + nombres[0][i] + " Vida:" + vida[0][i] + " Energia:" + energia[0][i]);
+                    } else {
+                        System.out.println((i+1) + ". MUERTO");
+                    }
+                }
+
+                // ELEGIR HEROE
+                int mi;
+                do {
+                    System.out.print("Elige tu héroe: ");
+                    mi = entrada.nextInt() - 1;
+                } while (!vivo[0][mi]);
+
+                // MENU
+                System.out.println("1. Ataque físico");
+                System.out.println("2. Ataque mágico");
+                System.out.println("3. Curarse");
+                System.out.println("4. Cambiar héroe");
+                System.out.print("Acción: ");
+                int accion = entrada.nextInt();
+
+                // ELEGIR ENEMIGO
+                int enemigo;
+                do {
+                    System.out.print("Elige enemigo: ");
+                    enemigo = entrada.nextInt() - 1;
+                } while (!vivo[1][enemigo]);
+
+                // ACCIONES
+                if (accion == 1) {
+                    int dano = ataque[0][mi];
+
+                    int prob = (int)(Math.random() * 100);
+                    if (prob < 20) {
+                        dano *= 2;
+                        System.out.println("¡Golpe crítico!");
+                    }
+
+                    vida[1][enemigo] -= dano;
+                    System.out.println(nombres[0][mi] + " hace " + dano + " de daño");
+
+                } else if (accion == 2) {
+
+                    if (energia[0][mi] >= 10) {
+                        int dano = magia[0][mi];
+
+                        int prob = (int)(Math.random() * 100);
+                        if (prob < 20) {
+                            dano *= 2;
+                            System.out.println("¡Magia crítica!");
+                        }
+
+                        vida[1][enemigo] -= dano;
+                        energia[0][mi] -= 10;
+
+                        System.out.println("Ataque mágico de " + dano);
+                    } else {
+                        System.out.println("Sin energía");
+                    }
+
+                } else if (accion == 3) {
+
+                    if (curaciones[0][mi] < 2) {
+                        vida[0][mi] += 20;
+                        curaciones[0][mi]++;
+                        System.out.println("Se curó +20");
+                    } else {
+                        System.out.println("Ya no puede curarse");
+                    }
+
+                } else if (accion == 4) {
+                    System.out.println("Cambio de héroe");
+                }
+
+            } else {
+                // IA SIMPLE
+                System.out.println("\nTURNO JUGADOR 2");
+
+                int mi = 0;
+                int enemigo = 0;
+
+                for (int i = 0; i < 3; i++) {
+                    if (vivo[1][i]) { mi = i; break; }
+                }
+                for (int i = 0; i < 3; i++) {
+                    if (vivo[0][i]) { enemigo = i; break; }
+                }
+
+                int dano = ataque[1][mi];
+
+                int prob = (int)(Math.random() * 100);
+                if (prob < 20) dano *= 2;
+
+                vida[0][enemigo] -= dano;
+
+                System.out.println(nombres[1][mi] + " ataca e hizo " + dano);
+            }
+
+            // MUERTES
+            for (int j = 0; j < 2; j++) {
+                for (int i = 0; i < 3; i++) {
+                    if (vida[j][i] <= 0 && vivo[j][i]) {
+                        vida[j][i] = 0;
+                        vivo[j][i] = false;
+                        System.out.println(nombres[j][i] + " murió");
+                    }
+                }
+            }
+
+            // MOSTRAR VIDA
+            System.out.println("\nVIDAS:");
+            System.out.println("P1: " + vida[0][0] + ", " + vida[0][1] + ", " + vida[0][2]);
+            System.out.println("P2: " + vida[1][0] + ", " + vida[1][1] + ", " + vida[1][2]);
+
+            turno = 1 - turno;
+        }
+
+        entrada.close();
+    }
+}
