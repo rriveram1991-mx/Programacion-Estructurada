@@ -152,7 +152,7 @@ void AsingarEquipo(String[][] equipo, int[][] vida, int[][] ataque, int[][] magi
     void SistemaBA ( int numJug, int numEn, String[][] equipo, int[][] vida, int[][] ataque, int[][] magia, int[][] mana, boolean[][] estado, int[][] cura, Scanner lr) {
         int c;
 
-        System.out.println("Turno de: " + numJug);
+        System.out.println("Turno del jugador " + (numJug + 1));
 
         do{
             System.out.println("Elige a tu heroe (1-3)");
@@ -163,53 +163,76 @@ void AsingarEquipo(String[][] equipo, int[][] vida, int[][] ataque, int[][] magi
                 System.out.println("Heroe derrotado...");
             }
 
+            if (!estado[numEn][c]) {
+                System.out.println("equipo derrotado?");
+
+                break;
+            }
+
         }while(vida[numJug][c] <= 0);
 
-        System.out.println("1. Ataque físico");
-        System.out.println("2. Ataque mágico");
-        System.out.println("3. Curarse");
+        if (estado[numEn][c]) {
 
-        int opcion = lr.nextInt();
+            System.out.println("1. Ataque físico");
+            System.out.println("2. Ataque mágico");
+            System.out.println("3. Curarse");
 
-        switch(opcion){
-            case 1:
-                vida[numEn][c] -= ataque[numJug][c];
-                break;
-            case 2:
-                if (mana[numJug][c] >= 10) {
-                    vida[numEn][c] -= magia[numJug][c];
-                    mana[numJug][c] -= 10;
-                } else {
-                    System.out.println("No tienes suficiente energía");
-                }
-                break;
-            case 3:
-                if (cura[numJug][c] < 2) {
-                    vida[numJug][c] += 20;
-                    cura[numJug][c]++;
-                } else {
-                    System.out.println("Ya no puedes curarte más");
-                }
-                break;
-            case 4:
-                System.out.println("Estadisticas de los compañeros de los jugadores");
+            int opcion = lr.nextInt();
 
-                System.out.println("Nombres: ");
-                verNombres(equipo);
-                System.out.println("Vida: ");
-                verEquipos(vida);
-                System.out.println("Ataque: ");
-                verEquipos(ataque);
-                System.out.println("Magia: ");
-                verEquipos(magia);
-                System.out.println("Mana: ");
-                verEquipos(mana);
-                System.out.println("Estado:");
-                verEstado(estado);
-                System.out.println("Curas");
-                verEquipos(cura);
-                break;
+            switch (opcion) {
+                case 1:
+                    System.out.println("el jugador " + equipo[numJug][c] + " ataca a" + equipo[numEn][c]);
+                    System.out.println("haciendo un daño de: " + ataque[numJug][c]);
+                    vida[numEn][c] -= ataque[numJug][c];
 
+                    System.out.println("vida restante del enemigo: " + vida[numEn][c]);
+                    break;
+                case 2:
+
+                    System.out.println("el jugador " + equipo[numJug][c] + " ataca magicamente a" + equipo[numEn][c]);
+                    if (mana[numJug][c] >= 10) {
+                        System.out.println("haciendo un daño de: " + ataque[numJug][c]);
+
+                        vida[numEn][c] -= magia[numJug][c];
+                        mana[numJug][c] -= 10;
+                        System.out.println("vida restante del enemigo: " + vida[numEn][c]);
+                    } else {
+                        System.out.println("No tienes suficiente energía");
+                    }
+                    break;
+                case 3:
+                    System.out.println("intentas curarte...");
+                    if (cura[numJug][c] < 2) {
+                        vida[numJug][c] += 20;
+                        System.out.println("te has curado 20 hp, vida total: " + vida[numJug][c]);
+                        cura[numJug][c]++;
+                    } else {
+                        System.out.println("Ya no puedes curarte más");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Estadisticas de los compañeros de los jugadores");
+
+                    System.out.println("Nombres: ");
+                    verNombres(equipo);
+                    System.out.println("Vida: ");
+                    verEquipos(vida);
+                    System.out.println("Ataque: ");
+                    verEquipos(ataque);
+                    System.out.println("Magia: ");
+                    verEquipos(magia);
+                    System.out.println("Mana: ");
+                    verEquipos(mana);
+                    System.out.println("Estado:");
+                    verEstado(estado);
+                    System.out.println("Curas");
+                    verEquipos(cura);
+                    break;
+
+            }
+        }
+        if (vida[numEn][c] <- 0){
+            estado[numEn][c] = false;
         }
     }
 
