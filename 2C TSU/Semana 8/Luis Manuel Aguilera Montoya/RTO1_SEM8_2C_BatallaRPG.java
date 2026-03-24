@@ -111,6 +111,10 @@ public class RTO1_SEM8_2C_BatallaRPG
                 System.out.println("Tu héroe fue derrotado, selecciona otro: Escribe el numero... 1)" + nombre[j1][0] + " 2)" + nombre[j1][1] + " 3)" + nombre[j1][2]);  
                 heroe_seleccionado[j1] = entrada.nextInt();
                 heroe_seleccionado[j1] -= 1; //Para que me de la posición del heroe, que el usuario ingresa del 1 al 3, y las posiciones van del 0 al 2
+                if (vida[j1][heroe_seleccionado[j1]] <= 0) //Si el héroe esta debilitado
+                {
+                     System.out.println("Este héroe esta derrotado... Seleccione otro");
+                }
             }
 
             //Si un heroe ha sido derrotado cambiar J2
@@ -120,6 +124,10 @@ public class RTO1_SEM8_2C_BatallaRPG
                 System.out.println("Tu héroe fue derrotado, selecciona otro: Escribe el numero... 1)" + nombre[j2][0] + " 2)" + nombre[j2][1] + " 3)" + nombre[j2][2]);  
                 heroe_seleccionado[j2] = entrada.nextInt();
                 heroe_seleccionado[j2] -= 1; //Para que me de la posición del heroe, que el usuario ingresa del 1 al 3, y las posiciones van del 0 al 2
+                if (vida[j2][heroe_seleccionado[j2]] <= 0) //Si el héroe esta debilitado
+                {
+                     System.out.println("Este héroe esta derrotado... Seleccione otro");
+                }
             }
 
             //SELECCION DE MOVIMIENTOS
