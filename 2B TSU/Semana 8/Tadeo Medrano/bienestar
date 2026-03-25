@@ -1,0 +1,127 @@
+ackage bienestar;
+import java.util.Scanner;
+/**
+ *
+ * @author eltan
+ */
+public class Bienestar {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int sel=0;
+        int sm=0;
+        double r=0;
+        //declaracion de datos
+        int[][] mood=new int[7][1];
+        String[][] act=new String[7][1];
+        String[] animo= {"pal perro", "maletas", "ok", "vamos carajo", "la putisima cabra"};
+        String[] dias= {"lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"};
+        Scanner leer = new Scanner (System.in);
+        System.out.println("==BIENVENIDO RAYO DE SOL===");
+        System.out.println("");
+        //entrada al ciclo
+        while (sel!=5){
+            System.out.println("1.-Registrar estado de ánimo");
+            System.out.println("2.-Registrar actividades");
+            System.out.println("3.-ver resumen");
+            System.out.println("4.-ver recomendacion");
+            System.out.println("5.-salir");
+            sel=leer.nextInt();
+            switch(sel){
+                case 1:
+                    System.out.println("ejemplo de como registrar");
+                    System.out.println("valor " +" Estado");
+                    for (int i = 0; i < 5; i++) {
+                    System.out.println("  "+(i+1) +"  "+ " " + animo[i]); 
+                    }
+                    
+                    for (int i = 0; i < 7; i++) {
+                        System.out.println(dias[i]);
+                        //primera entrada de validacion 
+                        mood[i][0]=leer.nextInt();
+                        while (mood[i][0]<0 ||mood[i][0]>5){
+                            System.out.println("grado invalido");
+                             mood[i][0]=leer.nextInt();
+                        }
+                    }
+                    
+                    break;
+                case 2:
+                    //para que no crashe lol
+                    leer.nextLine();
+                    System.out.println("holiiiiis que hiciste hoy?");
+                    for (int i = 0; i < 7; i++) {
+                        //segunda entrada de validacion
+                        System.out.println(dias[i]);
+                        act[i][0]=leer.nextLine();
+                        while(act[i][0].isEmpty()||act[i][0].matches(".*\\d.*"))
+                        {
+                            System.out.println("ta mal ponga algo bien");
+                            act[i][0]=leer.nextLine();
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 7; i++) {
+                       sm+=mood[i][0];  
+                       r=sm/7;
+                    }
+                    System.out.println("prom del estado de animo: " + r);
+                    System.out.println("actividades hechas:");
+                    for (int i = 0; i < 7; i++) {
+                        for (String ac:act[i]) {
+                            System.out.println(ac);
+                    } 
+                    }
+                    if (r>4) {
+                        System.out.println("su bienestar es alto");
+                    }
+                    else {
+                        if (r>=3) {
+                            System.out.println("su bienestar es medio");
+                        }
+                        else{
+                            System.out.println("su bienestar es bajo");
+                        }
+                            
+                    }
+                    break;
+                case 4:
+                    if (r>4) {
+                        System.out.println("eres la cabra ");
+                        
+                    }
+                    else{
+                        if (r>3){
+                            System.out.println("tenemos que hacer mas cosas chaval");
+                        }
+                        else {
+                            System.out.println("alchile vamos a calmarnos");
+                        }
+                    }
+                    
+                    break;
+                case 5:
+                    int peor=999;
+                    for (int i = 0; i < 7; i++) {
+                        if(peor> mood[i][0]){
+                            peor=mood[i][0];
+                        }
+                        
+                    }
+                    System.out.println("el peor dia fue:"+ dias[peor]+" con:" + r  );
+                    return;
+                    
+                    
+                    
+                default: System.out.println("invalido asigne otra opcion");
+                   
+            }
+        }
+               
+    }
+    
+}
