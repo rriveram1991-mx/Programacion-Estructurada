@@ -183,7 +183,7 @@ public class Mindbalance {
                         System.out.println("Recomendacion: Vas a buen ritmo. Para llegar al siguiente nivel, intenta agregar un poco más de ejercicio a tu rutina."); 
                     } else { // Regla: mayor o igual a 4
                         // Aquí va el guiño de F1 solicitado
-                        System.out.println("¡Excelente trabajo! Tienes tu bienestar en excelentes condiciones NEVER GIVE UP.==CHECO PEREZ 2020 VICTORIA SHAKIR RACING POINT=="); 
+                        System.out.println("¡Excelente trabajo! Tienes tu bienestar en excelentes condiciones NEVER GIVE UP.==CHECO PEREZ 2020 VICTORIA SAKHIR RACING POINT=="); 
                     }
                     break; // Fin del Caso 4
                     
