@@ -1,0 +1,203 @@
+import java.util.Scanner;
+
+public class MindBalance {
+
+    public static void main(String[] args) {
+
+        // Crear objeto Scanner para leer datos del usuario
+        Scanner sc = new Scanner(System.in);
+
+        // Array para guardar el estado de ánimo de 7 días
+        int[] estadoAnimo = new int[7];
+
+        // Array bidimensional para guardar actividades (7 días, 3 actividades por día)
+        String[][] actividades = new String[7][3];
+
+        // Variable para controlar el día actual
+        int diaActual = 0;
+
+        // Variable para el menú
+        int opcion;
+
+        // Ciclo principal del programa (se repite hasta que el usuario elija salir)
+        do {
+            System.out.println("\n=== MIND BALANCE ===");
+            System.out.println("1. Registrar estado de ánimo");
+            System.out.println("2. Registrar actividades");
+            System.out.println("3. Ver resumen");
+            System.out.println("4. Ver recomendación");
+            System.out.println("5. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = sc.nextInt();
+
+            // Estructura switch para manejar el menú
+            switch (opcion) {
+
+                case 1:
+                    // Registrar estado de ánimo
+                    if (diaActual < 7) {
+                        int estado;
+
+                        // Validar que el valor esté entre 1 y 5
+                        do {
+                            System.out.println("\nEstado de ánimo (1-5):");
+                            System.out.println("1. Muy mal");
+                            System.out.println("2. Mal");
+                            System.out.println("3. Neutral");
+                            System.out.println("4. Bien");
+                            System.out.println("5. Excelente");
+                            estado = sc.nextInt();
+
+                            if (estado < 1 || estado > 5) {
+                                System.out.println("Valor inválido. Intenta de nuevo.");
+                            }
+
+                        } while (estado < 1 || estado > 5);
+
+                        // Guardar el estado en el array
+                        estadoAnimo[diaActual] = estado;
+
+                        System.out.println("Estado guardado para el día " + (diaActual + 1));
+
+                    } else {
+                        System.out.println("Ya registraste los 7 días.");
+                    }
+                    break;
+
+                case 2:
+                    // Registrar actividades saludables
+                    if (diaActual < 7) {
+
+                        sc.nextLine(); // Limpiar buffer
+
+                        System.out.println("\nIngresa 3 actividades saludables:");
+
+                        // Ciclo para ingresar 3 actividades
+                        for (int i = 0; i < 3; i++) {
+                            System.out.print("Actividad " + (i + 1) + ": ");
+                            actividades[diaActual][i] = sc.nextLine();
+                        }
+
+                        System.out.println("Actividades registradas para el día " + (diaActual + 1));
+
+                        // Avanzar al siguiente día
+                        diaActual++;
+
+                    } else {
+                        System.out.println("Ya registraste los 7 días.");
+                    }
+                    break;
+
+                case 3:
+                    // Mostrar resumen del usuario
+
+                    int suma = 0;           // Acumula estados de ánimo
+                    int contadorDias = 0;  // Cuenta días registrados
+
+                    // Calcular suma y cantidad de días registrados
+                    for (int i = 0; i < estadoAnimo.length; i++) {
+                        if (estadoAnimo[i] != 0) {
+                            suma += estadoAnimo[i];
+                            contadorDias++;
+                        }
+                    }
+
+                    // Validar que haya datos
+                    if (contadorDias == 0) {
+                        System.out.println("No hay datos aún.");
+                        break;
+                    }
+
+                    // Calcular promedio
+                    double promedio = (double) suma / contadorDias;
+                    System.out.println("\nPromedio de estado de ánimo: " + promedio);
+
+                    // Contar actividades usando for-each
+                    int totalActividades = 0;
+
+                    for (String[] dia : actividades) {
+                        for (String act : dia) {
+                            if (act != null && !act.isEmpty()) {
+                                totalActividades++;
+                            }
+                        }
+                    }
+
+                    System.out.println("Total de actividades: " + totalActividades);
+
+                    // Determinar nivel de bienestar
+                    if (promedio < 3) {
+                        System.out.println("Bienestar: Bajo");
+                    } else if (promedio < 4) {
+                        System.out.println("Bienestar: Medio");
+                    } else {
+                        System.out.println("Bienestar: Alto");
+                    }
+
+                    // Detectar el peor día (valor más bajo)
+                    int peorDia = 0;
+                    int peorValor = 6;
+
+                    for (int i = 0; i < estadoAnimo.length; i++) {
+                        if (estadoAnimo[i] != 0 && estadoAnimo[i] < peorValor) {
+                            peorValor = estadoAnimo[i];
+                            peorDia = i;
+                        }
+                    }
+
+                    System.out.println("Peor día: Día " + (peorDia + 1));
+
+                    break;
+
+                case 4:
+                    // Generar recomendación automática
+
+                    int sumaRec = 0;
+                    int contadorRec = 0;
+
+                    // Calcular promedio nuevamente
+                    for (int valor : estadoAnimo) {
+                        if (valor != 0) {
+                            sumaRec += valor;
+                            contadorRec++;
+                        }
+                    }
+
+                    // Validar que haya datos
+                    if (contadorRec == 0) {
+                        System.out.println("No hay datos para recomendar.");
+                        break;
+                    }
+
+                    double promedioRec = (double) sumaRec / contadorRec;
+
+                    // Recomendaciones con if
+                    if (promedioRec < 3) {
+                        System.out.println("Recomendación: Descansa y prueba meditación.");
+                    } else if (promedioRec < 4) {
+                        System.out.println("Recomendación: Realiza ejercicio.");
+                    } else {
+                        System.out.println("Excelente. Sigue así.");
+                    }
+
+                    // Mensaje motivacional
+                    System.out.println("Mensaje: Cada día es una nueva oportunidad.");
+
+                    break;
+
+                case 5:
+                    // Salir del programa
+                    System.out.println("Saliendo del sistema...");
+                    break;
+
+                default:
+                    // Opción inválida
+                    System.out.println("Opción inválida.");
+            }
+
+        } while (opcion != 5); // Repetir hasta que el usuario elija salir
+
+        // Cerrar Scanner
+        sc.close();
+    }
+}
