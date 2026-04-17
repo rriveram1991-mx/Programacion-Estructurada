@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Conexion.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Conexion.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">crud_2B</span><span class="s2">;</span>
+
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">sql</span><span class="s2">.</span><span class="s1">Connection</span><span class="s2">; </span><span class="s3">// La librería usa Connection con 'nn'</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">sql</span><span class="s2">.</span><span class="s1">DriverManager</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">sql</span><span class="s2">.</span><span class="s1">SQLException</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Conexion </span><span class="s2">{ </span><span class="s3">// El nombre</span>
+
+    <span class="s0">public static </span><span class="s1">Connection getConnection</span><span class="s2">() { </span><span class="s3">// El retorno</span>
+        <span class="s1">Connection cnx </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s1">String url </span><span class="s2">= </span><span class="s4">&quot;jdbc:mysql://localhost:3306/sistema_po&quot;</span><span class="s2">;</span>
+        <span class="s1">String usr </span><span class="s2">= </span><span class="s4">&quot;root&quot;</span><span class="s2">;</span>
+        <span class="s1">String psd </span><span class="s2">= </span><span class="s4">&quot;jptam050101&quot;</span><span class="s2">;</span>
+
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">Class</span><span class="s2">.</span><span class="s1">forName</span><span class="s2">(</span><span class="s4">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="s2">);</span>
+            <span class="s1">cnx </span><span class="s2">= </span><span class="s1">DriverManager</span><span class="s2">.</span><span class="s1">getConnection</span><span class="s2">(</span><span class="s1">url</span><span class="s2">, </span><span class="s1">usr</span><span class="s2">, </span><span class="s1">psd</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">ClassNotFoundException </span><span class="s2">| </span><span class="s1">SQLException e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Error en conexión: &quot; </span><span class="s2">+ </span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">cnx</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
