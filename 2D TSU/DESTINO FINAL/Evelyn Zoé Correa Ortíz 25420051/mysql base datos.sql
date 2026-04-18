@@ -1,0 +1,1 @@
+SELECT * FROM bobesponja.personajes;personajes
